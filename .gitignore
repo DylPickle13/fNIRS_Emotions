@@ -1,0 +1,18 @@
+# Ignore folders
+processed_data/
+Forms/
+data/
+Pilot data/
+RADIATE Color Faces/
+UIBVFED_cropped/
+Configurations/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore .xlsx files
+*.xlsx
+
+# Ignore .ini files
+*.ini
