@@ -13,8 +13,8 @@ from mne_nirs.channels import get_long_channels
 def preprocess_data(raw):
     """
     Preprocess the raw data
-    :param raw: Raw object, good_threshold: float
-    :return: sci, cvs, raw_od_unprocessed, raw_haemo
+    :param raw: Raw object
+    :return: raw_od_unprocessed, raw_haemo
     """ 
 
     # This is the sampling frequency of the data
@@ -96,6 +96,11 @@ def drop_bad_short_channels(raw):
     return raw
 
 def add_hbt_channels(raw_haemo):
+    """
+    Add hbt channels to the data
+    :param raw_haemo: Raw object
+    :return: Raw object
+    """
     raw_haemo_with_hbt = raw_haemo.copy()
 
     # get list of channel names for the hbo and hbr channels, and make a list of channel names for the hbt channels
@@ -113,6 +118,12 @@ def add_hbt_channels(raw_haemo):
     return raw_haemo_with_hbt
 
 def relabel_annotations(raw_haemo, mode):
+    """
+    Relabel the annotations in the data
+    :param raw_haemo: Raw object
+    :param mode: str
+    :return: Epochs object
+    """
     tmin = 0
     tmax = 16
     if mode == 'face_type':
@@ -226,8 +237,15 @@ def get_info(raw_haemo):
     return eval(raw_haemo.info['description'])
 
 def pick_channels(raw_haemo, types):
-    # get the indices of the channels that contain the type
-    indices = [i for i, s in enumerate(raw_haemo.ch_names) if any(xs in s for xs in types)]
+    # make a copy of the raw data
+    raw_haemo_new = raw_haemo.copy()
+
+    if isinstance(types, list):
+        # get the indices of the channels that contain the type
+        indices = [i for i, s in enumerate(raw_haemo_new.ch_names) if any(xs in s for xs in types)]
+    else:
+        # get the indices of the channels that contain the type
+        indices = [i for i, s in enumerate(raw_haemo_new.ch_names) if types in s]
 
     # pick the channel names that contain the type
-    raw_haemo.pick([raw_haemo.ch_names[i] for i in indices])
+    return raw_haemo_new.pick([raw_haemo_new.ch_names[i] for i in indices])
