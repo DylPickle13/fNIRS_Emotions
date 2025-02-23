@@ -6,13 +6,14 @@ Pilot data/
 RADIATE Color Faces/
 UIBVFED_cropped/
 Configurations/
-
-# Ignore Python cache files
 __pycache__/
+
+# Ignore files
 *.pyc
-
-# Ignore .xlsx files
 *.xlsx
-
-# Ignore .ini files
 *.ini
+*.log
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
