@@ -236,16 +236,16 @@ def get_info(raw_haemo):
     # the raw_haemo.info['description'] is a string in the form a dictionary, convert it to a dictionary
     return eval(raw_haemo.info['description'])
 
-def pick_channels(raw_haemo, types):
+def pick_channels(data, types):
     # make a copy of the raw data
-    raw_haemo_new = raw_haemo.copy()
+    new_data = data.copy()
 
     if isinstance(types, list):
         # get the indices of the channels that contain the type
-        indices = [i for i, s in enumerate(raw_haemo_new.ch_names) if any(xs in s for xs in types)]
+        indices = [i for i, s in enumerate(new_data.ch_names) if any(xs in s for xs in types)]
     else:
         # get the indices of the channels that contain the type
-        indices = [i for i, s in enumerate(raw_haemo_new.ch_names) if types in s]
+        indices = [i for i, s in enumerate(new_data.ch_names) if types in s]
 
     # pick the channel names that contain the type
-    return raw_haemo_new.pick([raw_haemo_new.ch_names[i] for i in indices])
+    return new_data.pick([new_data.ch_names[i] for i in indices])
