@@ -182,6 +182,40 @@ def relabel_annotations(raw_haemo, mode):
             if raw_haemo.annotations.description[i].isdigit():
                 indices.append(i)
         raw_haemo.annotations.delete(indices)
+    elif mode == 'neutral_vs_emotion':
+        # Relabel the annotations to 'Base', 'Real', and 'Virt'
+        indices = []
+        for i in range(0, len(raw_haemo.annotations.onset)):
+            if int(raw_haemo.annotations.description[i]) >= 1000 and int(raw_haemo.annotations.description[i]) < 2000:
+                raw_haemo.annotations.description[i] = 'Base'
+            elif int(raw_haemo.annotations.description[i]) >= 2000:
+                indices.append(i)
+        raw_haemo.annotations.delete(indices)
+        
+        indices = []
+        for i in range(0, len(raw_haemo.annotations.onset)):
+            if raw_haemo.annotations.description[i] == 'Base':
+                # get the tens digit of the next number
+                next_num = int(raw_haemo.annotations.description[i + 1]) // 10 % 10
+                if next_num == 0:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+                elif next_num == 1:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+                elif next_num == 2:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+                elif next_num == 3:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+                elif next_num == 4:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+                elif next_num == 5:
+                    raw_haemo.annotations.description[i + 1] = 'Neutral'
+                elif next_num == 6:
+                    raw_haemo.annotations.description[i + 1] = 'Emotion'
+
+            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
+            if raw_haemo.annotations.description[i].isdigit():
+                indices.append(i)
+        raw_haemo.annotations.delete(indices)
     elif mode == 'all':
         # Relabel the annotations
         indices = []
