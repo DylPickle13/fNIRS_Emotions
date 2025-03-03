@@ -17,3 +17,7 @@ __pycache__/
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+*.nav
+*.out
+*.snm
+*.toc
