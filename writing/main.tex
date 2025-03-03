@@ -5,8 +5,11 @@
 \usepackage{graphicx}
 \usepackage{pdflscape}
 \usepackage{geometry}
+\usepackage{xcolor}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 
 \setbeamertemplate{caption}[numbered]
+\setbeamercolor{frametitle}{bg=blue, fg=white}
 
 \title{Neural mechanisms in processing of emotion in real and virtual faces}
 \subtitle{A functional near-infrared spectroscopy (fNIRS) study}
@@ -49,18 +52,34 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Signal Quality Metrics}
+    \begin{itemize}
+        \item \textbf{Scalp Coupling Index (SCI):}
+        \begin{itemize}
+            \item Calculated as the zero-lag cross-correlation between the optical density (OD) signals at two wavelengths. 
+            \item A high SCI value ($>$ 0.7) indicates strong synchronization of cardiac pulsations between the two wavelengths, suggesting good optode-scalp contact.
+        \end{itemize}
+        \item \textbf{Peak Spectral Power (PSP):}
+        \begin{itemize}
+            \item Measures the amplitude of the most prominent frequency component within a specific range, focusing on the cardiac pulsation.
+            \item A higher PSP value ($>$ 0.1) indicates stronger cardiac signal, correlating with better optode-scalp contact.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\signal quality\Percentage of Good Windows.png
 \begin{frame}
-    \frametitle{Signal Quality}
+    \frametitle{Signal Quality by Participant}
     \begin{figure}
         \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/signal quality/Percentage of Good Windows.png}
-        \caption{Peak power $<$ 0.1 and the Scalp Coupling Index (SCI) $<$ 0.7 were calculated for 5s sliding windows for each channel for each participant.
+        \caption{PSP and (SCI) were calculated for 5s sliding windows for each channel for each participant.
         The dotted green line represents the 70\% threshold for good windows.
         }
             \begin{itemize}
                 \item If $>$ 70\% of the windows in a channel were good, the channel was deemed good.
                 \item If $>$ 70\% of the channels in a participant were good, the participant was deemed good.
-                \item Out of 87 participants, 39 are currently deemed good.
+                \item 39/87 participants are currently deemed good.
             \end{itemize}
     \end{figure}
 \end{frame}
@@ -81,34 +100,46 @@
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\figures\Sample Design Matrix.png
 \begin{frame}{General Linear Model (GLM) Analysis}
     \begin{itemize}
-      \item \textbf{Design Matrix Construction:}
+        \item \textbf{Purpose:} GLM's are used to understand the relationship between 1+ independent variables and a dependent variable.
+        \item \textbf{Design Matrix:}
         \begin{itemize}
-          \item Use a cosine drift model with high-pass filtering (cutoff = 0.03125 Hz; $\sim$32\,s period) to remove low-frequency trends.
-          \item Model the haemodynamic response with the Statistical Parametric Mapping (SPM) Haemodynamic Response Function (HRF) over a 16s stimulus duration.
+            \item It encodes the timing + duration of the conditions. 
+            \item Each stimulus is convolved with a Hemodynamic Response Function (HRF) to model the expected brain response. 
+            \item This transforms the stimulus onsets into a predictor that mimics the typical shape of the haemodynamic response.
         \end{itemize}
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Sample Design Matrix.png}
-        \caption{Design matrix for a single participant (first 150s). Each condition is represented by a different color and represents the onset of a block.}
+        \includegraphics[width=0.7\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Sample Design Matrix.png}
+        \caption{Design matrix (face type) for a single participant (first 150s). Each condition is represented by a different color and represents the onset of a block. The HRF used here is 'spm' (Statistical Parametric Mapping).}
     \end{figure}
+\end{frame}
+
+\begin{frame}{General Linear Model (GLM) Analysis}
+    \begin{itemize}
+        \item \textbf{GLM Estimation:}
+        \begin{itemize}
+            \item The model fits the observed signal as a linear combination of the predictors in the design matrix:
+            \[
+            \text{Observed Signal} = \theta_1 \times \text{Predictor}_1 + \cdots + \theta_n \times \text{Predictor}_n + \epsilon
+            \]
+            \(\theta_1, \theta_2, \ldots, \theta_n\) are the coefficients the model estimates, and \(\epsilon\) is the error term (noise/unexplained variance).
+            \item It then applies a fitting algorithm (Ordinary Least Squares) to find the best set of \(\theta\)'s that minimizes the difference between the predicted and actual signals.
+            \item The \(\theta\)'s indicate the strength of the brain's response to each experimental condition.
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\glm\group_results\results_face_type.png
 \begin{frame}{GLM Analysis}
     \begin{itemize}
-      \item \textbf{First-Level GLM:}
-        \begin{itemize}
-          \item Fit GLM per recording to estimate condition-specific responses.
-          \item Extract both channel-level and ROI estimates.
-        \end{itemize}
       \item \textbf{Group-Level Analysis:} $\theta \sim -1 + \text{ROI}:\text{Condition}:\text{Chroma}$
         \begin{itemize}
-            \item This mixed effects model estimates separate coefficients ($\theta$'s) for each combination of ROI, condition, and channel type without a global intercept. 
+            \item This mixed effects model estimates separate coefficients ($\theta$'s) for each combination of Region of Interest (ROI), condition, and channel type without a global intercept. 
             \item Group by participant for variability between subjects.
         \end{itemize}
     \end{itemize}
     \begin{figure}
-        \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/group_results/results_face_type.png}
+        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/group_results/results_face_type.png}
         \caption{Swarm plots display $\theta$'s across conditions/ROIs for each channel type. Higher $\theta$ values indicate stronger responses.}
     \end{figure}
 \end{frame}
@@ -141,7 +172,7 @@
     \begin{figure}
         \caption{Contrast maps (Hbo) for Real vs. Virtual (left), Real vs. Baseline (middle), and Anger vs. Surprise (right).}
         \begin{itemize}
-            \item Only channels with \(P < |z|\) greater than 0.05 are displayed, indicating a significant difference in Hbo.
+            \item Only channels with \(P < |z|\) less than 0.05 are displayed, indicating a significant difference in Hbo.
         \end{itemize}
     \end{figure}
 \end{frame}
@@ -150,10 +181,10 @@
 \begin{frame}
     \frametitle{Event Related Potentials (ERPs)}
     \begin{figure}
-        \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/erp/erp_conditions/Real.png}
+        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/erp/erp_conditions/Real.png}
         \caption{ERP for real face epochs across all channels. The x-axis represents time in seconds ($s$) and the y-axis represents the $\Delta$Hbo/Hbr/Hbt in micromolars ($\mu M$).}
         \begin{itemize}
-            \item The shaded region is the standard error of the mean (SEM): $\frac{\sigma}{\sqrt{n}}$. 
+            \item The shaded region is the standard error of the mean: $\frac{\sigma}{\sqrt{n}}$. 
         \end{itemize}
     \end{figure}
 \end{frame}
@@ -177,22 +208,32 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Connectivity Analysis}
+    \frametitle{Connectivity Analysis Methodology}
     \begin{itemize}
-        \item \textbf{Connectivity Analysis:}
-        \begin{itemize}
-            \item Continuous Wavelet Transform with a Morlet wavelet to analyze the frequency-domain characteristics of the data.
-            \item Connectivity matrices were computed resulting in a 5D \texttt{(num\_participants, num\_channel\_types, num\_channel\_connections, num\_frequencies, num\_times)} array for each condition. 
-        \end{itemize}
-        \item \textbf{Connectivity Parameters:}
-             \begin{itemize}
-                    \item \texttt{\textcolor{blue}{channel\_types} = ['hbo', 'hbr', 'hbt'] \textcolor[rgb]{0.0, 0.5, 0.0}{\# channel types to analyze}}
-                    \item \texttt{\textcolor{blue}{method} = "coh" \textcolor[rgb]{0.0, 0.5, 0.0}{\# coherence is used as the connectivity metric}}
-                    \item \texttt{\textcolor{blue}{con\_mode} = "cwt\_morlet" \textcolor[rgb]{0.0, 0.5, 0.0}{\# the morlet wavelet is used for the CWT}}
-                    \item \texttt{\textcolor{blue}{cwt\_freqs} = np.linspace(0.01, 0.5, 10) \textcolor[rgb]{0.0, 0.5, 0.0}{\# Pick 10 evenly spaced frequencies between 0.01 and 0.5 Hz}}
-                    \item \texttt{\textcolor{blue}{cwt\_n\_cycles} = 10 \textcolor[rgb]{0.0, 0.5, 0.0}{\# Number of cycles for the Morlet wavelet}}
-                    \item \texttt{\textcolor{blue}{faverage} = True \textcolor[rgb]{0.0, 0.5, 0.0}{\# Average the connectivity matrices across frequencies}}
+        \item \textbf{Connectivity Analysis:} We analyze the relationship between channels to understand how different regions of the brain communicate.
+        \item \textbf{Parameters:}
+            \begin{itemize}
+                \item \textcolor{darkgreen}{\# Coherence as the connectivity metric:}
+                \begin{itemize}
+                    \item \texttt{method = "coh"}
                 \end{itemize}
+                \item \textcolor{darkgreen}{\# CWT with Morlet wavelets for time-frequency analysis:}
+                \begin{itemize}
+                    \item \texttt{con\_mode = "cwt\_morlet"}
+                \end{itemize}
+                \item \textcolor{darkgreen}{\# Analyze frequencies ranging from 0.01 Hz to 0.5 Hz:}
+                \begin{itemize}
+                    \item \texttt{cwt\_freqs = np.linspace(0.01, 0.5, 10)}
+                \end{itemize}
+                \item \textcolor{darkgreen}{\# Use 1 cycle per frequency for wavelet transformation:}
+                \begin{itemize}
+                    \item \texttt{cwt\_n\_cycles = 1}
+                \end{itemize}
+                \item \textcolor{darkgreen}{\# Average connectivity matrices across frequencies:}
+                \begin{itemize}
+                    \item \texttt{faverage = True}
+                \end{itemize}
+            \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -200,20 +241,20 @@
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\connectivity\heatmaps\conditions\face_type_Virt_con.png
 % display these two side by side
 \begin{frame}
-    \frametitle{Connectivity Heatmaps}
-    \begin{minipage}[t]{0.45\textwidth}
+    \frametitle{Connectivity Analysis}
+    \begin{minipage}[t]{0.49\textwidth}
         \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/connectivity/heatmaps/individual/face_type_Virt_cons/con_31.png}
-    \end{minipage}
-    \begin{minipage}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth, trim=150 150 140 150, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/connectivity/heatmaps/individual/face_type_Virt_cons/con_31.png}
+        \end{minipage}
+        \begin{minipage}[t]{0.49\textwidth}
         \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/connectivity/heatmaps/conditions/face_type_Virt_con.png}
+        \includegraphics[width=\textwidth, trim=150 150 140 150, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/connectivity/heatmaps/conditions/face_type_Virt_con.png}
     \end{minipage}
     \begin{figure}
         \caption{Virtual face connectivity heatmaps for a single participant (left) and the average across all participants (right).
-        The x-axis and y-axis represent the channel number. A brighter color represents higher connectivity strength.}
+        The x-axis/y-axis represent the channel. A brighter color \(\implies\) higher connectivity strength.}
         \begin{itemize}
-            \item We can see that the average connectivity heatmap has a more washed out distribution of connectivity strength.
+            \item The averaged heatmap has a more washed out distribution.
         \end{itemize}
     \end{figure}
 \end{frame}
@@ -253,17 +294,47 @@
         \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/connectivity/chord_plots/group_level_t_tests_neutral/emotion_Joy_Neutral_p_values.png}
     \end{minipage}
     \begin{figure}
-        \caption{Paired t-tests were conducted on Fisher $z$-transformed connectivity matrices (reshaped from averaged channel-specific data) for each unique pair of conditions (i.e. Real vs. Virtual (left) and Joy vs. Neutral (right)).
-        $p$-values were computed for each lower-triangular matrix element across participants and subsequently corrected for multiple comparisons using False Discovery Rate (FDR) correction.}
+        \caption{Paired t-tests were conducted for each unique pair of conditions (i.e. Real vs. Virtual (left) and Joy vs. Neutral (right)).
+        $p$-values were computed for each channel pair across participants. }
+        \begin{itemize}
+            \item False Discovery Rate (FDR) correction was applied, which controls the expected proportion of false positives among all significant results when conducting multiple hypothesis tests.
+        \end{itemize}
     \end{figure}
+\end{frame}
+
+\begin{frame}{Decoding Analysis Methodology}
+    \begin{itemize}
+        \item \textbf{Data Preprocessing:}
+        \begin{itemize}
+            \item \textbf{Scaler:} Scales each channel to zero mean and unit variance.
+            \item \textbf{Vectorizer:} Flattens data into a 2D feature matrix.
+            \item \textbf{Model:} Pick the classifier (e.g., \texttt{RandomForestClassifier}). 
+        \end{itemize}
+        \item \textbf{Cross-Validation:} 
+        \begin{itemize}
+            \item We perform 5-fold cross-validation, where data is split into 5 folds, preserving the class distribution (stratified splitting).
+        \end{itemize}
+        \item \textbf{Scoring:}
+        \begin{itemize}
+            \item \textbf{ROC-AUC Score:} A single metric that quantifies a model's ability to distinguish between classes by calculating the area under the ROC curve, where 1.0 indicates perfect discrimination and 0.5 represents random guessing.
+            \item Each fold is evaluated using the ROC-AUC score with the one-vs-rest (OVR) approach for multiclass evaluation.
+        \end{itemize}
+        \item \textbf{Aggregation:}
+        \begin{itemize}
+            \item Mean of the scores across folds are computed for each participant, providing a robust estimate of model performance and its variability.
+        \end{itemize}    
+    \end{itemize}
 \end{frame}
 
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\models\model_scores.png
 \begin{frame}
-    \frametitle{Decoding Analysis}
+    \frametitle{Decoding Analysis Results}
     \begin{figure}
         \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/models/model_scores.png}
         \caption{Spatio-temporal classification performance of multiple machine learning models across conditions. For each model, recordings were preprocessed via scaling and vectorization. The average ROC-AUC scores were computed using five-fold cross-validation over all recordings. }
+        \begin{itemize}
+            \item The \texttt{RandomForestClassifier} model performed the best in identifying the face type, while the \texttt{LGBMClassifier} model performed the best in identifying the emotion.
+        \end{itemize}
     \end{figure}
 \end{frame}
 
