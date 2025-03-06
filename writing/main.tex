@@ -159,17 +159,16 @@
     \end{itemize}
     \begin{minipage}[t]{0.3\textwidth}
         \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth, trim=400 0 400 0, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Real-Virt.png}
-    \end{minipage}
-    \begin{minipage}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Real-Virt.png}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
         \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth, trim=400 0 400 0, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Real-Base.png}
-    \end{minipage}
-    \begin{minipage}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Real-Base.png}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
         \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth, trim=400 0 400 0, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Anger-Surprise.png}
-    \end{minipage}
-    \begin{figure}
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Anger-Surprise.png}
+        \end{minipage}  \begin{figure}
         \caption{Contrast maps (Hbo) for Real vs. Virtual (left), Real vs. Baseline (middle), and Anger vs. Surprise (right).}
         \begin{itemize}
             \item Only channels with \(P < |z|\) less than 0.05 are displayed, indicating a significant difference in Hbo.
@@ -330,7 +329,7 @@
 \begin{frame}
     \frametitle{Decoding Analysis Results}
     \begin{figure}
-        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/models/model_scores.png}
+        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/models/raw_scores.png}
         \caption{Spatio-temporal classification performance of multiple machine learning models across conditions. For each model, recordings were preprocessed via scaling and vectorization. The average ROC-AUC scores were computed using five-fold cross-validation over all recordings. }
         \begin{itemize}
             \item The \texttt{RandomForestClassifier} model performed the best in identifying the face type, while the \texttt{LGBMClassifier} model performed the best in identifying the emotion.
