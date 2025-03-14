@@ -21,3 +21,7 @@ __pycache__/
 *.out
 *.snm
 *.toc
+*.bbl
+*.blg
+*.lof
+*.lot
