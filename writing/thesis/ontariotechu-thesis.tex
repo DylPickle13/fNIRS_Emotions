@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  
+%%  ONTARIOTECHU-THESIS.TEX
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory CTAN:/macros/latex/base/lppl.txt.
+%%
+%% Copyright (c) 2020 by Faisal Qureshi
+%% Last Update: 2020 Feb 20
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Adapted from  
+%%
+%%  UOIT-THESIS.TEX
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory CTAN:/macros/latex/base/lppl.txt.
+%%
+%% Copyright (c) 2010 by Faisal Qureshi
+%% Last Update: 2010 December 20
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Thanks to Francois Pitt for letting me use his ut-thesis.tex and
+%% ut-thesis.cls files for my purposes.
+%%
+%% Based upon ut-thesis.tex
+%%
+%% Copyright (c) 1999 by Francois Pitt
+%% Last Update: 1999 May 13
+%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  
+%%  This file is distributed in the hope that it will be useful but
+%%  without any warranty (without even the implied warranty of
+%%  fitness for a particular purpose).  For a description of this
+%%  file's purpose, and instructions on its use, see below.
+%%  
+%%  Feel free to copy and redistribute this file, as long as this
+%%  copyright notice remains intact and this file is distributed
+%%  along with the companion file `uoit-thesis.cls'.
+%%  
+%%  (Thanks to Robert Bernecky for his suggestions on improving the
+%%  usefulness and readability of this file.)
+%%  
+%%  Send all bugs, questions, comments, suggestions, etc. to the
+%%  author, at <faisal.qureshi@ontariotechu.ca>.
+%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  
+%%  To be used in conjunction with class file `ontariotechu-thesis.cls', whose
+%%  features it illustrates.
+%%  
+%%  To comment out parts of a file, use the macro \ignore{...}
+%%  around the entire block of text you want to ignore.
+%%  
+%%  To explicitly set the pagestyle of any inserted blank page when
+%%  \cleardoublepage occurs, use one of \clearemptydoublepage or
+%%  \clearplaindoublepage instead.
+%%  
+%%  For single-spaced quotes or quotations, use the `longquote' and
+%%  `longquotation' environments.  For single-spaced, 1 1/2-spaced,
+%%  or double-spaced paragraphs, use one of the environments
+%%  `singlespaced', `oneandahalfspaced', or `doublespaced'.  More
+%%  generally, for paragraphs with a line spacing of `n', use
+%%  `\begin{newspacing}{n}...\end{newspacing}'.
+%%  
+%%  All other environments, commands, and options provided by the
+%%  `ut-thesis' class will be described below, at the point where
+%%  they should appear in the document.
+%%  
+%%  See the companion file `uoit-thesis.cls' for more details.
+%%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%         PREAMBLE         %%%%%%%%%%%%
+
+%% Default settings format a final copy (12pt font, single-sided,
+%% double-spaced, normal margins, single-spaced notes).  For a rough
+%% copy (12pt font, double-sided, double-spaced, extrawide draft margins, with
+%% the word "DRAFT" printed at each corner of every page), use the
+%% `draft' option.  The default line spacing can be changed with one
+%% of the following options: `singlespaced', `oneandahalfspaced', or
+%% `doublespaced'.  The notes are always single-spaced by default, but
+%% can be made to have the same spacing as the rest of the document by
+%% using the option `spacednotes'.  The size of the margins can be
+%% changed with one of the following options: `narrowmargins' (1 1/4"
+%% left, 3/4" others), `normalmargins' (1 1/4" left, 1" others),
+%% `widemargins' (1 1/4" all), `extrawidemargins' (1 1/2" all),
+%% `extrawidemarginsdraft (1" left, 3" right).  Any
+%% other standard option for the `report' document class can be used
+%% to override the default or draft settings.
+
+%% FINAL VERSION - UNDERGRAD THESIS
+%% For "undergraduate theses", uncomment the following line and 
+%% add any other options that you may require 
+%\documentclass{ontariotechu-thesis}
+
+%% DRAFT - UNDERGRAD THESIS
+%% For "undergraduate draft theses", uncomment the following line and 
+%% add any other options that you may require 
+% \documentclass[draft]{ontariotechu-thesis}
+
+%% FINAL VERSION - GRAD THESIS
+%% For "graduate thesis" use the 'grad' option, uncomment the
+%% following line and any other options that you may require
+\documentclass[grad]{ontariotechu-thesis}
+
+%% DRAFT VERSION - GRAD THESIS
+%% For "graduate draft thesis" use the 'grad' option, uncomment the
+%% following line and any other options that you may require
+% \documentclass[draft,grad]{ontariotechu-thesis}
+
+%% ***   Add \usepackage declarations here.   ***
+
+\usepackage{lipsum} 
+\usepackage{changepage}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{footnote}
+\usepackage{caption}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{listings}
+\usepackage[noend]{algpseudocode}
+\usepackage[shortcuts]{extdash}
+\usepackage{ctable}
+\usepackage{dcolumn}
+\usepackage{multirow}
+\usepackage{color} 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=false,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\newcommand{\pluseq}{\mathrel{+}=}
+\newcommand{\minus}{\scalebox{0.3}[0.5]{$-$}}
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
+%% The line spacing of the document should be specified using one of
+%% the document options given above, but if you need a line spacing
+%% that is not provided by the options, you can override the default
+%% line spacing for the entire document with the command
+%%   `\linespacing{...}'.
+%% Note that in order to get the correct appearance, the argument to
+%% `\linespacing' must be equal to 1/3 + 2/3 times the desired line
+%% spacing (for example, single-spaced = \linespacing{1},
+%%                        1 1/2-spaced = \linespacing{1.33}, and
+%%                       double-spaced = \linespacing{1.66}).
+
+%% ***   Uncomment and fill in a value, if needed.    ***
+%% ***   REMEMBER: You should NOT need to use this.  Use one of   ***
+%% ***   the document class options mentionned above instead.     ***
+%\linespacing{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                  %%
+%%                  ***   I M P O R T A N T   ***                   %%
+%%                                                                  %%
+%%  Fill in the following fields with the required information:     %%
+%%   - \degree{...}       name of the degree obtained               %%
+%%   - \faculty{...}      name of the faculty                       %%
+%%   - \department{...}   name of the program                       %%
+%%   - \gradyear{...}     year of graduation                        %%
+%%   - \author{...}       name of the author                        %%
+%%   - \title{...}        title of the thesis                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ***   Change this example to appropriate values.   ***
+\degree{Masters of Science} % Only used when grad option is chosen
+\department{Computer Science}
+\faculty{Science}
+\gradyear{2020}
+\supervisor{Dr.~A.~Foo and Dr.~B.~Boo}
+\author{Faisal Z. Qureshi}
+\title{Ontario Tech U Class File Example}
+
+%% ***   NOTE   ***
+%% Put here all other formatting commands that belong in the preamble.
+
+
+%% For example, to list only down to subsections in table of contents
+%% (-1=part, 0=chapter, 1=section, 2=subsection, 3=subsubsection,
+%%  4=paragraph, 5=subparagraph, 6=subsubparagraph).
+%
+\setcounter{tocdepth}{2}
+
+
+%%%%%%%%%%%%      MAIN  DOCUMENT      %%%%%%%%%%%%
+
+\begin{document}
+
+%% ***   NOTE   ***
+%% You should put all of your `\newcommand', `\newenvironment', and
+%% `\newtheorem's (in other words, all the global definitions that
+%% you will need throughout your thesis) in a separate file and use
+%% "\input{filename}" to input it here.
+
+
+%% This sets the page style and numbering for preliminary sections.
+\begin{preliminary}
+
+%% This generates the title page from the information given above.
+\maketitle
+
+%% Certificate of Approval - Start
+
+%% The University of Ontario Institute of Technology requires the
+%% Certificate of Approvale (CoA) to be included as page (ii) of
+%% the PRINTED version.
+%%
+%% If this is required at your institution,
+%% uncomment the next 3 lines.
+
+% \cleardoublepage
+% \addcontentsline{toc}{chapter}{Certificate of Approval}
+% \includepdf[pages=-,pagecommand={},width=1.2\textwidth]{CoA.pdf}
+
+% And comment out the following
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Certificate of Approval}
+\noindent \textcolor{red}{The University of Ontario Institute of Technology requires the
+Certificate of Approval (CoA) to be included as page (ii) of
+the PRINTED version. Check the source file on how to add
+the provided CoA to your thesis.}
+
+%% Certificate of Approval - End
+
+%% This generates the abstract page, with the line spacing adjusted
+%% according to SGS guidelines.
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{abstract}
+%% ***   Put your Abstract here.   ***
+  \lipsum[1]\\
+  \textcolor{red}{{\bf At most 150 words for Honors Thesis/M.Sc. or 350 words for Ph.D.}}
+\vfill
+\noindent {\textbf{Keywords: } \space keyword1; keyword2; keyword3; keyword4; keyword5}
+\end{abstract}
+
+%% Anything placed between the abstract and table of contents will
+%% appear on a separate page since the abstract ends with \newpage
+%% and the table of contents starts with \clearpage.
+
+%% Uncomment the following to show author's declaration page.
+%%
+  %% \addcontentsline{toc}{chapter}{Author's Declaration}
+  %% \showdeclaration
+
+%% Uncomment the following make a statement about contributions.  Use the following
+%% text as a guideline only.  You should discuss this with your supervisor.
+%%
+ %% \addcontentsline{toc}{chapter}{Statement of Contributions}
+ %% \begin{contributions}
+ %% I hereby certify that I am the sole author of this thesis and that no part of this thesis has been published. I have used standard referencing practices to acknowledge ideas, research techniques, or other materials that belong to others. Furthermore, I hereby certify that I am sole source of the creative works and/or inventive knowledge described in this thesis.
+ %% \end{contributions}
+
+%% This generates a "dedication" section, if needed.
+%% (uncomment to have it appear in the document)
+%%
+ \addcontentsline{toc}{chapter}{Dedication}
+ \begin{dedication}
+ ***   Put your Dedication here.   ***
+
+ \lipsum[2]
+ \end{dedication}
+
+%% This generates an "acknowledgements" section, if needed.
+%% (uncomment to have it appear in the document)
+%%
+\addcontentsline{toc}{chapter}{Acknowledgment}
+\begin{acknowledgements}
+***   Put your Acknowledgements here.   ***
+
+\lipsum[2]
+\end{acknowledgements}
+
+%% This generates the Table of Contents (on a separate page).
+\tableofcontents
+
+%% This generates the List of Tables (on a separate page), if needed.
+%% (uncomment to have it appear in the document)
+\listoftables
+
+%% This generates the List of Figures (on a separate page), if needed.
+%% (uncomment to have it appear in the document)
+\listoffigures
+
+%% End of the preliminary sections: reset page style and numbering.
+\end{preliminary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Put your Chapters here; the easiest way to do this is to keep   %%
+%%  each chapter in a separate file and `\include' all the files    %%
+%%  right here.  Note that each chapter file should start with the  %%
+%%  line "\chapter{ChapterName}".  Note that using `\include'       %%
+%%  instead of `\input' makes each chapter start on a new page.     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ***   Include chapter files here.   ***
+
+\chapter{The First Chapter}
+\section{The First Section}
+
+And you must read~\cite{Str00} at least twice before you start writing your thesis.
+
+\lipsum[2-4]
+
+\chapter{The Second Chapter}
+\section{A Section in the Second Chapter}
+\lipsum[5-6]
+
+
+%% This adds a line for the Bibliography in the Table of Contents.
+\addcontentsline{toc}{chapter}{Bibliography}
+%% ***   Set the bibliography style.   ***
+%% (change according to your preference)
+\bibliographystyle{plain}
+%% ***   Set the bibliography file.   ***
+%% ("thesis.bib" by default; change if needed)
+\bibliography{thesis}
+
+%% ***   NOTE   ***
+%% If you don't use bibliography files, comment out the previous line
+%% and use \begin{thebibliography}...\end{thebibliography}.  (In that
+%% case, you should probably put the bibliography in a separate file
+%% and `\include' or `\input' it here).
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  End of ONTARIOTECHU-THESIS.TEX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -244,13 +244,6 @@ def relabel_annotations(raw_haemo, mode):
                 indices.append(i)
         raw_haemo.annotations.delete(indices)
 
-        # remove the 'Base' annotations
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-
     # Extract annotations and create events
     events, event_dict = mne.events_from_annotations(raw_haemo, verbose=False)
     

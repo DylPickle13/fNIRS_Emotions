@@ -1,12 +1,11 @@
 # Ignore folders
 processed_data/
-Forms/
 data/
-Pilot data/
 RADIATE Color Faces/
 UIBVFED_cropped/
 Configurations/
 __pycache__/
+dependencies/
 
 # Ignore files
 *.pyc
