@@ -237,28 +237,6 @@
     \end{itemize}
 \end{frame}
 
-% display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\connectivity\heatmaps\individual\face_type_Virt_cons\con_31.png
-% display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\connectivity\heatmaps\conditions\face_type_Virt_con.png
-% display these two side by side
-\begin{frame}
-    \frametitle{Connectivity Analysis}
-    \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth, trim=150 150 140 150, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/heatmaps/individual/face_type_Virt_cons/con_31.png}
-        \end{minipage}
-        \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth, trim=150 150 140 150, clip]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/heatmaps/conditions/face_type_Virt_con.png}
-    \end{minipage}
-    \begin{figure}
-        \caption{Virtual face connectivity heatmaps for a single participant (left) and the average across all participants (right).
-        The x-axis/y-axis represent the channel. A brighter color \(\implies\) higher connectivity strength.}
-        \begin{itemize}
-            \item The averaged heatmap has a more washed out distribution.
-        \end{itemize}
-    \end{figure}
-\end{frame}
-
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\connectivity\chord_plots\conditions\emotion_Sadness_con.png
 % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\connectivity\chord_plots\conditions\face_type_Base_con.png
 % display these two side by side
@@ -324,22 +302,6 @@
             \item Mean of the scores across folds are computed for each participant, providing a robust estimate of model performance and its variability.
         \end{itemize}    
     \end{itemize}
-\end{frame}
-
-% display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\models\model_scores.png
-\begin{frame}
-    \frametitle{Decoding Analysis Results}
-    \begin{figure}
-        \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/models/raw_scores.png}
-        \caption{Spatio-temporal classification performance of multiple machine learning models across conditions. For each model, recordings were preprocessed via scaling and vectorization. The average ROC-AUC scores were computed using five-fold cross-validation over all recordings. }
-        \begin{itemize}
-            \item The \texttt{RandomForestClassifier} model performed the best in identifying the face type, while the \texttt{LGBMClassifier} model performed the best in identifying the emotion.
-        \end{itemize}
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-    test
 \end{frame}
 
 \end{document}

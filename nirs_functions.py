@@ -3,6 +3,7 @@ import os
 import mne
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def load_data(type: str, filter: str = 'none') -> list:
     """
@@ -247,3 +248,30 @@ def pick_channels(data, types):
 
     # pick the channel names that contain the type
     return new_data.pick([new_data.ch_names[i] for i in indices])
+
+def plot_history(history, mode, mean_score):
+    fig, ax1 = plt.subplots(figsize=(10, 6))
+
+    # Plot Loss on the primary y-axis
+    ax1.plot(history.history['loss'], label='Training Loss', color='blue', linestyle='dashed')
+    ax1.plot(history.history['val_loss'], label='Validation Loss', color='blue', linestyle='solid')
+    ax1.set_xlabel('Epoch')
+    ax1.set_ylabel('Loss', color='blue')
+    ax1.tick_params(axis='y', labelcolor='blue')
+
+    # Create a second y-axis for Accuracy
+    ax2 = ax1.twinx()
+    if 'accuracy' in history.history:
+        ax2.plot(history.history['accuracy'], label='Training Accuracy', color='red', linestyle='dashed')
+        ax2.plot(history.history['val_accuracy'], label='Validation Accuracy', color='red', linestyle='solid')
+        ax2.set_ylabel('Accuracy', color='red')
+        ax2.tick_params(axis='y', labelcolor='red')
+
+    # Combine Legends
+    lines, labels = ax1.get_legend_handles_labels()
+    lines2, labels2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines + lines2, labels + labels2, loc='upper right')
+
+    # Title and Layout
+    plt.title(f'Training Loss & Accuracy for Mode: {mode}\nEpochs run: {len(history.history["loss"])}, Mean Score: {mean_score:.4f}')
+    plt.show()
