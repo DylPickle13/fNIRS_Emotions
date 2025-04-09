@@ -23,12 +23,12 @@
     \titlepage
 \end{frame}
 
-% display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\figures\Paradigm.png
+% display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\figures\Paradigm.jpg
 \begin{frame}
     \frametitle{Task Paradigm}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.png}
+        \includegraphics[width=0.8\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.jpg}
         \caption{Participants viewed 56 blocks of 8 faces (4 male, 4 female) from two sets:
         real (RADIATE) and virtual (UIBVFED). Each face displayed one of 7
         emotions (anger, disgust, fear, happiness, sadness, surprise, neutral)}
@@ -41,11 +41,6 @@
     \begin{minipage}[t]{0.55\textwidth}
         \vspace{-\baselineskip}
         \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage.png}
-    \end{minipage}
-    % display C:\Users\super\OneDrive - Ontario Tech University\fNIRS_Emotions\plots\figures\Montage legend.png next to the above image
-    \begin{minipage}[t]{0.2\textwidth}
-        \vspace{-\baselineskip}
-        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage legend.png}
     \end{minipage}
     \begin{figure}
         \caption{High density 32x32 fNIRS probe layout with 206 channels. \newline
@@ -221,9 +216,9 @@
                 \begin{itemize}
                     \item \texttt{con\_mode = "cwt\_morlet"}
                 \end{itemize}
-                \item \textcolor{darkgreen}{\# Analyze frequencies ranging from 0.01 Hz to 0.5 Hz:}
+                \item \textcolor{darkgreen}{\# Analyze frequencies ranging from 0.1 Hz to 0.5 Hz:}
                 \begin{itemize}
-                    \item \texttt{cwt\_freqs = np.linspace(0.01, 0.5, 10)}
+                    \item \texttt{cwt\_freqs = np.linspace(0.1, 0.5, 10)}
                 \end{itemize}
                 \item \textcolor{darkgreen}{\# Use 1 cycle per frequency for wavelet transformation:}
                 \begin{itemize}
@@ -279,29 +274,4 @@
         \end{itemize}
     \end{figure}
 \end{frame}
-
-\begin{frame}{Decoding Analysis Methodology}
-    \begin{itemize}
-        \item \textbf{Data Preprocessing:}
-        \begin{itemize}
-            \item \textbf{Scaler:} Scales each channel to zero mean and unit variance.
-            \item \textbf{Vectorizer:} Flattens data into a 2D feature matrix.
-            \item \textbf{Model:} Pick the classifier (e.g., \texttt{RandomForestClassifier}). 
-        \end{itemize}
-        \item \textbf{Cross-Validation:} 
-        \begin{itemize}
-            \item We perform 5-fold cross-validation, where data is split into 5 folds, preserving the class distribution (stratified splitting).
-        \end{itemize}
-        \item \textbf{Scoring:}
-        \begin{itemize}
-            \item \textbf{ROC-AUC Score:} A single metric that quantifies a model's ability to distinguish between classes by calculating the area under the ROC curve, where 1.0 indicates perfect discrimination and 0.5 represents random guessing.
-            \item Each fold is evaluated using the ROC-AUC score with the one-vs-rest (OVR) approach for multiclass evaluation.
-        \end{itemize}
-        \item \textbf{Aggregation:}
-        \begin{itemize}
-            \item Mean of the scores across folds are computed for each participant, providing a robust estimate of model performance and its variability.
-        \end{itemize}    
-    \end{itemize}
-\end{frame}
-
 \end{document}

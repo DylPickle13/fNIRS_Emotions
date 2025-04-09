@@ -118,6 +118,7 @@
 %% ***   Add \usepackage declarations here.   ***
 
 \usepackage{lipsum} 
+\usepackage{lmodern} % Use Latin Modern fonts to avoid font shape issues
 \usepackage{changepage}
 \usepackage{setspace}
 \usepackage{multicol}
@@ -136,6 +137,8 @@
 \usepackage{dcolumn}
 \usepackage{multirow}
 \usepackage{color} 
+\usepackage{hyperref}
+\usepackage[numbers,authoryear]{natbib}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -167,6 +170,12 @@
 \newcommand{\pluseq}{\mathrel{+}=}
 \newcommand{\minus}{\scalebox{0.3}[0.5]{$-$}}
 \newcommand\todo[1]{\textcolor{red}{#1}}
+
+% Adjust spacing around figures
+\setlength{\textfloatsep}{10pt}  % Space between top/bottom floats and text
+\setlength{\intextsep}{10pt}     % Space between inline floats and text
+\setlength{\floatsep}{10pt}      % Space between two floats
+\raggedbottom
 
 %% The line spacing of the document should be specified using one of
 %% the document options given above, but if you need a line spacing
@@ -201,10 +210,9 @@
 \degree{Masters of Science} % Only used when grad option is chosen
 \department{Computer Science}
 \faculty{Science}
-\gradyear{2020}
-\supervisor{Dr.~A.~Foo and Dr.~B.~Boo}
-\author{Faisal Z. Qureshi}
-\title{Ontario Tech U Class File Example}
+\gradyear{2025}
+\author{Dylan Rapanan}
+\title{Neural mechanisms in processing of emotion in real and virtual faces using functional-near infrared spectroscopy (fNIRS)}
 
 %% ***   NOTE   ***
 %% Put here all other formatting commands that belong in the preamble.
@@ -249,113 +257,51 @@
 
 % And comment out the following
 
-\cleardoublepage
-\addcontentsline{toc}{chapter}{Certificate of Approval}
-\noindent \textcolor{red}{The University of Ontario Institute of Technology requires the
-Certificate of Approval (CoA) to be included as page (ii) of
-the PRINTED version. Check the source file on how to add
-the provided CoA to your thesis.}
+% \cleardoublepage
+% \addcontentsline{toc}{chapter}{Certificate of Approval}
+% \noindent \textcolor{red}{The University of Ontario Institute of Technology requires the
+% Certificate of Approval (CoA) to be included as page (ii) of
+% the PRINTED version. Check the source file on how to add
+% the provided CoA to your thesis.}
 
 %% Certificate of Approval - End
 
 %% This generates the abstract page, with the line spacing adjusted
 %% according to SGS guidelines.
 \addcontentsline{toc}{chapter}{Abstract}
+
 \begin{abstract}
-%% ***   Put your Abstract here.   ***
-  \lipsum[1]\\
-  \textcolor{red}{{\bf At most 150 words for Honors Thesis/M.Sc. or 350 words for Ph.D.}}
-\vfill
-\noindent {\textbf{Keywords: } \space keyword1; keyword2; keyword3; keyword4; keyword5}
+\input{sections/Abstract.tex}
 \end{abstract}
 
-%% Anything placed between the abstract and table of contents will
-%% appear on a separate page since the abstract ends with \newpage
-%% and the table of contents starts with \clearpage.
-
-%% Uncomment the following to show author's declaration page.
-%%
-  %% \addcontentsline{toc}{chapter}{Author's Declaration}
-  %% \showdeclaration
-
-%% Uncomment the following make a statement about contributions.  Use the following
-%% text as a guideline only.  You should discuss this with your supervisor.
-%%
- %% \addcontentsline{toc}{chapter}{Statement of Contributions}
- %% \begin{contributions}
- %% I hereby certify that I am the sole author of this thesis and that no part of this thesis has been published. I have used standard referencing practices to acknowledge ideas, research techniques, or other materials that belong to others. Furthermore, I hereby certify that I am sole source of the creative works and/or inventive knowledge described in this thesis.
- %% \end{contributions}
-
-%% This generates a "dedication" section, if needed.
-%% (uncomment to have it appear in the document)
-%%
- \addcontentsline{toc}{chapter}{Dedication}
- \begin{dedication}
- ***   Put your Dedication here.   ***
-
- \lipsum[2]
- \end{dedication}
-
-%% This generates an "acknowledgements" section, if needed.
-%% (uncomment to have it appear in the document)
-%%
 \addcontentsline{toc}{chapter}{Acknowledgment}
 \begin{acknowledgements}
 ***   Put your Acknowledgements here.   ***
-
-\lipsum[2]
 \end{acknowledgements}
 
-%% This generates the Table of Contents (on a separate page).
 \tableofcontents
 
-%% This generates the List of Tables (on a separate page), if needed.
-%% (uncomment to have it appear in the document)
 \listoftables
 
-%% This generates the List of Figures (on a separate page), if needed.
-%% (uncomment to have it appear in the document)
 \listoffigures
 
-%% End of the preliminary sections: reset page style and numbering.
 \end{preliminary}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Put your Chapters here; the easiest way to do this is to keep   %%
-%%  each chapter in a separate file and `\include' all the files    %%
-%%  right here.  Note that each chapter file should start with the  %%
-%%  line "\chapter{ChapterName}".  Note that using `\include'       %%
-%%  instead of `\input' makes each chapter start on a new page.     %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+\input{sections/Introduction.tex}
 
-%% ***   Include chapter files here.   ***
+\chapter{Methodology}
+\input{sections/Methodology.tex}
 
-\chapter{The First Chapter}
-\section{The First Section}
+\chapter{Results}
+\input{sections/Results.tex}
 
-And you must read~\cite{Str00} at least twice before you start writing your thesis.
+\chapter{Discussion}
+\input{sections/Discussion.tex}
 
-\lipsum[2-4]
-
-\chapter{The Second Chapter}
-\section{A Section in the Second Chapter}
-\lipsum[5-6]
-
-
-%% This adds a line for the Bibliography in the Table of Contents.
 \addcontentsline{toc}{chapter}{Bibliography}
-%% ***   Set the bibliography style.   ***
-%% (change according to your preference)
-\bibliographystyle{plain}
-%% ***   Set the bibliography file.   ***
-%% ("thesis.bib" by default; change if needed)
+\bibliographystyle{apalike}
 \bibliography{thesis}
-
-%% ***   NOTE   ***
-%% If you don't use bibliography files, comment out the previous line
-%% and use \begin{thebibliography}...\end{thebibliography}.  (In that
-%% case, you should probably put the bibliography in a separate file
-%% and `\include' or `\input' it here).
 
 \end{document}
 

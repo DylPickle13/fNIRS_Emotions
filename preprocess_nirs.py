@@ -34,29 +34,21 @@ def preprocess_data(raw):
     raw_od = optical_density(raw, verbose=False)
 
     # Apply temporal derivative distribution repair
-    # https://doi.org/10.1016/j.neuroimage.2018.09.025
     raw_od = temporal_derivative_distribution_repair(raw_od, verbose=False)
 
     # Store the unprocessed optical density data
     raw_od_unprocessed = get_long_channels(raw_od.copy())
 
-    # interpolate bad channels
-    # https://doi.org/10.1016/0013-4694(89)90180-6
-    # raw_od.interpolate_bads(mode='accurate', method=dict(fnirs="nearest"), verbose=False)
-
     # Apply short channel regression
-    # https://mne.tools/mne-nirs/stable/generated/mne_nirs.signal_enhancement.short_channel_regression.html
     raw_od = mne_nirs.signal_enhancement.short_channel_regression(raw_od)
 
     # Apply the Beer-Lambert law to convert OD data to hemoglobin concentrations.
-    # https://mne.discourse.group/t/why-ppf-and-not-dpf-in-mne-preprocessing-nirs-beer-lambert-law/4373
     raw_haemo = beer_lambert_law(raw_od, ppf=0.1)
 
     # Retain only long channels (source-detector distance > 0.015 meters (15 mm))
     raw_haemo = get_long_channels(raw_haemo)
 
     # Filter the data
-    # https://doi.org/10.3389/fnhum.2018.00505
     raw_haemo.filter(
         l_freq=0.01,
         h_freq=0.5,
@@ -69,10 +61,9 @@ def preprocess_data(raw):
     )
 
     # Enhance negative correlation
-    # https://doi.org/10.1016/j.neuroimage.2009.11.050
     raw_haemo = enhance_negative_correlation(raw_haemo)
 
-    # remove the last annotation if it is <= 2000
+    # remove the last annotation if it is <= 2000, for some reason the last annotation triggers on experiment end
     if int(raw_haemo.annotations.description[-1]) <= 2000:
         raw_haemo.annotations.delete(-1)
 
