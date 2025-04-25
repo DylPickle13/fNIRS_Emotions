@@ -4,6 +4,7 @@ import mne
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 def load_data(type: str, filter: str = 'none') -> list:
     """
@@ -44,12 +45,135 @@ def load_data(type: str, filter: str = 'none') -> list:
 
     return data
 
+def get_epochs(raw_haemos, mode, max_times, return_mode):
+    epochs = {}
+    raw_haemos_annotated = []
+    for i, raw_haemo in enumerate(raw_haemos):
+        raw_haemo = raw_haemo.copy()
+        data_points, times = raw_haemo.get_data(return_times=True)
+        data = pd.DataFrame(data_points.T, columns=raw_haemo.ch_names)
+        data.insert(0, 'time', times)
+
+        annots = raw_haemo.annotations.to_data_frame(time_format=None)
+
+        # subtract the value of the first onset from the rest of the onsets
+        annots['onset'] = annots['onset'] - annots['onset'][0]
+
+        annots['previous_description'] = annots['description'].shift(1)
+
+        # Convert the 'previous_description' column to numeric, coercing errors to NaN
+        annots['previous_description'] = pd.to_numeric(annots['previous_description'], errors='coerce')
+
+        # Convert the 'description' column to numeric, coercing errors to NaN
+        annots['description'] = pd.to_numeric(annots['description'], errors='coerce')
+
+        # In annots, remove the row if both description and previous_description are < 200
+        annots = annots[~((annots['description'] < 200) & (annots['previous_description'] < 200))]
+
+        # drop the 'previous_description' column
+        annots = annots.drop(columns=['previous_description'])
+
+        if mode == 'face_type':
+            annots['description'] = annots['description'].apply(lambda x: trigger_decoder(x)[0])
+        elif mode == 'emotion':
+            annots['description'] = annots['description'].apply(lambda x: trigger_decoder(x)[1])
+        elif mode == 'face_type_emotion':
+            annots['description'] = annots['description'].apply(lambda x: trigger_decoder(x)[0] + '_' + trigger_decoder(x)[1] if trigger_decoder(x)[0] != 'Task' and trigger_decoder(x)[1] != 'Base' else trigger_decoder(x)[0])
+        elif mode == 'all':
+            annots['description'] = annots['description'].apply(lambda x: 'Blck' if trigger_decoder(x)[0] != 'Task' and trigger_decoder(x)[1] != 'Base' else trigger_decoder(x)[0])
+
+        # Merge data and annots on 'time' column
+        data.insert(1, 'description', '')
+        closest_indices = np.searchsorted(data['time'].values, annots['onset'].values)
+        # Ensure the indices are within the bounds of the data array
+        closest_indices = np.clip(closest_indices, 0, len(data) - 1)
+        # Assign the description values to the data DataFrame at the closest indices
+        data.loc[closest_indices, 'description'] = annots['description'].values
+
+        # Set the duration column of annots to the difference between the next and current onset
+        annots['duration'] = annots['onset'].shift(-1) - annots['onset']
+
+        # remove the 'Task' description from the annots dataframe
+        annots = annots[~((annots['description'] == 'Task'))]
+
+        if return_mode == 'annotated':
+            raw_haemo.set_annotations(mne.Annotations(onset=annots['onset'].values, duration=annots['duration'].values, description=annots['description'].astype('str')))
+            raw_haemos_annotated.append(raw_haemo)
+            continue
+
+        # 2) Identify the 103 channel prefixes (e.g. "S1_D1") via the " hbo" suffix
+        prefixes = [col[:-4] for col in data.columns if col.endswith(' hbo')]
+
+        # The three chromophores, in the order we want them
+        channel_types = ['hbo', 'hbr', 'hbt']
+
+        # Build the column list so that all hbo channels come first, then hbr, then hbt
+        channel_columns = []
+        for ct in channel_types:
+            for prefix in prefixes:
+                channel_columns.append(f"{prefix} {ct}")
+
+        # 3) Forward‐fill the description so each row knows its condition
+        data['description'] = data['description'].ffill()
+
+        # Find every index where a new description appears (non-empty string) → that's an epoch start
+        epoch_starts = data.index[data['description'] != ''].tolist()
+        # Add the end‐of‐file as final boundary
+        boundaries = epoch_starts + [len(data)]
+
+        # 4) Loop through each start→end, grab the three × 103 channels, reshape & pad
+        ind_epochs = {}
+        for start, end in zip(epoch_starts, boundaries[1:]):
+            cond = data.at[start, 'description']
+            
+            # Skip processing if the condition is 'Task'
+            if cond == 'Task':
+                continue
+            
+            block = data.iloc[start:end][channel_columns].values  # shape (t, 309)
+            t = block.shape[0]
+            
+            # reshape → (t, 3, 103)
+            block = block.reshape(t, len(channel_types), len(prefixes))
+            # transpose → (3, 103, t)
+            block = block.transpose(1, 2, 0)
+            
+            # pad to (3, 103, max_times)
+            padded = np.full((3, 103, max_times), np.nan)
+            padded[:, :, :t] = block
+            
+            ind_epochs.setdefault(cond, []).append(padded)
+
+        # remove the 'Task' condition from the ind_epochs dictionary
+        ind_epochs = {k: v for k, v in ind_epochs.items() if k != 'Task'}
+        
+        # add the ind_epochs to the epochs dictionary
+        for condition, condition_data in ind_epochs.items():
+            condition_data = np.array(condition_data)
+
+            # Rescale the epochs to baseline
+            condition_data = mne.baseline.rescale(
+                condition_data, times=np.linspace(0, max_times / raw_haemo.info['sfreq'], max_times), baseline=(0, 0), verbose=False
+            )
+            if condition not in epochs:
+                epochs[condition] = []
+            epochs[condition].append(condition_data)
+
+    if return_mode == 'annotated':
+        return raw_haemos_annotated
+    return epochs
+
 def trigger_decoder(trigger: int) -> tuple:
     """
     Decode the trigger
     :param trigger: int
     :return: tuple
     """
+    if trigger >= 1000 and trigger < 2000:
+        return ('Base', 'Base')
+    elif trigger >= 2000:
+        return ('Task', 'Task')
+
     face_type = None
     if trigger >= 100:
         face_type = 'Real'
