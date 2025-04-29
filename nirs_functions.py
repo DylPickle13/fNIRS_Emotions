@@ -48,6 +48,7 @@ def load_data(type: str, filter: str = 'none') -> list:
 def get_epochs(raw_haemos, mode, max_times, return_mode):
     epochs = {}
     raw_haemos_annotated = []
+    dataframes = []
     for i, raw_haemo in enumerate(raw_haemos):
         raw_haemo = raw_haemo.copy()
         data_points, times = raw_haemo.get_data(return_times=True)
@@ -113,15 +114,16 @@ def get_epochs(raw_haemos, mode, max_times, return_mode):
             for prefix in prefixes:
                 channel_columns.append(f"{prefix} {ct}")
 
-        # 3) Forward‐fill the description so each row knows its condition
-        data['description'] = data['description'].ffill()
+        if return_mode == 'data':
+            dataframes.append(data)
+            continue
 
         # Find every index where a new description appears (non-empty string) → that's an epoch start
         epoch_starts = data.index[data['description'] != ''].tolist()
         # Add the end‐of‐file as final boundary
         boundaries = epoch_starts + [len(data)]
 
-        # 4) Loop through each start→end, grab the three × 103 channels, reshape & pad
+        # 3) Loop through each start→end, grab the three × 103 channels, reshape & pad
         ind_epochs = {}
         for start, end in zip(epoch_starts, boundaries[1:]):
             cond = data.at[start, 'description']
@@ -161,6 +163,8 @@ def get_epochs(raw_haemos, mode, max_times, return_mode):
 
     if return_mode == 'annotated':
         return raw_haemos_annotated
+    elif return_mode == 'data':
+        return dataframes
     return epochs
 
 def trigger_decoder(trigger: int) -> tuple:
