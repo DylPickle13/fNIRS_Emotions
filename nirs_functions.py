@@ -115,6 +115,8 @@ def get_epochs(raw_haemos, mode, max_times, return_mode):
                 channel_columns.append(f"{prefix} {ct}")
 
         if return_mode == 'data':
+            # Add the gender column to the data DataFrame
+            data['Sex'] = get_info(raw_haemo)['gender']
             dataframes.append(data)
             continue
 
