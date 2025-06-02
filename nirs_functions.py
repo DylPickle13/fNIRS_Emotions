@@ -150,6 +150,21 @@ def get_epochs(raw_haemos, mode, max_times, return_mode):
 
         # remove the 'Task' condition from the ind_epochs dictionary
         ind_epochs = {k: v for k, v in ind_epochs.items() if k != 'Task'}
+
+        if mode == 'face_type_emotion':
+            # get the shape[0] for each key in the ind_epochs dictionary
+            for condition, condition_data in ind_epochs.items():
+                if condition == 'Base':
+                    continue
+                # pad the data with NaN to shape[0] = 8
+                condition_data = np.array(condition_data)
+                padded = np.full((8, condition_data.shape[1], condition_data.shape[2], max_times), np.nan)
+                
+                # fill the padded array with the data
+                for i in range(condition_data.shape[0]):
+                    padded[i, :, :, :] = condition_data[i]
+
+                ind_epochs[condition] = padded
         
         # add the ind_epochs to the epochs dictionary
         for condition, condition_data in ind_epochs.items():
@@ -203,153 +218,6 @@ def trigger_decoder(trigger: int) -> tuple:
         emotion = 'Surprise'
 
     return (face_type, emotion)
-
-def relabel_annotations(raw_haemo, mode) -> mne.Epochs:
-    """
-    Relabel the annotations in the data
-    :param raw_haemo: Raw object
-    :param mode: str
-    :return: Epochs object
-    """
-    tmin = 0
-    tmax = 16
-
-    # Get the 'Base' annotations
-    indices = []
-    for i in range(0, len(raw_haemo.annotations.onset)):
-        if int(raw_haemo.annotations.description[i]) >= 1000 and int(raw_haemo.annotations.description[i]) < 2000:
-            raw_haemo.annotations.description[i] = 'Base'
-        elif int(raw_haemo.annotations.description[i]) >= 2000:
-            indices.append(i)
-    raw_haemo.annotations.delete(indices)
-
-    if mode == 'face_type':
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                if int(raw_haemo.annotations.description[i + 1]) >= 100:
-                    raw_haemo.annotations.description[i + 1] = 'Real'
-                elif int(raw_haemo.annotations.description[i + 1]) < 100:
-                    raw_haemo.annotations.description[i + 1] = 'Virt'
-
-            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
-            if raw_haemo.annotations.description[i].isdigit():
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-    elif mode == 'emotion':
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                # get the tens digit of the next number
-                next_num = int(raw_haemo.annotations.description[i + 1]) // 10 % 10
-                if next_num == 0:
-                    raw_haemo.annotations.description[i + 1] = 'Joy'
-                elif next_num == 1:
-                    raw_haemo.annotations.description[i + 1] = 'Fear'
-                elif next_num == 2:
-                    raw_haemo.annotations.description[i + 1] = 'Anger'
-                elif next_num == 3:
-                    raw_haemo.annotations.description[i + 1] = 'Disgust'
-                elif next_num == 4:
-                    raw_haemo.annotations.description[i + 1] = 'Sadness'
-                elif next_num == 5:
-                    raw_haemo.annotations.description[i + 1] = 'Neutral'
-                elif next_num == 6:
-                    raw_haemo.annotations.description[i + 1] = 'Surprise'
-
-            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
-            if raw_haemo.annotations.description[i].isdigit():
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-    elif mode == 'neutral_vs_emotion':
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                # get the tens digit of the next number
-                next_num = int(raw_haemo.annotations.description[i + 1]) // 10 % 10
-                if next_num == 0:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-                elif next_num == 1:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-                elif next_num == 2:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-                elif next_num == 3:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-                elif next_num == 4:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-                elif next_num == 5:
-                    raw_haemo.annotations.description[i + 1] = 'Neutral'
-                elif next_num == 6:
-                    raw_haemo.annotations.description[i + 1] = 'Emotion'
-
-            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
-            if raw_haemo.annotations.description[i].isdigit():
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-    elif mode == 'face_type_emotion':
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                face_type = ""
-                if int(raw_haemo.annotations.description[i + 1]) >= 100:
-                    face_type = 'Real'
-                elif int(raw_haemo.annotations.description[i + 1]) < 100:
-                    face_type = 'Virt'
-
-                # get the tens digit of the next number
-                next_num = int(raw_haemo.annotations.description[i + 1]) // 10 % 10
-                if next_num == 0:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Joy'
-                elif next_num == 1:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Fear'
-                elif next_num == 2:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Anger'
-                elif next_num == 3:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Disgust'
-                elif next_num == 4:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Sadness'
-                elif next_num == 5:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Neutral'
-                elif next_num == 6:
-                    raw_haemo.annotations.description[i + 1] = face_type + 'Surprise'
-
-            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
-            if raw_haemo.annotations.description[i].isdigit():
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-    elif mode == 'all':        
-        indices = []
-        for i in range(0, len(raw_haemo.annotations.onset)):
-            if raw_haemo.annotations.description[i] == 'Base':
-                if int(raw_haemo.annotations.description[i + 1]) >= 100:
-                    raw_haemo.annotations.description[i + 1] = 'Blck'
-                elif int(raw_haemo.annotations.description[i + 1]) < 100:
-                    raw_haemo.annotations.description[i + 1] = 'Blck'
-
-            # if raw_haemo.annotations.description[i] is a number, add it to the indices list
-            if raw_haemo.annotations.description[i].isdigit():
-                indices.append(i)
-        raw_haemo.annotations.delete(indices)
-
-    # Extract annotations and create events
-    events, event_dict = mne.events_from_annotations(raw_haemo, verbose=False)
-    
-    # Create epochs
-    epochs = mne.Epochs(
-        raw_haemo,
-        events,
-        event_id=event_dict,
-        tmin=tmin,
-        tmax=tmax,
-        reject_by_annotation=False,
-        proj=False,
-        baseline=(0, 0),
-        detrend=None,
-        preload=True,
-        verbose=False,
-    )
-
-    return epochs
 
 def get_info(raw_haemo) -> dict:
     """

@@ -108,7 +108,7 @@
 %% FINAL VERSION - GRAD THESIS
 %% For "graduate thesis" use the 'grad' option, uncomment the
 %% following line and any other options that you may require
-\documentclass[grad]{ontariotechu-thesis}
+\documentclass[grad, oneside]{ontariotechu-thesis}
 
 %% DRAFT VERSION - GRAD THESIS
 %% For "graduate draft thesis" use the 'grad' option, uncomment the
@@ -136,8 +136,10 @@
 \usepackage{ctable}
 \usepackage{dcolumn}
 \usepackage{multirow}
-\usepackage{color} 
-\usepackage{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage[numbers,authoryear]{natbib}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -151,8 +153,8 @@
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
+    breakatwhitespace=false,
+    breaklines=true,
     captionpos=b,                    
     keepspaces=false,                 
     numbers=left,                    
@@ -175,6 +177,7 @@
 \setlength{\textfloatsep}{10pt}  % Space between top/bottom floats and text
 \setlength{\intextsep}{10pt}     % Space between inline floats and text
 \setlength{\floatsep}{10pt}      % Space between two floats
+\setlength{\tabcolsep}{2pt}      % Space between columns in tables
 \raggedbottom
 
 %% The line spacing of the document should be specified using one of
@@ -222,7 +225,7 @@
 %% (-1=part, 0=chapter, 1=section, 2=subsection, 3=subsubsection,
 %%  4=paragraph, 5=subparagraph, 6=subsubparagraph).
 %
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 
 %%%%%%%%%%%%      MAIN  DOCUMENT      %%%%%%%%%%%%
@@ -279,11 +282,14 @@
 ***   Put your Acknowledgements here.   ***
 \end{acknowledgements}
 
+\begingroup
+\hypersetup{linkcolor=black}
 \tableofcontents
 
 \listoftables
 
 \listoffigures
+\endgroup
 
 \end{preliminary}
 
@@ -302,6 +308,10 @@
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{apalike}
 \bibliography{thesis}
+
+\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+\input{sections/Appendix.tex}
 
 \end{document}
 
