@@ -1,71 +1,55 @@
 \section{Participants}
 \label{sec:participants}
-Participants were recruited from Ontario Tech University's SONA system. 
-In total, 91 participants completed the study, however 4 were removed due to recording/presentation issues.
-Signal quality was assessed by computing the Peak Spectral Power (PSP) and the Scalp Coupling Index (SCI) \citep{pollonini_phoebe_2016} over sliding windows (5 seconds in duration) across all channels, similar to the methods used by \citep{bulgarelli_growth_2025} and \citep{hernandez_nirsplot_2020}. 
-Sliding windows of 5 seconds were taken from each channel, and Peak Spectral Power (PSP) and the Scalp Coupling Index (SCI) were calculated for each window.
-Participants were included in the analysis if they met the following quality assurance criteria: 
-1) PSP $>$ 0.1 and SCI $>$ 0.5 (based on \citep{holmes_opening_2024}) for more than 70\% of the windows in a single channel, the channel was considered to have good signal quality, and 2) $>$ 70\% of the channels for a single participant were considered to have good signal quality, the participant was included in the analysis.
-There were 35 data that did not meet the quality assurance criteria and were excluded from subsequent analyses. 
-A total 52 participants (Figure \ref{fig:signal_quality}) were included in the final analyses. 
-The 52 participants ranged in age from 17 to 51 (M = 21.65, SD = 6.71), 39/52 were female, and no demographic information was collected. 
-The study was approved by Ontario Tech's Research Ethics Board (REB). 
+Ninety-one participants were recruited from Ontario Tech University's undergraduate student body through SONA. 
+Participation flow is illustrated in Figure \ref{fig:participants_sankey}. 
+Four participants were removed due to equipment recording issues. 
+Participants were then screened on inclusion criteria for a) task attention, and b) fNIRS signal quality. 
+For attention, participants were required to achieve $>=$ 60\% accuracy on the behavioral memory task (chance accuracy = 50\%) to ensure sufficient engagement. 
+One participant failed to meet this criterion. 
+The remaining 87 participants (69 females and 18 males, M = 21.09, SD = 5.91, range = 17 to 51) were analyzed in the behavioral memory task.
+For neural analyses, signal quality of remaining 87 participants by computing the Peak Spectral Power (PSP) and the Scalp Coupling Index (SCI) \citep{pollonini_phoebe_2016}.
+Measures were calculated using a 5-second sliding window across all channels \citep{bulgarelli_growth_2025, hernandez_nirsplot_2020}. 
+fNIRS inclusion criteria were:
+1) PSP $>$ 0.1 and SCI $>$ 0.5 for more than 70\% of the windows in a single channel, labelled "good signal quality" \citep{holmes_opening_2024}, and 
+2) $>$ 70\% of the channels for a single participant were marked as "good". 
+Thirty-five participants failed to meet these criteria, illustrated in Figure \ref{fig:signal_quality}, and were removed prior to data analysis. 
+The final sample consisted of 52 participants (39 females and 13 males, M = 21.62, SD = 6.67, range = 17 to 51). 
+The study was approved by Ontario Tech's Research Ethics Board (REB: 17656). 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/signal quality/Percentage of Good Windows.png}
-    \caption[SCI signal quality inclusion threshold]{Percentage of Channels where SCI $>$ 0.5 for $>$ 70\% of the windows.
-    The green dashed line represents the threshold of 70\% of windows that each participant must meet to be included in the analysis.}
-    \label{fig:signal_quality}
+    \begin{subfigure}[b]{0.75\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Participants Sankey Diagram.png}
+        \caption[Participant inclusion flow diagram]{Sankey diagram showing the flow of participants through each stage of inclusion/exclusion in the study.}
+        \label{fig:participants_sankey}
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.85\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/signal quality/Percentage of Good Windows.png}
+        \caption[SCI signal quality inclusion threshold]{Percentage of Channels where SCI $>$ 0.5 for $>$ 70\% of the windows.
+        The green dashed line represents the threshold of 70\% of windows that each participant must meet to be included in the analysis.}
+        \label{fig:signal_quality}
+    \end{subfigure}
+    \caption[Participant signal quality and inclusion flow]{(A) Participant inclusion flow diagram. (B) SCI signal quality inclusion threshold.}
+    \label{fig:signal_quality_and_sankey}
 \end{figure}
 
-\section{Stimuli}
-Face stimuli were selected from two large publicly available repositories: the RADIATE dataset \citep{conley_racially_2018} and the UIBVFED dataset \citep{oliver_uibvfed_2020}. 
-The RADIATE dataset contains 109 images of racially and ethnically diverse real people, aged 18-30 years old expressing 16 emotions. 
-The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions.
-The UIBVFED faces were created \citep{oliver_uibvfed_2020} using blendshapes, a tool that represents and manipulates facial action units \citep{ekman1978facial}. 
-The faces used in the current study were based on the following criteria: 
-1) 20 young adult models were selected, 5 males, 5 females from both datasets (RADIATE and UIBVFED), 
-2) The corresponding models from each dataset were matched for face shape, sex, skin tone, and hair color, and
-3) 7 emotional expressions (anger, disgust, fear, happiness, sadness, surprise, neutral) were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman_are_1992}.
-The UIBVFED images were cropped to the same size as the RADIATE images, for consistency in the stimuli presentation.
-The stimuli presentation was prepared using PsychoPy3 Experiment Builder (v2024.1.5) \citep{peirce_psychopy2_2019}. 
+\section{Stimuli and apparatus}
+\subsection{Stimuli}
+One hundred and forty images of facial expressions from the RADIATE and UIBVFED datasets were used \citep{conley_racially_2018, oliver_uibvfed_2020}.
+Then adult models (5 males and 5 females) from each dataset were identified and matched between-sets on face shape, sex, skin tone, and hair colour. 
+Images of each model expressing seven emotions (anger, disgust, fear, happiness, sadness, surprise, neutral) were selected. 
+Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman_are_1992}.
+UIBVFED images were cropped to the same size as RADIATE images. 
 
-\section{Design and Procedure}
-\subsection{Procedure}
-\label{sec:Procedure}
-The stimuli were presented on a Dell U2415 24 inch 1920x1200 60Hz monitor, placed at eye level, and the participants were seated in a comfortable chair facing the monitor.
-The beginning of the stimuli presentation had instructions on the screen, which explained the task to the participant, and the participant entered the space bar when they were ready to start the experiment.
-We used a repeated-measures design consisting of four within-subjects factors: 1) Face Type (Real, Virtual), 2) Emotion (Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral), 3) Model (10 unique identities per face type), and Sex (Male, Female). 
-Each participant saw 28 repetitions of each Face Type, 8 repetitions of each emotion across 56 blocks, each comprising eight faces (4 male, 4 female) of the same face type and emotional expression, counterbalanced across Face Type and Emotion. 
-Between every block and starting the experiment, there is a fixation cross presented for 16 seconds. 
-The 8 faces (4 male, 4 female, randomly selected) are presented one at a time, for 1.5 seconds each, with a 250-750 ms (mean 500 ms) interstimulus interval (ISI) between each face. 
-To ensure participants remained engaged and focused on the emotions and faces, they also completed a memory task at the end of each block.
-That is, participants saw blocks of 8 faces, and after each block, there will be a 9th face, and they will need to indicate whether the 9th face was in the previous block of 8 faces. 
-The participant was instructed to press 'y' on the keyboard if the face was in the previous block, or 'n' if the face was not in the previous block. 
-The 9th face has a 50\% chance of either being in the previous block or not, and if the participant does not respond within 7 seconds, the presentation will continue to the next block.
-Every 7 blocks, the participants are given a break, and prompted to enter the space bar when they are ready to continue the experiment.
-This task is visualized in Figure \ref{fig:paradigm}.
-
-Brain activity was recorded using Aurora fNIRS while participants completed the task. 
-Head size was measured and an fNIRS cap was fitted to their head. 
-A signal optimization routine (in Aurora fNIRS) then increases the source brightness in a stepwise manner, until the optimal signal levels for all channels is reached. 
-The signal level is the voltage reading at a detector optode, which reflects how well light passes through the tissue from a source optode to a detector optode.
-Participants were told that a series of faces each expressing different emotions would appear one at at time on the screen, and at the end of each block they would be asked whether a probe face matched one of the faces they saw in during the block they just completed. 
-The experimenter(s) then turned the lights off in the room to avoid any interference with the fNIRS cap. 
-Then the experimenter(s) started the experiment, and left the room to minimize noise and distractions.
-Experimenter(s) then monitored the experiment from outside the room, using a camera in the testing room. 
-After the experiment was completed (approximately 35 minutes), the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.jpg}
-    \caption[Experimental paradigm overview]{Participants viewed 56 blocks of 8 faces, each block being either all real or all virtual faces.
-    Every face in a block displayed the same emotional expression, one of: anger, disgust, fear, happiness, sadness, surprise, neutral. }
-    \label{fig:paradigm}
-\end{figure}
-
-\section{fNIRS data}
+\subsection{Apparatus}
+Participants were tested individually in a quiet dedicated testing room. 
+Stimuli were presented on a Dell U2415 24-inch monitor at 1920x1200 60Hz. 
+Participants were seated in a comfortable non-movable chair, with the monitor placed at eye level. 
+Stimuli were presented using PsychoPy3 Experiment Builder (v2024.1.5) \citep{peirce_psychopy2_2019}. 
+Participant brain activity was recorded using Aurora fNIRS while participants completed the task. 
 fNIRS data was collected using two NIRSport2 systems (NIRx Medical Technologies, Berlin, Germany). 
 Each NIRSport2 system was equipped with 16 source and 16 detector optodes, and daisy-chained together for a high density 32x32 optode configuration. 
 Each neighboring pair of source and detector optode is referred to as a channel, resulting in a total of 103 HbO + 103 HbR channels (plus 16 short distance channels).
@@ -103,17 +87,54 @@ Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was ap
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
+    \includegraphics[width=0.8\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
     \caption[Brain region map for ROI grouping]{Brain region map, showing the regions of interest (ROI's) that the channels were grouped into for certain analyses. }
     \label{fig:brain_region_map}
 \end{figure}
 
-\section{Analysis}
-All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) \citep{gramfort_meg_2013} and MNE-NIRS (version 0.7.1) \citep{luke_analysis_2021}, which used the Nilearn package (version 0.9.2). 
-First, the General Linear Model (GLM) analysis was performed, followed by a functional connectivity analysis performed on the same set of data.
-The memory task was analyzed on the y/n responses discussed in \ref{sec:Procedure}.
+\section{Design and procedure}
+\subsection{Design}
+\label{sec:Design}
+A full-factorial Face-type (2 levels: Real, Virtual) \texorpdfstring{$\times$}{x} Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) \texorpdfstring{$\times$}{x} Model (4) \texorpdfstring{$\times$}{x} Sex (2 levels: Male, Female) \texorpdfstring{$\times$}{x} Repetition (4) experimental design was used, with each participant presented with 448 images. 
+Stimuli were blocked and counterbalanced by Face-type and Emotion. 
+Within each of the 56 Face-type-Emotion Blocks, participants were presented with 8 distinct model faces (4 male, 4 female).
 
-\subsection{Preprocessing Steps}
+\subsection{Procedure}
+\label{sec:Procedure}
+Following consent and briefing, participant head size was measured and a size-appropriate fNIRS cap fitted. 
+A signal optimization routine was then run within Aurora fNIRS to optimize participant channel signal levels. 
+This routine worked by increasing source brightness in a stepwise manner, until the optimal signal levels for all channels was reached. 
+Following optimization, participants were told that they would be presented with a series of facial expression images and asked to identify whether a probe face matched one of the faces they saw in the preceding block. 
+Room lights were then switched off to avoid interference with the fNIRS cap, and participants were monitored from an adjacent room with a live camera feed. 
+
+The experiment began with instructions presented on screen. 
+The trial timeline, shown in Figure \ref{fig:paradigm}, consisted of three main epochs: fixation cross, block presentation, and participant feedback. 
+Each Block began with a fixed cross presented for 16 seconds, followed by 8 facial images. 
+Facial images were each presented for 1.5 seconds, with a 250-750 ms (M=500 ms) interstimulus interval (ISI) between each face. 
+To maintain participant attention, participants completed a memory task after each block. 
+In the task, participants were presented with a model image with the same emotional expression as the rest of the block's images, and asked if the model was shown in the preceding block of 8 faces, with feedback provided using the keyboard (y/n). 
+The probe face has a 50\% chance of either being in the previous block or not. 
+The experiment continued after seven seconds if no feedback was provided. 
+Most participants only failed to respond to 1-2 blocks of the 56 blocks, with only a handful of participants failing to respond to up to 5 blocks, as illustrated in Figure \ref{fig:appendix_memory_task_no_response_distribution}.
+Participants were given a break every seven blocks, and prompted to enter the space bar when they are ready to continue the experiment. 
+After the experiment was completed, the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment. 
+Participation in the experiment took approximately 35 minutes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.jpg}
+    \caption[Experimental paradigm overview]{Participants viewed 56 blocks of 8 faces, each block being either all real or all virtual faces.
+    Every face in a block displayed the same emotional expression, one of: anger, disgust, fear, happiness, sadness, surprise, neutral. }
+    \label{fig:paradigm}
+\end{figure}
+
+\section{Analyses}
+All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) \citep{gramfort_meg_2013} and MNE-NIRS (version 0.7.1) \citep{luke_analysis_2021}, which used the Nilearn package (version 0.9.2). 
+Data were analyzed with a General Linear Model (GLM), followed by a functional connectivity analysis.
+The memory task was analyzed in Python using the statsmodels package (version 0.14.4) \citep{seabold2010statsmodels}. 
+
+\subsection{fNIRS preprocessing}
+\label{sec:preprocessing}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Preprocessing Steps.png}
@@ -133,13 +154,13 @@ The preprocessing steps for the fNIRS data, as shown in Figure \ref{fig:preproce
 9) Maximizes negative correlation between HbO and HbR \citep{cui_functional_2010}. This method removes spikes, improves contrast-to-noise ratio, and improves spatial specificity of the data.
 10) Add HbT (hemoglobin total) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification \citep{kinder_systematic_2022}. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs \cite{hocke_automated_2018}.
 
-\subsection{Epochs}
 Variable length epochs were created for each block of 8 faces, which were 14-18 seconds long (mean = 16s), depending on the ISI's (see \ref{sec:Procedure}).
-Epochs were sorted by Face Type (Real, Virtual), and Emotion (Anger, Disgust, Fear, Happiness, Sadness, Surprise, Neutral). 
+Epochs were sorted by Face Type (Real, Virtual), and Emotion (Anger, Disgust, Fear, Happiness, Sadness, Surprise, Neutral), and their interaction.
 Baseline correction was applied to remove any constant or slowly varying offsets in the data. 
-The data was annotated with the onsets and offsets of each block, along with the duration and condition of each block for use in section \ref{sec:GLM} and \ref{sec:fc}.
+The data was annotated with the onsets and offsets of each block, along with the duration and condition of each block. 
+Block data were then analysed using a GLM and Functional Connectivity analysis. 
 
-\subsection{General Linear Model (GLM) Analysis}
+\subsection{Activation magnitude with General Linear Model (GLM)}
 \label{sec:GLM}
 The General Linear Model (GLM) posits that the observed haemodynamic signal at each channel or Region of Interest (ROI) is a linear combination of task-related regressors convolved with a Hemodynamic Response Function (HRF), plus nuisance regressors (e.g., drift) and residual noise. Mathematically, 
 
@@ -147,7 +168,7 @@ The General Linear Model (GLM) posits that the observed haemodynamic signal at e
 Y = X\beta + \epsilon,
 \end{equation}
 
-where \( Y \) is the observed time series, \( X \) is the design matrix, \( \beta \) represents the parameters to estimate, and \( \epsilon \) denotes the residuals assumed to be (i.i.d.) Gaussian noise.
+where \( Y \) is the observed time series, \( X \) is the design matrix, \( \beta \) represents the parameters to estimate, and \( \epsilon \) denotes the residuals assumed to be Gaussian noise.
 Estimation is performed via ordinary least squares (OLS), yielding parameter estimates that quantify condition-specific activation amplitudes.
 
 \subsubsection{Design Matrix}
@@ -169,6 +190,9 @@ The design matrix \( X \) and preprocessed time series are fed into MNE's \textt
     \label{fig:design_matrix}
 \end{figure}
 
+A two-way repeated measures GLM was conducted on participant's HbT responses by Face-type (2 levels: Real, Virtual) and Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral). 
+Pairwise contrasts were then computed between conditions to identify effects of interest.
+
 \subsubsection{Contrast Computation}
 \label{sec:contrast_computation}
 All pairwise contrasts were generated between conditions by constructing an identity contrast matrix over design columns. 
@@ -176,7 +200,7 @@ For each pair of conditions \( (A, B) \), the contrast vector is defined as: $c 
 Contrasts are computed using MNE's \texttt{compute\_contrast} function, which produces effect estimates and test statistics aggregated across channels.
 Since numerous statistical tests are performed across channels and contrasts, $p$-values were corrected for false discovery rate (FDR) using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
 
-\subsection{Functional Connectivity Analysis}
+\subsection{Network mapping with Functional Connectivity Analysis}
 \label{sec:fc}
 To characterize the temporal coordination between fNIRS channels during face and emotion processing, functional connectivity matrices were computed using a continuous wavelet transform (CWT)-based spectral connectivity approach.
 CWT decomposes signals into simultaneous time-frequency representations, providing an optimal framework for fNIRS connectivity analysis by accommodating the non-stationary, physiological nature of hemodynamic signals. 
@@ -184,19 +208,10 @@ The morlet wavelet, a gaussian function modulated by a sine wave, was picked as 
 Wavelet-based approaches have been widely adopted in the fNIRS literature for connectivity and even artifact correction \citep{bergmann_evaluation_2023, hakim_quantification_2023}
 Coherence combines both phase and amplitude information into a single, normalized index, 0 (no coupling) to 1 (perfect coupling), and is a richer description of coupling than phase-only or amplitude-only metrics \citep{bastos_tutorial_2016}.
 For each participant, MNE's \texttt{spectral\_connectivity\_time} function was applied to compute time-resolved coherence across pairs of channels, the average of this was taken across epochs to obtain a single channel-by-channel connectivity matrix for each condition.
-Each participants' connectivity matrix was then averaged across participants to obtain a group-level connectivity matrix for each condition, an example of a group-level connectivity chord plot is shown in Figure \ref{fig:chord_plot}.
+Each participants' connectivity matrix was then averaged across participants to obtain a group-level connectivity matrix for each condition. 
 fNIRS hemodynamics predominantly fluctuate in very low frequencies (0.01-0.5 Hz) \citep{reddy_evaluation_2021}. 
 The frequency range was narrowed to five evenly spaced frequences between 0.2-0.5 Hz due to short epoch length, this range still targets systemic and neurogenic oscillations while avoiding high-frequency noise \citep{xu_functional_2017}.
 Averaging across these closely spaced frequencies reduces data dimensionality, simplifying downstream statistical analyses without sacrificing sensitivity to coupling dynamics. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/conditions/emotion_Sadness_con.png}
-    \caption[Chord plot for Sadness condition]{Example of a chord plot for the condition Sadness, showing the averaged connectivity across participants and epochs between 103 HbT channels (coherence values between 0 and 1).
-    The color of the lines represents the coherence value. 
-    In general, the brighter the color, the stronger the connectivity between the two channels.}
-    \label{fig:chord_plot}
-\end{figure}
 
 \subsubsection{Paired Sample t-tests}
 For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted, averaging across epochs and time points to obtain, per participant, a symmetric channel-by-channel coherence matrix. 
@@ -212,26 +227,8 @@ Since multiple channels may map to the same pair of regions (e.g., several left 
 
 \subsection{Memory Task Analysis}
 \label{sec:memory_task_analysis}
-Recall the memory task described in \ref{sec:Procedure}, where participants were asked to indicate whether the 9th face was in the previous block of 8 faces with a 'yes' or 'no' response on the keyboard.
-The memory task was not the main focus of the study, but it was used to keep the participants engaged and focused on the faces. 
-However, one can investigate whether participants' ability to correctly recognize or recall emotional facial expressions varied depending on the type of face (e.g., real vs. virtual) and the emotion displayed (e.g., happy, sad, angry). 
-Raw behavioral data files from the output of the PsychoPy presentation were systematically preprocessed to isolate key response variables. 
-For example, if the participant pressed 'y' for yes, and the 9th face was indeed in the previous block, they answered correctly, and if they pressed 'y' for yes, and the 9th face was not in the previous block, they answered incorrectly. 
-The same applies for the 'n' for no responses. 
-The total correct trials per participant were then summed. 
-This data is not subject to the same signal quality criteria as the fNIRS data that was described in \ref{sec:participants}, as it is not a physiological measure. 
-Therefore, all 87 participants can be included in the analysis, regardless of their fNIRS signal quality.
-However, participants achieving fewer correct responses than 34/56 (e.g., 60\% of trials) were excluded to ensure sufficient engagement in the task, as shown in Figure \ref{fig:correct_responses}.
-Only one participant was excluded from the analysis.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/correct_responses_by_participant.png}
-    \caption[Correct responses by participant]{Number of correct responses by participant, the red dashed line represents the threshold of 34/56 correct responses (60\%) that participants must meet to be included in the analysis.
-    Only one participant was excluded from the analysis. }
-    \label{fig:correct_responses}
-\end{figure}
-
+Raw behavioral data captured from PsychoPy were preprocessed to identify participant keyboard responses. 
+The total correct trials per participant were summed. 
 Since each block of faces was either all real or all virtual, and all had the same emotional expression (as discussed in \ref{sec:Procedure}), each y/n response was labeled with Face type and Emotion.
 An OLS model was fit with accuracy (converted to numeric 0/1) as the dependent variable and categorical predictors for Face Type, Emotion, and their interaction. 
 The goal is to determine the main effects of these two factors individually, as well as their interaction, on response accuracy.
