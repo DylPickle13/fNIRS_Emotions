@@ -41,7 +41,7 @@ The study was approved by Ontario Tech's Research Ethics Board (REB: 17656).
 One hundred and forty images of facial expressions from the RADIATE and UIBVFED datasets were used \citep{conley_racially_2018, oliver_uibvfed_2020}.
 Then adult models (5 males and 5 females) from each dataset were identified and matched between-sets on face shape, sex, skin tone, and hair colour. 
 Images of each model expressing seven emotions (anger, disgust, fear, happiness, sadness, surprise, neutral) were selected. 
-Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman_are_1992}.
+Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman1971constants}.
 UIBVFED images were cropped to the same size as RADIATE images. 
 
 \subsection{Apparatus}
@@ -61,35 +61,22 @@ Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was ap
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{1\textwidth}
         \centering
         \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage.png}
-        \caption{2D depiction of the montage. }
-        \label{fig:montage_2d}
+        \caption[Montage depictions]{Depictions of the high density 32x32 optode montage. Red circles represent sources, blue circles represent detectors, the colored lines represent channels, and blue rings around sources represent the locations of the 8 short distance detectors.
+        The colors of the channels represent the regions of interest (ROI's) that the channels were grouped into, see (b) for the corresponding brain region labels.}
+        \label{fig:montage}
     \end{subfigure}
-    \hfill
+    \vskip\baselineskip
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage Front View.png}
-        \caption{3D front view of the montage.}
-        \label{fig:montage_front}
+        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
+        \caption[Brain region map for ROI grouping]{Brain region map, showing the regions of interest (ROI's) that the channels were grouped into for certain analyses.}
+        \label{fig:brain_region_map}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage Side View.png}
-        \caption{3D side view of the montage.}
-        \label{fig:montage_side}
-    \end{subfigure}
-    \caption[Montage depictions]{Depictions of the high density 32x32 optode montage. Red circles represent sources, blue circles represent detectors, purple lines represent channels, and blue rings around sources represent the locations of the 8 short distance detectors.}
+    \caption[Montage and brain region map]{(a) High density 32x32 optode montage. (b) Brain region map for ROI grouping.}
     \label{fig:montage_combined}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
-    \caption[Brain region map for ROI grouping]{Brain region map, showing the regions of interest (ROI's) that the channels were grouped into for certain analyses. }
-    \label{fig:brain_region_map}
 \end{figure}
 
 \section{Design and procedure}
@@ -198,7 +185,7 @@ Pairwise contrasts were then computed between conditions to identify effects of 
 All pairwise contrasts were generated between conditions by constructing an identity contrast matrix over design columns. 
 For each pair of conditions \( (A, B) \), the contrast vector is defined as: $c = e_A - e_B$, where \( e_A \) and \( e_B \) are the respective design matrix columns for conditions \( A \) and \( B \). 
 Contrasts are computed using MNE's \texttt{compute\_contrast} function, which produces effect estimates and test statistics aggregated across channels.
-Since numerous statistical tests are performed across channels and contrasts, $p$-values were corrected for false discovery rate (FDR) using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
+Since numerous statistical tests are performed across channels and contrasts, $p$-values were FDR-corrected corrected using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
 
 \subsection{Network mapping with Functional Connectivity Analysis}
 \label{sec:fc}
@@ -207,6 +194,7 @@ CWT decomposes signals into simultaneous time-frequency representations, providi
 The morlet wavelet, a gaussian function modulated by a sine wave, was picked as they are suited to capture both slow neural rhythms and faster systemic fluctuations in fNIRS data \citep{reddy_evaluation_2021}. 
 Wavelet-based approaches have been widely adopted in the fNIRS literature for connectivity and even artifact correction \citep{bergmann_evaluation_2023, hakim_quantification_2023}
 Coherence combines both phase and amplitude information into a single, normalized index, 0 (no coupling) to 1 (perfect coupling), and is a richer description of coupling than phase-only or amplitude-only metrics \citep{bastos_tutorial_2016}.
+
 For each participant, MNE's \texttt{spectral\_connectivity\_time} function was applied to compute time-resolved coherence across pairs of channels, the average of this was taken across epochs to obtain a single channel-by-channel connectivity matrix for each condition.
 Each participants' connectivity matrix was then averaged across participants to obtain a group-level connectivity matrix for each condition. 
 fNIRS hemodynamics predominantly fluctuate in very low frequencies (0.01-0.5 Hz) \citep{reddy_evaluation_2021}. 
@@ -214,16 +202,29 @@ The frequency range was narrowed to five evenly spaced frequences between 0.2-0.
 Averaging across these closely spaced frequencies reduces data dimensionality, simplifying downstream statistical analyses without sacrificing sensitivity to coupling dynamics. 
 
 \subsubsection{Paired Sample t-tests}
-For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted, averaging across epochs and time points to obtain, per participant, a symmetric channel-by-channel coherence matrix. 
+For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted by averaging across epochs to obtain symmetric channel-by-channel coherence matrices. 
 Because coherence values are bounded between 0 and 1 and exhibit skewed distributions \citep{miranda_de_sa_coherence_2009}, Fisher's r-to-z transform (\texttt{atanh}) was applied to each matrix element to normalize the data prior to parametric testing. 
-Paired t-tests for each unique channel pair ($i > j$) were then conducted across participants using SciPy's \texttt{ttest\_rel}.
+Paired $t$-tests for each unique channel pair ($i > j$) were then conducted across participants using SciPy's \texttt{ttest\_rel}.
 This directly tests whether mean connectivity differs between conditions, leveraging the paired design to increase statistical sensitivity \citep{hu_characterizing_2023}. 
-Given the large number of channel-pair tests, and similar to the GLM analysis above in \ref{sec:contrast_computation}, $p$-values were corrected for FDR using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
+Given the large number of channel-pair tests, and similar to the GLM analysis above in \ref{sec:contrast_computation}, $p$-values were FDR-corrected using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
 
 \subsubsection{ROI Chord Plots}
 To distill high-dimensional channel-by-channel connectivity into interpretable inter-regional summaries, we mapped individual fNIRS channels onto anatomically defined ROI's. 
-This includes left and right frontal, prefrontal, parietal, occipital regions of the brain as shown in Figure \ref{fig:brain_region_map}, and the channels were grouped into these regions based on their location in the montage.
-Since multiple channels may map to the same pair of regions (e.g., several left prefrontal channels connecting to several right occipital channels), we aggregated all significant connections ($p <$ 0.05) between two regions by taking the mean of their t-values. 
+This includes left and right frontal, central/temporal, parietal, occipital regions of the brain as shown in Figure \ref{fig:brain_region_map}, and the channels were grouped into these regions based on their location in the montage.
+Since multiple channels may map to the same pair of regions (e.g., several left central/temporal channels connecting to several right occipital channels), we calculated the sum of all signicant channel-pair connections for each ROI pair (separately for positive and negative $t$-values). 
+We then subtracted the negative sum from the positive sum, resulting in a single integer representing the net connectivity which was positive if the positive connections outweigh the negative ones, and vice versa.
+We then took the top 15\% percentile of each net connectivity value, and set the rest to zero, to show only the strongest connections between regions.
+The lines were then plotted using a chord diagram, with the line color indicating the direction of the net connectivity (positive or negative), and the line width indicating the magnitude of the net connectivity (the absolute value of the net connectivity).
+
+\subsubsection{Emotion Summary Ratio Plot}
+To summarize the net connectivity between regions for each emotion, we calculated a ratio of positive to negative connections for each emotion pair.
+The ratio was calculated by taking the difference of the count of significant channels where the $t$-value was positive and the count of significant channels where the $t$-value was negative, and dividing it by the total number of significant channels for that emotion pair. 
+This ratio provides a measure of the net connectivity across all ROI's for each emotion, with a positive ratio indicating that one emotion has a stronger net connectivity than the other, and a negative ratio indicating that the other emotion has a stronger net connectivity.
+
+\subsubsection{Region Summary Plot}
+To summarize the net connectivity across all emotions for each region, we summed the number of significantly different channel pairs between each region pair across all emotions, disregarding the direction of the $t$-value.
+This provides a measure of the net connectivity across all emotions for each region, showing which regions are more connected across all emotions.
+The 3 regions with the highest and lowest number of significant channel pairs are marked, to emphasize the most/least connected regions across all emotions.
 
 \subsection{Memory Task Analysis}
 \label{sec:memory_task_analysis}
