@@ -1,6 +1,6 @@
-\section{Activation magnitude}
+\section{Neural activation magnitude}
 \noindent
-\textbf{Neural Responses to real and virtual faces}
+\textbf{Responses to real and virtual faces}
 
 A main effect of Face type was reported, with pairwise contrasts revealing greater activation for virtual faces compared to real faces, as shown in Figure \ref{fig:glm_real_vs_virtual}.
 \begin{figure}[H]
@@ -13,7 +13,7 @@ A main effect of Face type was reported, with pairwise contrasts revealing great
 \end{figure}
 
 \noindent
-\textbf{Neural Responses to different emotions}
+\textbf{Responses to different facial emotions}
 
 Pairwise contrasts with Neutral (control) and other emotions revealed significant differences in activation across several brain regions (Figure \ref{fig:glm_emotion_analysis_neutral}). 
 For instance, perceiving Anger, Fear, and Joy elicited less activity in the right occipital region than perceiving Neutral. 
@@ -32,7 +32,7 @@ These results indicate distinct neural activation patterns for each emotion when
 
 Interestingly, processing Surprise was most consistently different from processing other emotions (Figure \ref{fig:glm_emotion_analysis_surprise}). 
 We found processing Surprise produced 1) more activity in the left central/temporal and right occipital regions relative to processing Disgust and Joy, 
-2) more activity in the right parietal region relative to processing Fear, 3) more activity in the left frontal and right parietal regions relative to processing Sadnessl, and
+2) more activity in the right parietal region relative to processing Fear, 3) more activity in the left frontal and right parietal regions relative to processing Sadness, and
 4) more activity in the right parietal region and less activity in the right occipital region relative to processing Neutral.
 These findings suggest that Surprise is distinct from processing Neutral but also other emotions, with differences in neural activity more widespread that include central/temporal and parietal regions. 
 All combinations of emotion contrasts were performed, significant differences were only found between Neutral relative to the other emotions, and between Surprise relative to the other emotions.
@@ -49,9 +49,9 @@ All combinations of emotion contrasts were performed, significant differences we
 \end{figure}
 
 \noindent
-\textbf{Differential neural responses to emotions and face type}
+\textbf{Interaction in the responses to face type and emotion}
 
-The interaction of Real $>$ Virtual within each emotion, as shown in Figure \ref{fig:glm_real_vs_virtual_emotion_analysis} revealed significant differences in occipital regions exclusively.
+The interaction of Real - Virtual within each emotion, as shown in Figure \ref{fig:glm_real_vs_virtual_emotion_analysis} revealed significant differences in occipital regions exclusively.
 Specifically, processing Disgust on real faces elicited greater activity in the right occipital region compared to processing Disgust on virtual faces, whereas the left occipital region showed the opposite pattern.
 Moreover, processing Joy and Neutral emotions on real faces also elicited greater activity in the occipital regions compared to processing the same emotions on virtual faces.
 We found processing Sadness on virtual faces produced more activity in the left occipital region for virtual faces compared to processing Sadness on real faces. 
@@ -68,12 +68,12 @@ The full table of the GLM contrasts for all main effects and interactions can be
   \label{fig:glm_real_vs_virtual_emotion_analysis}
 \end{figure}
 
-\section{Functional Connectivity Results}
+\section{Functional Connectivity Mapping}
 \noindent
-\textbf{Functional connectivity profiles of face type}
+\textbf{Connectivity profiles of face type}
 
 The contrast comparing functional connectivity profiles in response to real versus virtual faces (as shown in Figure \ref{fig:fc_real_vs_virtual}) revealed significant differences in connectivity across the brain. 
-Processing real faces was associated with stronger connectivity predominantly between the left to right parietal, left frontal to left parietal, left central/temporal to left parietal, left central/temporal to right parietal, and the right central/temporal to left parietal regions, whereas processing virtual faces was associated with stronger connectivity only between the left central/temporal to right frontal region. 
+Processing real faces was associated with stronger connectivity predominantly between the left to right parietal, left frontal to left parietal, left central/temporal to left parietal, left central/temporal to right parietal, and the right central/temporal to left parietal regions, whereas processing virtual faces was associated with only slightly stronger connectivity between the left central/temporal to right frontal region. 
 
 \begin{figure}[H]
   \centering
@@ -86,7 +86,7 @@ Processing real faces was associated with stronger connectivity predominantly be
 \end{figure}
 
 \noindent
-\textbf{Functional connectivity in response to emotion}
+\textbf{Connectivity profiles of facial emotion}
 
 We also found significant differences in functional connectivity in response to different emotions across all ROI's. 
 A sample of the functional connectivity results which include only contrasts between Fear and the other emotions are plotted in Figure \ref{fig:fc_emotion_analysis}.
@@ -97,14 +97,22 @@ The complete set of functional connectivity contrasts for all emotions can be fo
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Neutral.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Disgust.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Surprise.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Sadness.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Anger.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Joy_Fear.png}
-  \caption[FC: Emotion Contrasts (Fear)]{Functional connectivity results for Fear relative to the other emotions.}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Neutral.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Disgust.png}
+  \caption[FC: Emotion Contrasts]{Functional connectivity results for Fear relative to Neutral and Disgust. (1/2)}
   \label{fig:fc_emotion_analysis}
+\end{figure}
+
+\FloatBarrier % Prevents float reordering across pages
+
+\begin{figure}[H]
+  \ContinuedFloat
+  \centering
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Anger.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Joy_Fear.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Surprise.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/emotion_Fear_Sadness.png}
+  \caption*{Functional connectivity results for Fear relative to Anger, Joy, Surprise, and Sadness. (2/2)}
 \end{figure}
 
 A higher level summary of the functional connectivity results for all emotions is shown in Figure \ref{fig:fc_emotion_summary_analysis}, which shows the ratio of significant channels where the $t$-value was positive (red) or negative (blue) for each emotion pair.
@@ -114,7 +122,7 @@ This lines up with Figure \ref{fig:fc_emotion_analysis}, which shows that proces
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.87\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/emotion_contrast_heatmap.png}
+  \includegraphics[width=0.95\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/emotion_contrast_heatmap.png}
   \caption[FC: Summary of Contrasts by Emotion Pair]{A heatmap summary of the functional connectivity results for the contrasts between different emotions across ROI's. 
   Red signifies that emotion 1 had a higher ratio of significant channels where the $t$-value was positive, while blue signifies that emotion 2 had a higher ratio of significant channels where the $t$-value was negative.
   The ratio was calculated by taking the difference of the count of significant channels where the $t$-value was positive and the count of significant channels where the $t$-value was negative, and dividing it by the total number of significant channels for that emotion pair.}
@@ -127,7 +135,7 @@ Three regions, left central/temporal, left parietal, and right central/temporal 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.87\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
+  \includegraphics[width=0.95\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
   \caption[FC: Count of Significantly Different Channel Pairs by ROI]{A heatmap summary of the number of significantly different channel pairs for each ROI summed across all emotions. 
   The color bar on the right shows the number of significant channel pairs for each ROI, with brighter colors indicating a smaller number of significant channel pairs, and darker colors indicating a larger number of significant channel pairs.
   An asterisk (*) was placed on the 3 ROI's with the least number of significantly different channel pairs to indicate that these ROI's are more synchronized with each other than any other pair of ROI's, regardless of the emotion.
@@ -139,7 +147,7 @@ Three regions, left central/temporal, left parietal, and right central/temporal 
 \noindent
 \textbf{Differential Functional connectivity profiles in response to emotion across face type}
 
-The interaction of face type with emotion, Real $>$ Virtual within each emotion (Figure \ref{fig:fc_real_vs_virtual_emotion_analysis}) revealed significant differences in functional connectivity across the brain.
+The interaction of face type with emotion, Real - Virtual within each emotion (Figure \ref{fig:fc_real_vs_virtual_emotion_analysis}) revealed significant differences in functional connectivity across the brain.
 We found that processing Anger on virtual faces elicited greater connectivity between the left frontal to right central/temporal, left frontal to right frontal, and within the left frontal region, compared to processing Anger on real faces.
 Processing Disgust on virtual faces elicited greater connectivity between the left frontal to left parietal, right frontal to left parietal, right frontal to left central/temporal, left frontal to left occipital, and right central/temporal to right parietal, compared to processing Disgust on real faces.
 Processing Fear on virtual faces elicited greater connectivity between many ROI's, particularly the left frontal to left occipital regions, between the left/right occipital regions, and between the left/right central/temporal and left/right occipital regions, compared to processing Fear on real faces.
@@ -153,15 +161,23 @@ The full table of the functional connectivity contrasts for all main effects and
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Anger_Virt_Anger.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Disgust_Virt_Disgust.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Fear_Virt_Fear.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Neutral_Virt_Neutral.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Sadness_Virt_Sadness.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Surprise_Virt_Surprise.png}
-  \includegraphics[width=0.32\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Joy_Virt_Joy.png}
-  \caption[FC: Face Type \texorpdfstring{$\times$}{x} Emotion Contrasts]{Functional connectivity results for the contrast between real and virtual conditions within each emotion.}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Anger_Virt_Anger.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Disgust_Virt_Disgust.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Fear_Virt_Fear.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Neutral_Virt_Neutral.png}
+  \caption[FC: Face Type \texorpdfstring{$\times$}{x} Emotion Contrasts]{Functional connectivity results for the contrast between real and virtual conditions within each emotion. (1/2)}
   \label{fig:fc_real_vs_virtual_emotion_analysis}
+\end{figure}
+
+\FloatBarrier % Prevents float reordering across pages
+
+\begin{figure}[H]
+  \ContinuedFloat
+  \centering
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Sadness_Virt_Sadness.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Surprise_Virt_Surprise.png}
+  \includegraphics[width=0.49\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_emotion_Real_Joy_Virt_Joy.png}
+  \caption*{Functional connectivity results for the contrast between real and virtual conditions within each emotion. (2/2)}
 \end{figure}
 
 \section{Memory Task Results}

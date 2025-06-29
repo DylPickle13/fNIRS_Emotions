@@ -101,8 +101,7 @@ Facial images were each presented for 1.5 seconds, with a 250-750 ms (M=500 ms) 
 To maintain participant attention, participants completed a memory task after each block. 
 In the task, participants were presented with a model image with the same emotional expression as the rest of the block's images, and asked if the model was shown in the preceding block of 8 faces, with feedback provided using the keyboard (y/n). 
 The probe face has a 50\% chance of either being in the previous block or not. 
-The experiment continued after seven seconds if no feedback was provided. 
-Most participants only failed to respond to 1-2 blocks of the 56 blocks, with only a handful of participants failing to respond to up to 5 blocks, as illustrated in Figure \ref{fig:appendix_memory_task_no_response_distribution}.
+The experiment continued after seven seconds if no feedback was provided (the distribution of block missed responses is shown in Appendix \ref{fig:appendix_memory_task_no_response_distribution}).
 Participants were given a break every seven blocks, and prompted to enter the space bar when they are ready to continue the experiment. 
 After the experiment was completed, the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment. 
 Participation in the experiment took approximately 35 minutes.
@@ -139,7 +138,7 @@ The preprocessing steps for the fNIRS data, as shown in Figure \ref{fig:preproce
 7) Retain only long channels (source-detector distance $>$ 15 mm). Since the short channels have already been regressed out, it is no longer necessary to keep them in the data.
 8) This FIR bandpass filter extracts signal components in the 0.01-0.5 Hz range, it uses a long filter length (2015 samples) with automatically determined transition bandwidths by MNE-Python \citep{pinti_current_2019}. 
 9) Maximizes negative correlation between HbO and HbR \citep{cui_functional_2010}. This method removes spikes, improves contrast-to-noise ratio, and improves spatial specificity of the data.
-10) Add HbT (hemoglobin total) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification \citep{kinder_systematic_2022}. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs \cite{hocke_automated_2018}.
+10) Add HbT (hemoglobin total) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification \citep{kinder_systematic_2022}. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs \citep{hocke_automated_2018}.
 
 Variable length epochs were created for each block of 8 faces, which were 14-18 seconds long (mean = 16s), depending on the ISI's (see \ref{sec:Procedure}).
 Epochs were sorted by Face Type (Real, Virtual), and Emotion (Anger, Disgust, Fear, Happiness, Sadness, Surprise, Neutral), and their interaction.

@@ -1,5 +1,92 @@
+The present study aimed to characterize how the human brain processes emotional expressions displayed by real versus virtual faces, using fNIRS to measure both activation and functional connectivity. 
+We sought to determine whether face realism modulates neural responses to different emotions, and whether these effects extend beyond local activation to distributed network interactions. 
+By directly comparing hemodynamic responses to real and virtual faces across a range of basic emotions, our goal was to provide novel insights into the neural mechanisms underlying emotional face perception in the context of increasing virtual social interactions.
+
+\section{Left occipital activation for virtual faces}
+Our finding that virtual faces elicit greater left occipital activation compared to real faces aligns with evidence that face realism modulates visual processing in a complex manner. 
+\cite{schindler_differential_2017} showed that the N170 EEG component, reflecting early face perception, is influenced by perceived realism in a u-shaped fashion, while the later Late Positive Potential (LPP) increases continuously with face realism. 
+Notably, the N170 generators differ between highly stylized and very realistic faces, suggesting distinct neural processes are engaged depending on realism. 
+The LPP enhancement with increasing realism is associated with broader occipito-parietal activity, converging with our fNIRS results that show stronger left occipital activation for virtual faces.
+This indicates that the neural response to virtual faces reflects the perceptual demands of artificial stimuli in the occipital area. 
+Face perception reliably activates the lateral fusiform gyrus, typically bilaterally but most robustly on the right hemisphere \cite{haxby_distributed_2000}. 
+This region shows greater responses to faces than to non-face objects. 
+Although fNIRS cannot directly measure deep structures like the fusiform gyrus, it is close enough to detect activity in adjacent occipital regions that are functionally connected to the fusiform and contribute to early stages of face processing.
+Our observed higher left occipital activation for virtual faces compared to real faces may then reflect increased perceptual demands in upstream visual areas when viewing virtual faces.
+
+\section{Higher Activation for Neutral and Surprise}
+Our results showed that neutral and surprise facial expressions elicited stronger activation than other emotions, particularly in the occipital, right parietal, and left central/temporal regions.
+There is consistent evidence of increased brain activation in response to neutral and surprise facial expressions, sometimes even exceeding responses to more overt emotional expressions.
+\cite{moser_amygdala_2007} found both avatar and human emotional faces activated regions typically involved in emotion processing, such as the bilateral amygdala, fusiform gyri, cerebellum, and superior temporal gyrus. 
+Notably, neutral face conditions also produced strong amygdala activation. 
+This suggests that the amygdala may not only respond to emotional intensity, but also to the social relevance of faces in general. 
+This aligns with previous findings showing that some neurons in the temporal lobe and amygdala are tuned to detect faces rather than specific emotions.
+\cite{keslerwest_neural_2001} used fMRI to compare responses to neutral and scrambled faces. 
+It revealed robust activation in regions like the fusiform gyri, amygdalae, entorhinal cortices, and superior temporal sulcus during neutral face viewing. 
+These findings confirm that emotionally neutral faces still engage core regions involved in face perception and social processing, likely due to their ambiguous or uncertain emotional content.
+\cite{westgarth_systematic_2021} reviewed prior fNIRS and fMRI literature and found inconsistent results for emotional face processing in the PFC. 
+While some studies reported increases in oxygenated hemoglobin in regions like the medial and ventral PFC, others showed decreases or no change, depending on the emotion or brain region. 
+Our own fNIRS findings showed that both neutral and surprise expressions evoked stronger responses than other emotions, possibly because neutral and surprise faces are more ambiguous and require more cognitive effort to interpret, especially in social contexts.
+These findings and our own challenge the assumption that strongly emotional faces always produce the strongest brain responses. 
+
+\section{Stronger connectivity for real faces}
+Our functional connectivity analysis revealed distinct neural connectivity patterns associated with processing both real and virtual faces, suggesting that the realism of facial stimuli modulates the underlying brain network dynamics during face processing.
+We observed stronger connectivity when processing real faces across parietal, frontal, and central/temporal regions. 
+\cite{hirsch_frontal_2017} conducted a two-person fNIRS hyperscanning study finding cross-brain coherence in left frontal, temporal, and parietal regions during social interaction/live eye-to-eye contact. 
+A notable limitation of their study was that there was no occipital coverage, but given that our findings found no significant connectivity differences in the left or right occipital region, this suggests that the occipital region may not be as involved in these processes.
+These findings further support the notion that real face recognition engages a broader and more coherent neural network. 
+\cite{tarchi_electroencephalographic_2023} further supports our observation of stronger neural connectivity for real faces, as EEG data revealed statistically significant differences in brain activation between real and synthetic stimuli. 
+The observed discrimination ability, where participants correctly identified real versus synthetic faces with 77\% accuracy, suggested a greater sensitivity to facial authenticity. 
+Together, these results align with our connectivity analysis, reinforcing the notion that real faces engage brain networks, particularly in emotional and cognitive processing regions, more robustly than synthetic counterparts.
+
+\section{Stronger connectivity for Fear}
+Among emotions, Fear (followed closely by Anger) elicited the strongest connectivity compared to the other emotions, especially for connections involving the left central/temporal cortex across frontal and parietal regions. 
+Fearful faces signal potential threat, and the interpretation of these cues depends on contextual factors, whereas Anger signals the source of threat. 
+\cite{cushing_neurodynamics_2018} found that fear processing is engages the amygdala, particularly when eye gaze is not directed at the viewer compared to when it is.
+\cite{jamieson_differential_2021} found that the connectivity from the amygdala to the dorsolateral prefrontal cortex (dlPFC) differs when processing fearful versus sad facial expressions. 
+They reported increased connectivity when processing fearful faces compared to sad faces, attributing this to the higher salience and arousal associated with fear \citep{adolphs_biology_2013}.
+This pattern resonates with our emotion connectivity summary heatmap (Figure \ref{fig:fc_emotion_summary_analysis}), where fearful faces show robust network engagement relative to others. 
+Additionally, \cite{liang_multivariate_2018} found that facial emotion expressions can be successfully decoded from functional connectivity patterns, and the networks identified include brain regions beyond the conventional face-selective areas. 
+This finding supports the notion that emotional face processing involves distributed networks rather than isolated regions, aligning with our connectivity results.
+Anger and Joy also produced notably strong connectivity, clustering with Fear in our summary heatmap. 
+Lower connectivity for Disgust, Sadness, Surprise, and Neutral faces supports the idea that these emotions have lower arousal or social salience compared to Fear, Anger, and Joy.
+
+Our regional analysis found minimal connectivity differences among left and right occipital ROI across emotions, while central/temporal and parietal regions varied strongly (Figure \ref{fig:fc_region_summary_analysis}).
+This fits with models of face perception, where early visual areas (e.g., occipital face area) feed into higher-level hubs like the fusiform face area. 
+\cite{underwood_networks_2021} that effective connectivity analyses reveal dynamic modulation between occipital, frontal, and subcortical regions, but that early visual areas remain relatively stable across emotion conditions, with emotional discrimination only arising in higher circuits. 
+This suggests that while occipital areas are crucial for initial face processing, the emotional nuances of faces are primarily encoded in more distributed networks involving parietal and central/temporal regions.
+
+\section{Superior memory for real faces}
+Our findings align with a growing consensus: real faces are remembered more accurately than artificial ones, even though both are processed as faces. 
+\cite{balas_artificial_2015} found that artificial faces are remembered less efficiently and discriminated slightly worse than real faces, supporting the hypothesis that "out-group" faces, those that are less familiar or realistic, are processed differently.
+Complementing this, \cite{katsyri_those_2018} showed that virtual faces trigger higher false alarm rates, a sign of reduced memory specificity, despite matched visual features and equivalent overall recognition sensitivity. 
+Participants also rated these faces as eerier, highlighting a connection between reduced perceptual expertise and the uncanny valley experience. 
+This suggests that artificial faces engage face-specific processing yet are represented more weakly in memory. 
+\cite{katsyri_amygdala_2020} found that real faces, compared to computer-generated (CG) faces, were associated with poorer performance in an implicit catch trial task. 
+The effect was interpreted as reflecting an involuntary attentional response toward human faces, which are highly familiar and socially salient visual stimuli. 
+The automatic allocation of attention to real faces may have interfered with participants' ability to withhold a motor response until the catch stimulus appeared, as required by the task. 
+This is consistent with our finding that participants performed better on our memory task for real faces than virtual ones.
+Enhancing familiarity through exposure \citep{park_individuals_2021} or increasing realism could help bridge this memory gap. 
+Neuroscientific and evolutionary theories also propose that the human brain includes specialized modules (e.g., the fusiform face area), are highly attuned to natural facial features \citep{burke_evolution_2013}. 
+These modules are refined by experience and optimized for identity recognition, which may not be fully triggered by virtual faces, due to limited exposure or differences in visual features.
+This may signal evolutionary utility in processing real, familiar faces, and why virtual faces, even when perceived as faces, do not engage the same neural mechanisms as real faces.
+
 \section{Limitations and Future Directions}
-\label{sec:limitations}
+This study was the first to use fNIRS to examine neural responses to real versus virtual emotional faces, providing novel insights into how face realism and emotion interact in the brain.
+However, several limitations should be acknowledged.
+First, since we recruited only from Ontario Tech University's undergraduate student body, our sample of students were limited to that relatively young age range and community, and likely are more educated and technologically savvy than the general population.
+This may limit the generalizability of our findings to broader populations, particularly older adults or those with less exposure to virtual characters/avatars.
+As well, many participants did not pass our signal quality checks, due to reasons discussed in \cite{holmes_opening_2024}, such as hair color/texture affecting the signal quality. 
+Additionally, our sample was predominantly female, which may have influenced our results as \cite{weisenbach_reduced_2014} found that females and males may differ in their accuracy and sensitivity when categorizing facial emotions; for example, females have been shown to outperform males in identifying fearful faces.
+\cite{keslerwest_neural_2001} also found men have a differential neural response depending upon the emotion presented. 
+Future studies should include a wider range of participants, ideally representing the general population. 
+
+Second, since the virtual faces used in this study were all from one dataset (UIBVFED), they were all of similar realism and stylization.
+Since \cite{schindler_differential_2017} found that neural responses to virtual faces vary with realism, our findings may not generalize to other virtual face datasets with different levels of realism or stylization. 
+Future work should explore a wider range of virtual face styles and realism levels to better understand how these factors influence neural processing.
 
 \section{Conclusion}
-\label{sec:conclusion}
+The present study investigated how the human brain processes emotional expressions on real and virtual faces, using fNIRS to assess both activation magnitude and functional connectivity. 
+We found that virtual faces elicited greater left occipital activation, suggesting increased perceptual demands, while real faces were associated with stronger distributed connectivity and were recalled more accurately in a memory task.
+Our results showed that neutral and surprise expressions produced the strongest activation, while fear and anger engaged broader neural networks. 
+These findings highlight the complex interplay between face realism and emotion processing, implying that virtual faces, despite being processed as faces, do not engage the same neural mechanisms as real faces, and that emotional expressions are decoded in distributed networks in the brain, rather than isolated regions.
+Future research should explore how different levels of virtual face realism and stylization affect neural responses, and how these differences manifest in virtual social interactions.
