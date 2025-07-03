@@ -56,7 +56,7 @@ fNIRS_Emotions/
 - 10 different identities across 7 emotion categories
 
 ### Virtual Faces  
-- **UIBVFED (University of Bridgeport Virtual Face Expression Database)**: Computer-generated 3D virtual avatars
+- **UIBVFED Database**: Computer-generated 3D virtual avatars
 - Standardized virtual faces with identical facial features displaying the same emotional expressions
 - 7 emotion categories: Anger, Disgust, Fear, Joy, Neutral, Sadness, Surprise
 
@@ -94,16 +94,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Key Dependencies
-
-- **MNE-Python** (1.9.0): Neurophysiological data analysis
-- **MNE-NIRS** (0.7.1): fNIRS-specific analysis tools
-- **NumPy** & **SciPy**: Numerical computations
-- **Pandas**: Data manipulation and analysis
-- **Matplotlib** & **Seaborn**: Data visualization
-- **Scikit-learn**: Machine learning and statistical analysis
-- **Nilearn**: Neuroimaging analysis
-
 ## Key Scripts and Notebooks
 
 - `preprocess_nirs.py`: Main preprocessing pipeline
@@ -112,15 +102,6 @@ pip install -r requirements.txt
 - `generate_tables.ipynb`: Results visualization and table generation
 - `EmotionVR_task.py`: PsychoPy experimental paradigm
 - `coherence_demo.py`: Coherence analysis example
-
-## Results and Outputs
-
-The analysis generates:
-- **Activation Maps**: Brain regions showing differential responses to real vs. virtual faces
-- **Time Series Analysis**: Hemodynamic response functions for different emotion categories
-- **Statistical Reports**: GLM results and connectivity analyses
-- **Behavioral Correlations**: Relationships between neural activity and behavioral responses
-- **Quality Control Reports**: Data quality assessments and preprocessing summaries
 
 ## Publication and Data Availability
 
