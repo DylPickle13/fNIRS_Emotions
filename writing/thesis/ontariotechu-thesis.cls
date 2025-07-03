@@ -464,8 +464,12 @@
   \begin{center}
       \section*{Author's Declaration}
   \end{center}%
-  \begin{adjustwidth}{50pt}{50pt}
-  \noindent I hereby declare that this thesis consists of original work of which I have authored. This is a true copy of the thesis, including any required final revisions, as accepted by my examiners. I authorize the Ontario Tech University to lend this thesis to other institutions or individuals for the purpose of scholarly research. I further authorize the Ontario Tech University to reproduce this thesis by photocopying or by other means, in total or in part, at the request of other institutions or individuals for the purpose of scholarly research. I understand that my thesis will be made electronically available to the public.%
+  \begin{adjustwidth}{10pt}{10pt}
+  \noindent I hereby declare that this thesis consists of original work of which I have authored. This is a true copy of the thesis, including any required final revisions, as accepted by my examiners. 
+
+  I authorize the Ontario Tech University to lend this thesis to other institutions or individuals for the purpose of scholarly research. I further authorize the Ontario Tech University to reproduce this thesis by photocopying or by other means, in total or in part, at the request of other institutions or individuals for the purpose of scholarly research. I understand that my thesis will be made electronically available to the public.
+  
+  The research work in this thesis that was performed in compliance with the regulations of Research Ethics Board under REB Certificate number 17656.%
 
   \vspace{3cm}%
 
@@ -600,7 +604,7 @@
    \begin{center}
       \mbox{}
       \vfill
-      \textsc{\@title}\\
+      \textsc{\textbf{\@title}}\\
       \vfill
       by \\
       \vfill
@@ -614,8 +618,9 @@
       {\bf {\@degree}} in {\bf {\@department}}
       \vfill
       Faculty of {\@faculty}\\
-      Ontario Tech University\\
+      University of Ontario Institute of Technology (Ontario Tech University)\\
       Oshawa, Ontario, Canada\\
+      August {\@gradyear}\\
       \vfill
       {\copyright} {\@author} {\@gradyear}\\
       \vspace{.2in}
@@ -736,11 +741,11 @@
 %% acknowledgements section (*not* on a separate page).
 %% >> Changed in v1.4 on 1998/11/05 by Francois Pitt. << %%
 %
-\newenvironment{acknowledgements}[1]%
+\newenvironment{acknowledgements}%
   {\begin{center}
       \section*{Acknowledgements}
    \end{center}
-   \begingroup\begin{adjustwidth}{0pt}{0pt}}%1
+   \begingroup\begin{adjustwidth}{0pt}{0pt}}%
   {\noindent\par\end{adjustwidth}\endgroup\newpage}
 %
 %% ...\renewcommand{\tableofcontents}...

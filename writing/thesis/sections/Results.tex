@@ -115,10 +115,10 @@ The complete set of functional connectivity contrasts for all emotions can be fo
   \caption*{Functional connectivity results for Fear relative to Anger, Joy, Surprise, and Sadness. (2/2)}
 \end{figure}
 
-A higher level summary of the functional connectivity results for all emotions is shown in Figure \ref{fig:fc_emotion_summary_analysis}, which shows the ratio of significant channels where the $t$-value was positive (red) or negative (blue) for each emotion pair.
-We found a cluster of emotions (Anger, Fear, and Joy) that had much stronger connectivity compared to the other emotions, with Anger and Fear having slightly higher connectivity than Joy.
+To explore higher level patterns in Emotion, we calculated the ratio of significant channels, where the $t$-value was positive (red) or negative (blue) for each emotion pair, as shown in Figure \ref{fig:fc_emotion_summary_analysis}.
+We found a cluster of emotions including Anger, Fear, and Joy, that reported stronger connectivity compared to the other emotions.
+Of these three, Fear $>$ Anger $>$ Joy, where the stronger functional connectivity for fearful and angry expressions suggests a neural prioritization of faces signalling potential threat, consistent with rapid threat-detection mechanisms, lining up with Figure \ref{fig:fc_emotion_analysis}.
 The other emotions (Neutral, Sadness, Surprise) had lower connectivity compared to Anger, Fear, and Joy, with Disgust having higher connectivity than Neutral. 
-This lines up with Figure \ref{fig:fc_emotion_analysis}, which shows that processing Anger and Fear have higher connectivity relative to the other emotions. 
 
 \begin{figure}[H]
   \centering
@@ -129,13 +129,14 @@ This lines up with Figure \ref{fig:fc_emotion_analysis}, which shows that proces
   \label{fig:fc_emotion_summary_analysis}
 \end{figure}
 
-To quantify the degree to which ROI's differed across emotion, significant channels across the brain were summed and plotted as a heatmap (Figure \ref{fig:fc_region_summary_analysis}).
-Two regions, left occipital and right occipital, (marked with an asterisk), produced the least number of significant connections, suggesting that the connectivity within and between these regions are very similar in response to all emotions and that neural indices that differentiate emotion processing likely occur in brain regions outside of visual cortex.  
-Three regions, left central/temporal, left parietal, and right central/temporal (marked with a caret), produced the most number of significant connections, suggesting that these regions are more variable in their connectivity patterns across emotions.
+Next we sought explore higher-order patterns in brain regions connectivity. 
+For this analysis, we generated a count of the number of statistically significant channels per region that differeed across emotion, and plotted as a heatmap as shown in Figure \ref{fig:fc_region_summary_analysis}.
+The left central/temporal, parietal, and right central/temporal regions produced the greatest number of significant connections (marked with a caret), suggesting that these regions are more variable in their connectivity patterns across emotions. 
+In contrast, left and right occipital regions produced the fewest number of significant connections, marked with an asterisk, suggesting that the connectivity within and between these regions are similar in response to all emotions, and that neural indices that differentiate emotion processing likely occur in brain regions outside of the visual cortex.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
+  \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
   \caption[FC: Count of Significantly Different Channel Pairs by ROI]{A heatmap summary of the number of significantly different channel pairs for each ROI summed across all emotions. 
   The color bar on the right shows the number of significant channel pairs for each ROI, with brighter colors indicating a smaller number of significant channel pairs, and darker colors indicating a larger number of significant channel pairs.
   An asterisk (*) was placed on the 3 ROI's with the least number of significantly different channel pairs to indicate that these ROI's are more synchronized with each other than any other pair of ROI's, regardless of the emotion.

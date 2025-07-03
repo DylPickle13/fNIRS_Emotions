@@ -14,7 +14,6 @@ fNIRS inclusion criteria were:
 2) $>$ 70\% of the channels for a single participant were marked as "good". 
 Thirty-five participants failed to meet these criteria, illustrated in Figure \ref{fig:signal_quality}, and were removed prior to data analysis. 
 The final sample consisted of 52 participants (39 females and 13 males, M = 21.62, SD = 6.67, range = 17 to 51). 
-The study was approved by Ontario Tech's Research Ethics Board (REB: 17656). 
 
 \begin{figure}[H]
     \centering
@@ -38,7 +37,10 @@ The study was approved by Ontario Tech's Research Ethics Board (REB: 17656).
 
 \section{Stimuli and apparatus}
 \subsection{Stimuli}
-One hundred and forty images of facial expressions from the RADIATE and UIBVFED datasets were used \citep{conley_racially_2018, oliver_uibvfed_2020}.
+One hundred and forty images of facial expressions from the racially diverse affective expression (RADIATE) and UIBVFED datasets were used \citep{conley_racially_2018, oliver_uibvfed_2020}.
+The RADIATE contains perceptually validated images of racially and ethnically diverse participants, aged 18-30 years old, each expressing 16 different emotions. 
+The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions. 
+The UIBVFED facial expressions were created using blendshapes, a tool that represents and manipulates clusters of facial landmarks similar to that of facial action units (AUs).
 Then adult models (5 males and 5 females) from each dataset were identified and matched between-sets on face shape, sex, skin tone, and hair colour. 
 Images of each model expressing seven emotions (anger, disgust, fear, happiness, sadness, surprise, neutral) were selected. 
 Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman1971constants}.
@@ -61,21 +63,21 @@ Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was ap
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{1\textwidth}
+    \begin{subfigure}[b]{0.69\textwidth}
         \centering
         \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage.png}
-        \caption[Montage depictions]{Depictions of the high density 32x32 optode montage. Red circles represent sources, blue circles represent detectors, the colored lines represent channels, and blue rings around sources represent the locations of the 8 short distance detectors.
-        The colors of the channels represent the regions of interest (ROI's) that the channels were grouped into, see (b) for the corresponding brain region labels.}
+        \caption[Montage depictions]{}
         \label{fig:montage}
     \end{subfigure}
-    \vskip\baselineskip
-    \begin{subfigure}[b]{0.45\textwidth}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
-        \caption[Brain region map for ROI grouping]{Brain region map, showing the regions of interest (ROI's) that the channels were grouped into for certain analyses.}
+        \caption[Brain region map for ROI grouping]{}
         \label{fig:brain_region_map}
     \end{subfigure}
-    \caption[Montage and brain region map]{(a) High density 32x32 optode montage. (b) Brain region map for ROI grouping.}
+    \caption[Montage and brain region map]{(a) Depictions of the high density 32x32 optode montage. Red circles represent sources, blue circles represent detectors, the colored lines represent channels, and blue rings around sources represent the locations of the 8 short distance detectors.
+        The colors of the channels represent the regions of interest (ROI's) that the channels were grouped into. (b) Brain region map, showing the regions of interest (ROI's) that the channels were grouped into for certain analyses.}
     \label{fig:montage_combined}
 \end{figure}
 
@@ -138,7 +140,7 @@ The preprocessing steps for the fNIRS data, as shown in Figure \ref{fig:preproce
 7) Retain only long channels (source-detector distance $>$ 15 mm). Since the short channels have already been regressed out, it is no longer necessary to keep them in the data.
 8) This FIR bandpass filter extracts signal components in the 0.01-0.5 Hz range, it uses a long filter length (2015 samples) with automatically determined transition bandwidths by MNE-Python \citep{pinti_current_2019}. 
 9) Maximizes negative correlation between HbO and HbR \citep{cui_functional_2010}. This method removes spikes, improves contrast-to-noise ratio, and improves spatial specificity of the data.
-10) Add HbT (hemoglobin total) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification \citep{kinder_systematic_2022}. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs \citep{hocke_automated_2018}.
+10) Add HbT (total hemoglobin) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification \citep{kinder_systematic_2022}. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs \citep{hocke_automated_2018}.
 
 Variable length epochs were created for each block of 8 faces, which were 14-18 seconds long (mean = 16s), depending on the ISI's (see \ref{sec:Procedure}).
 Epochs were sorted by Face Type (Real, Virtual), and Emotion (Anger, Disgust, Fear, Happiness, Sadness, Surprise, Neutral), and their interaction.

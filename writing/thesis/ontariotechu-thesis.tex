@@ -139,7 +139,7 @@
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{longtable}
-%\usepackage{refcheck}
+\usepackage{pdfpages}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage[numbers,authoryear]{natbib}
 \usepackage{placeins}
@@ -212,7 +212,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% ***   Change this example to appropriate values.   ***
-\degree{Masters of Science} % Only used when grad option is chosen
+\degree{Master of Science} % Only used when grad option is chosen
 \department{Computer Science}
 \faculty{Science}
 \gradyear{2025}
@@ -271,26 +271,45 @@
 
 %% Certificate of Approval - End
 
-%% This generates the abstract page, with the line spacing adjusted
-%% according to SGS guidelines.
-\addcontentsline{toc}{chapter}{Abstract}
+% This generates the thesis examination information page.
+\addcontentsline{toc}{chapter}{Thesis Examination Information}
+\input{sections/Thesis Examination Information.tex}
 
+% This generates the abstract page, with the line spacing adjusted according to SGS guidelines.
+\addcontentsline{toc}{chapter}{Abstract}
 \begin{abstract}
 \input{sections/Abstract.tex}
 \end{abstract}
 
-\addcontentsline{toc}{chapter}{Acknowledgment}
+%% This generates the author's declaration page.
+\addcontentsline{toc}{chapter}{Author's Declaration}
+\showdeclaration
+
+\addcontentsline{toc}{chapter}{Statement of Contributions}
+\begin{contributions}
+\input{sections/Contributions.tex}
+\end{contributions}
+
+\addcontentsline{toc}{chapter}{Acknowledgments}
 \begin{acknowledgements}
-***   Put your Acknowledgements here.   ***
+\input{sections/Acknowledgements.tex}
 \end{acknowledgements}
 
 \begingroup
 \hypersetup{linkcolor=black}
+\addcontentsline{toc}{chapter}{Table of Contents}
 \tableofcontents
 
+\addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 
+\addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
+
+\addcontentsline{toc}{chapter}{List of Abbreviations and Symbols}
+\chapter*{List of Abbreviations and Symbols}
+\input{sections/Abbreviations.tex}
+
 \endgroup
 
 \end{preliminary}
@@ -302,12 +321,10 @@
 \input{sections/Methodology.tex}
 
 \chapter{Results}
-%\input{sections/Results.tex}
+\input{sections/Results.tex}
 
 \chapter{Discussion}
 \input{sections/Discussion.tex}
-
-% \nocite{*}
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{apalike}
@@ -315,7 +332,7 @@
 
 \appendix
 \addcontentsline{toc}{chapter}{Appendix}
-%\input{sections/Appendix.tex}
+\input{sections/Appendix.tex}
 
 \end{document}
 

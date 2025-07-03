@@ -1,8 +1,8 @@
-Our brains are evolutionarily primed to process faces, as they are crucial for social interactions \citep{powell_social_2018}. 
-A central aspect of this facial perception is the interpretation of emotional expressions, which underpins our interactions as social beings. 
-Emotional expressions provide essential information about an individual's internal state and intentions, allowing us to navigate complex social environments.
-Despite a rich literature examining human emotion perception, it remains unclear how the brain processes these emotional expressions definitively \citep{barrett_are_2006}. 
-This lack of clarity is particularly relevant as our interactions shift increasingly toward digital platforms featuring virtual representations of human faces.
+Our brains appear primed to process faces \citep{johnson_newborns_1991, palmer_face_2020, powell_social_2018}. 
+This privileging of facial information speaks to the face's central role in our social life, conveying information on our identity, intent and affect \citep{sheehan_morphological_2014, cowen_sixteen_2021, willis_first_2006}. 
+Among these signals, emotional expressions are especially consequential, enabling observers to infer the internal states of others and to co-ordinate behaviour in real time.
+However, despite a rich literature on emotion perception, it remains unclear the brain involved in the processing of emotional expressions \citep{barrett_are_2006}. 
+This lack of clarity is particularly relevant as our interactions shift increasingly toward digital platforms featuring virtual representations of human faces. 
 
 There has been a dramatic increase in the use of avatars, computer-generated representations of humans, across a wide range of platforms, including social media, video games, virtual reality (VR), and augmented reality (AR). 
 As interactions with avatars become more prevalent, particularly in applications involving communication and social interaction, their ability to convincingly express human-like emotions has become a subject of growing interest \citep{kegel_dynamic_2020}. 
@@ -17,27 +17,29 @@ To address these questions, this thesis investigates the neural mechanisms under
 
 \section{Facial Emotion Perception}
 Emotion perception involves recognizing social cues such as facial emotional expressions, which is the focus of this thesis.
-Human facial emotion perception has been a central topic in affective neuroscience, with \cite{ekman1971constants} identifying a set of basic emotions that are universally recognized across cultures. 
+Human facial emotion perception has been a central topic in affective neuroscience, having identified a set of basic emotions that are universally recognized across cultures \citep{ekman1971constants}. 
 Ekman proposed six basic emotions: happiness, sadness, anger, fear, disgust, and surprise, with neutral faces serving as a baseline. 
-These emotions are reliably associated with distinct facial configurations, known as the Facial Action Coding System (FACS), developed by \cite{ekman1978facial}, which provides a comprehensive taxonomy of facial muscle movements, known as action units, which underpin the visible expressions of emotion. 
+These emotions are reliably associated with distinct facial configurations, known as the Facial Action Coding System (FACS), which provides a comprehensive taxonomy of facial muscle movements, known as action units, which underpin the visible expressions of emotion \citep{ekman1978facial}. 
 FACS categorizes facial movements into action units (AUs), each corresponding to specific muscle contractions, such as the raising of the eyebrows or the curling of the lips.
-This system has informed both psychological research and the development of synthetic facial expression systems in virtual environments. 
-
-Datasets are crucial for studying facial emotion perception, as they provide standardized stimuli for experimental manipulation and analysis.
-The UIBVFED dataset is an example of a dataset that utilizes blendshapes to represent facial expressions in virtual characters \citep{oliver_uibvfed_2020}. 
-The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions. 
-The UIBVFED facial expressions were created using blendshapes, a tool that represents and manipulates clusters of facial landmarks similar to that of facial action units (AUs).
-The racially diverse affective expression (RADIATE) face stimulus set is another dataset that enables the study of facial emotion perception using real human faces \citep{conley_racially_2018}.
-The RADIATE contains perceptually validated images of racially and ethnically diverse participants, aged 18-30 years old, each expressing 16 different emotions. 
-The validity ratings indicated that the images were accurately perceived as expressing the intended emotions. 
-These datasets provide a rich resource for examining how different facial expressions, whether from real or virtual faces, are processed in the brain.
+Substantial evidence supports the universality and biological roots of these basic emotions. 
+Seminal cross-cultural field studies conducted by in the late 1960s/70s found that preliterate populations in Papua New Guinea reliably recognized and produced the same six expressions identified in Western populations, despite having had no exposure to media \citep{matsumoto_half-century_2022}. 
+These studies used both posed expressions and spontaneous reactions (e.g., watching distressing films), highlighting that these expressions are natural responses rather than learned social habits. 
+While universality is well supported, it is far from the whole story.
+More recent research using advanced computer graphics and mental reconstruction methods has shown that Eastern and Western observers may mentally represent the intensity and specific facial actions of basic emotions differently, with Eastern observers representing emotional intensity with more distinctive dynamic eye activity  \citep{jack_facial_2012}. 
+This leads to the idea of "cultural dialects" in emotional expression, where the core muscular movements are conserved, but cultural nuances in expression and interpretation vary \citep{ruttkay_cultural_2009}. 
+These findings suggest that while the basic emotions and their associated facial expressions are universal, cultural factors influence how these emotions are expressed and perceived.
 
 More recent approaches, however, advocate a constructionist view of emotion. 
-According to \cite{barrett_solving_2006}, emotions are not fixed categories but constructed experiences emerging from the brain's interpretation of internal and external stimuli. 
-\cite{lindquist_brain_2012} argue that emotions arise from distributed and context-sensitive neural activity involving domain-general brain networks rather than discrete, emotion-specific regions.
-This debate has significant implications for avatar perception, if emotions are constructed rather than discrete, then the realism, dynamicity, and context of avatar expressions may critically shape how they are interpreted and processed neurologically.
-There is increasing evidence supporting this involvement of domain-general networks in emotion perception. 
+This constructionist view posits that emotions are not fixed categories, but constructed experiences emerging from the brain's interpretation of internal and external stimuli \citep{barrett_solving_2006}. 
+It argues that emotions arise from distributed and context-sensitive patterns of neural activity involving domain-general brain networks rather than discrete, emotion-specific regions \citep{lindquist_brain_2012}.
+Crucially, behavioral studies show that context routinely shapes emotion perception, not only in ambiguous situations but even when expressions appear prototypical. 
+For example, neutral faces are often experienced as fearful, happy, or sad depending on whether they follow scenes of fear or joy, demonstrating that context significantly biases both valence and categorical interpretation of facial expressions \citep{calbi_how_2017}. 
+Other research shows that emotion labels activate conceptual knowledge, which then guides the integration of facial cues and context before an emotion category is consciously assigned—even for clear, non-ambiguous expressions \citep{brooks_conceptual_2018}.
+This influence of context is automatic and difficult to suppress, even when participants are explicitly told to ignore contextual cues, or while performing a secondary cognitive task, context continues to shape how they perceive facial emotions \citep{aviezer_automaticity_2011}. 
+Moreover, cultural and individual differences in conceptual knowledge affect how expressions are interpreted \citep{lee_context_2012}. 
+These behavioral and perceptual studies bolster the constructionist claim that emotions are actively constructed by integrating contextual and conceptual information, not simply "read" from invariant facial signals. 
 
+There is increasing evidence supporting this involvement of domain-general networks in emotion perception. 
 While multivariate pattern analysis (MVPA) studies have shown that both localized and distributed neural patterns can predict emotional states \citep{kragel_decoding_2016}, findings remain inconsistent, especially in the prefrontal cortex (PFC) \citep{westgarth_systematic_2021, bendall_brief_2016}.
 Some fNIRS studies report increased PFC activation during facial emotion recognition (e.g., in the ventral and medial PFC), others find decreased or no significant changes in oxygenated hemoglobin (HbO) levels.
 Even studies using similar facial expression tasks report varying activation patterns depending on the specific emotion or cortical region involved. 
@@ -47,28 +49,35 @@ These findings underscore the complexity of emotion processing and highlights th
 
 \section{Real vs. Virtual (Avatar) Face Perception}
 The increasing use of avatars has raised questions about how their facial expressions compare to real human faces.
-\cite{garcia_design_2020} designed avatar facial expressions using the FACS that were validated by human observers, demonstrating the efficacy of using FACS-based design principles to create reliable virtual human facial expressions.
+Avatars can be designed to mimic human facial expressions using the FACS, which demonstrates the efficacy of using FACS-based design principles to create reliable virtual human facial expressions \citep{garcia_design_2020}.
 Studies have shown that expressions of happiness, anger, fear, and other basic emotions can be accurately interpreted from both static and dynamic virtual avatars \citep{de_paolis_perception_2015, dyck_recognition_2008}.
 However, in some cases, avatars may convey emotional expressions more or less effectively than real human faces. 
-\cite{dyck_recognition_2008} found that while disgust was challenging to convey using current avatar technology, virtual expressions of sadness and fear were recognized more accurately than their natural face counterparts.
-\cite{hortensius_perception_2018} provides guiding principles for designing avatars that can effectively convey emotional expressions, and found people are generally less accurate at recognizing emotions from robotic faces compared to human faces. 
+Disgust is particularly challenging to convey using current avatar technology, while it has been found that virtual expressions of sadness and fear are recognized more accurately than their natural face counterparts \citep{dyck_recognition_2008}.
+There are guiding principles for designing avatars that can effectively convey emotional expressions as well as real faces, as it has been found that people are generally less accurate at recognizing emotions from robotic faces compared to human faces \citep{hortensius_perception_2018}.
 However, virtual agents can be as effective as humans in conveying emotions, particularly when their facial muscle movements are clearly depicted.
 This work highlights the potential for avatars to convey facial/emotional expressions effectively, but it also raises questions about how these virtual faces are processed in the brain compared to real human faces.
 
 A growing body of affective and cognitive neuroscience research suggests that virtual faces, while often processed like real faces, can still elicit distinct neural responses due to differences in perceived authenticity, dynamicity, and realism.
-\cite{de_borst_is_2015} note that since humans are highly attuned to perceiving real human faces, viewing avatars may engage different perceptual and neural processes, potentially leading to altered brain activity. 
-For instance, \cite{kegel_dynamic_2020} demonstrated that fearful human expressions elicited significantly stronger neural responses than fearful avatar expressions in regions including the posterior and anterior superior temporal sulcus, anterior insular cortex, posterior cingulate cortex, and ventral anterior cingulate cortex, with particularly strong effects observed in both the left and right superior temporal sulcus and inferior frontal gyrus. 
+Since humans are highly attuned to perceiving real human faces, viewing avatars may engage different perceptual and neural processes, potentially leading to altered brain activity \citep{de_borst_is_2015}. 
+For instance, fearful human expressions elicit significantly stronger neural responses than fearful avatar expressions in regions including the posterior and anterior superior temporal sulcus, anterior insular cortex, posterior cingulate cortex, and ventral anterior cingulate cortex, with particularly strong effects observed in both the left and right superior temporal sulcus and inferior frontal gyrus \citep{kegel_dynamic_2020}. 
 In contrast, neutral human and avatar expressions did not differ significantly.
-An EEG study by \cite{sollfrank_effects_2021} used the same dynamic stimuli as \cite{kegel_dynamic_2020} and found that the avatar faces elicited significantly stronger reactions than the real faces for theta and alpha oscillations.
-\cite{park_individuals_2021} found that observers' responses to avatar facial expressions are modulated by the degree to which the avatar resembles their own appearance and habitual expressions.
+Using EEG, and the same dynamic stimuli as \cite{kegel_dynamic_2020}, it was found that avatar faces elicit significantly stronger reactions than the real faces for theta and alpha oscillations \citep{sollfrank_effects_2021}.
+This may be affected by the degree to which the avatar resembles the observer's own appearance and habitual expressions, as observers' responses to avatar facial expressions are modulated by the degree to which the avatar resembles their own appearance and habitual expressions \citep{park_individuals_2021}.
 It is important to note, findings from studies using avatars and those using real human faces may not always be directly comparable and should be interpreted cautiously. 
 
 These perceptual discrepancies may partially stem from the so-called "uncanny valley" phenomenon \citep{mori_uncanny_2012}, wherein highly realistic but imperfect virtual faces evoke a sense of unease or cognitive dissonance in observers. 
-\cite{katsyri_testing_2017} empirically tested this hypothesis using semirealistic computer-animated film characters and found that characters perceived as more realistic were rated as more 'eerie', compared to the more cartoonish characters. 
+When watching semirealistic computer-animated film characters, it was found that characters perceived as more realistic were rated as more 'eerie', compared to more cartoonish characters \citep{katsyri_testing_2017}. 
 The N170 is an event-related potential (ERP) component, commonly investigated in EEG studies, that is typically observed over occipitotemporal scalp regions and is associated with the early perceptual processing of faces.
-\cite{chen_realness_2024} found a non-linear modulation of EEG responses to the realness of face images, suggesting that the brain's processing of facial stimuli is sensitive to their perceived authenticity.
-Similarly, \cite{schindler_differential_2017} tested six face-stylization levels varying from abstract to realistic and found that the N170 was generated more occipitally for abstract/virtual faces than for real faces. 
+There is a non-linear modulation of EEG responses to the realness of face images, suggesting that the brain's processing of facial stimuli is sensitive to their perceived authenticity \citep{chen_realness_2024}.
+This sensitivity to realism is further supported by findings that the N170 component is modulated by the degree of realism in facial expressions, as across six face-stylization levels ranging from abstract to realistic, it was found that the N170 was generated more occipitally for abstract/virtual faces than for real faces \citep{schindler_differential_2017}.
 These findings suggest that small deviations from typical human facial expressions can lead to altered neural processing. 
+
+Despite the rich EEG and fMRI evidence, there remains a notable gap in our understanding when it comes to fNIRS. 
+To date, only a handful of studies have utilized fNIRS in avatar emotion research, and these have typically focused on bodily expressions (e.g., expressive gait), not facial emotion processing. 
+For instance, cortical responses to emotional body movements expressed by faceless avatars were examined, revealing increased HbO in occipito-temporal and temporo-parietal areas, especially in response to negative emotions, during tasks requiring conscious emotion recognition \citep{schneider_show_2014}. 
+The only study to examine facial emotion processing in avatars used fMRI, dynamic stimuli, and only utilized two emotions, fear and neutral \citep{kegel_dynamic_2020}. 
+Since there is an absence of fNIRS-based studies of facial emotional perception in avatar form, this thesis aims to fill this gap by investigating how the brain processes emotional expressions in both real and virtual faces using fNIRS.
+We examine the differences across the full set of basic emotions, not just fear and neutral, and use virtual static facial expressions to allow for a more controlled comparison with static real faces.
 
 \section{Functional Near-Infrared Spectroscopy (fNIRS)}
 fNIRS is a non-invasive neuroimaging technique that measures brain activity by detecting changes in Blood Oxygenation Level Dependent (BOLD) signals, which are associated with neural activity, similar to functional magnetic resonance imaging (fMRI).
@@ -81,67 +90,31 @@ Its spatial resolution is also lower than fMRI's, and signal quality can be infl
 Beyond systemic noise, fNIRS signals can also be affected by light in the recording environment and interference from participant hair; these issues can be minimized through careful preparation and room setup.
 These limitations are mitigated through methodological refinements, such as high-density optode arrangements, short-separation channels \citep{scholkmann_measuring_2014}, and motion correction techniques \citep{fishburn_temporal_2019, bergmann_evaluation_2023}. 
 
-Analysis methods such as the General Linear Model (GLM), and functional connectivity metrics allows for the identification of distributed activation/connectivity patterns within the cortical regions accessible to fNIRS.
-In standard fNIRS analyses, brain activation is often assessed using a general linear model (GLM), where the experimental design (modeled as a boxcar or impulse function) is convolved with a canonical hemodynamic response function (HRF) to estimate stimulus-evoked responses in cortical regions \citep{tak_statistical_2014}.
-Since fNIRS data tends to be noisy, correlated with physiological signals, is not independent across channels, and is non-uniformly distributed, the GLM is suited for analyzing fNIRS data due to its ability to deal with this noise \citep{huppert_commentary_2016}. 
-The GLM can then be used to estimate the activation of specific brain channels/regions in response to different stimuli, and to contrast these activations across conditions, such as real versus virtual faces or different emotional expressions.
-While the GLM measures activation in specific channels, functional connectivity analysis examines the temporal correlations between different brain regions, providing insights into how these regions interact during emotional processing.
+In analyzing our fNIRS data, we focused on two complementary approaches: the General Linear Model (GLM) and functional connectivity.
+The GLM is concerned with the magnitude of brain responses in specific regions, i.e., how much a brain area "lights up" during a task, whereas functional connectivity looks at the relationship between different brain regions over time, regardless of their absolute activation levels.
+These methods provide a comprehensive view of how the brain processes emotional expressions, both in terms of localized activation and the interactions between different regions.
+
+We used the GLM to estimate cortical activation in response to emotional facial expressions.
+In this approach, the task design (e.g., when a participant sees a face) is modeled using a boxcar or impulse function and convolved with a canonical hemodynamic response function (HRF), producing a predictor of the expected signal.
+The GLM then estimates how well this model fits the actual fNIRS signal, allowing us to identify brain regions that responded to different conditions \citep{tak_statistical_2014}.
+This approach is particularly well-suited to fNIRS data, which is often noisy, correlated across channels, and influenced by physiological rhythms.
+The GLM helps to account for these complexities and isolate condition-specific activation \citep{huppert_commentary_2016}.
+We used the GLM to compare brain responses across emotional categories (e.g., anger, happiness), between real and virtual facial expressions, and their interaction.
+
+In addition to activation analysis, we examined functional connectivity, which allowed us to explore how different brain regions process these faces and emotions in relation to each other.
+Unlike the GLM, which focuses on localized activity, functional connectivity examines temporal correlations between signals across channels.
 Functional connectivity can be assessed using various methods, including coherence, phase-slope index, and Granger causality \citep{bastos_tutorial_2016}.
-The most common method for fNIRS functional connectivity analysis is the Wavelet transform coherence (WTC), having been employed in 90 fNIRS studies \citep{hakim_quantification_2023}. 
-WTC is calculated by convolving the signals with a wavelet function, such as the Morlet wavelet. 
-WTC measures the strength of shared frequency components between signals in the time-frequency domain, allowing for the assessment of how connectivity patterns change over time, a key advantage when analyzing non-stationary physiological signals from fNIRS. 
-Additionally, WTC can detect both in-phase and out-of-phase relationships between channels, which is particularly valuable for distinguishing neural signals from physiological noise from fNIRS recordings.
+We focused on Wavelet Transform Coherence (WTC), which is the most commonly used method in fNIRS connectivity research, having been used in at least 90 studies to date \citep{hakim_quantification_2023}.
+WTC involves convolving the fNIRS signal with a wavelet function (such as the Morlet wavelet) to assess the strength and phase relationship of shared frequency components between brain regions in the time-frequency domain.
+This is particularly useful for fNIRS, where signals are non-stationary and vary across time.
+WTC enabled us to detect both in-phase and out-of-phase relationships between channels, helping us distinguish genuine neural connectivity from systemic noise.
+This method allows us a different perspective on how the brain processes emotional expressions, focusing on the relationships between regions independent of the magnitude of their activation.
 
 \section{Objectives and Hypotheses}
-This thesis aims to investigate the neural differences in how humans perceive emotional expressions in real versus virtual faces. 
-We used fNIRS to measure brain activation and functional connectivity while participants viewed both real and virtual faces expressing various emotions.
-We hypothesize that 1) there will be significant differences in activation patterns and functional connectivity profiles when comparing virtual faces to real faces, 
-2) different emotional expressions will elicit distinct activation patterns and functional connectivity profiles. 
-We have no a priori predictions regarding the specific nature of these differences, as they may vary based on the emotional content and the realism of the faces.
-To date, no study has employed a fully crossed factorial design that systematically examines all basic emotions across both real and virtual face types within a single experiment, particularly using fNIRS. 
-Most prior research has concentrated on a limited subset of emotions (typically fear or anger) and often only with avatars. 
-As a result, our understanding of the interaction between emotion type and face realism remains incomplete across the full range of basic emotions.
-In doing so, this research contributes to the broader understanding of emotional cognition in the age of digital interaction and informs the design of emotionally expressive avatars for applications in education, mental health, and human-computer interaction.
-
-Critically, fNIRS demonstrates strong sensitivity to the prefrontal cortex (PFC), a region heavily implicated in the perception, interpretation, and regulation of emotion \citep{westgarth_systematic_2021, bendall_brief_2016}.
-Although prior studies have examined facial emotion perception and avatar realism independently, few have explored their interaction within the same neuroimaging paradigm. 
-Even fewer studies have employed fNIRS to do so. 
-To our knowledge, no existing research has directly compared neural responses to emotional expressions in real versus virtual faces using a within-subject fNIRS design. 
-This gap limits our understanding of how face realism and emotion interact to shape cortical activation patterns and functional connectivity during social perception. 
-Addressing this gap will provide insights into how digital representations of human emotion are processed and perceived in the brain.
-
-% \begin{itemize}
-%     \item Dynamic human and avatar facial expressions elicit differential brain responses \citep{kegel_dynamic_2020}
-%     \item Design of reliable virtual human facial expressions and validation by healthy people \citep{garcia_design_2020}
-%     \item Individual's Social Perception of Virtual Avatars Embodied with Their Habitual Facial Expressions and Facial Appearance \citep{park_individuals_2021}
-%     \item Is it the real deal? Perception of virtual characters versus humans: an affective cognitive neuroscience perspective \citep{de_borst_is_2015}
-%     \item Testing, explaining, and exploring models of facial expressions of emotions \citep{snoek_testing_2023}
-%     \item Realness of face images can be decoded from non-linear modulation of EEG responses \citep{chen_realness_2024}
-%     \item Testing the ‘uncanny valley’ hypothesis in semirealistic computer-animated film characters: An empirical evaluation of natural film stimuli \citep{katsyri_testing_2017}
-%     \item Recognition Profile of Emotions in Natural and Virtual Faces \citep{dyck_recognition_2008}
-%     \item The Perception of Emotion in Artificial Agents \citep{hortensius_perception_2018}
-%     \item The Effects of Dynamic and Static Emotional Facial Expressions of Humans and Their Avatars on the EEG: An ERP and ERD/ERS Study \citep{sollfrank_effects_2021}
-%     \item Perception of Basic Emotions from Facial Expressions of Dynamic Virtual Avatars \citep{de_paolis_perception_2015}
-% \end{itemize}
-% \begin{itemize}
-%     \item MNE-NIRS: \citep{luke_analysis_2021}
-%     \item Fisher's z transform: \citep{miranda_de_sa_coherence_2009}
-%     \item Results differ when only one hemoglobin species is used \citep{hocke_automated_2018}
-%     \item MNE: \citep{gramfort_meg_2013}
-%     \item SCI: \citep{hernandez_nirsplot_2020}, \citep{pollonini_phoebe_2016}
-%     \item fNIRS problems: \citep{holmes_opening_2024}
-%     \item fNIRS only uses one hemoglobin species \citep{kinder_systematic_2022}
-%     \item fNIRS signal quality measure: \citep{bulgarelli_growth_2025}
-%     \item Beer-Lambert law: \citep{kocsis_modified_2006}
-%     \item fNIRS preprocessing: Negative correlation \citep{cui_functional_2010}, TDDR: \citep{fishburn_temporal_2019}, Filtering: \citep{cui_functional_2010}, and SDCs: \citep{pinti_current_2019}
-%     \item SDC's: \citep{scholkmann_measuring_2014, tachtsidis_false_2016}
-%     \item GLM: SPM \citep{friston_statistical_2007}
-%     \item Functional connectivity review \citep{bastos_tutorial_2016}
-%     \item Wavelet transform review \citep{hakim_quantification_2023}
-%     \item More Wavelet: \citep{reddy_evaluation_2021, xu_functional_2017}
-%     \item FC study fMRI: \citep{hu_characterizing_2023}
-%     \item Morlet Wavelet for artifact detection \citep{bergmann_evaluation_2023}
-%     \item statsmodels: \citep{seabold2010statsmodels}
-%     \item FDR correction: \citep{singh_exploring_2006}
-%     \item Statistical analysis of fNIRS data: A comprehensive review \citep{tak_statistical_2014}
-% \end{itemize}
+Critically, functional near-infrared spectroscopy (fNIRS) demonstrates strong sensitivity to the PFC, a brain region heavily implicated in the perception, interpretation, and regulation of emotion \citep{westgarth_systematic_2021, bendall_brief_2016}. 
+Although prior studies have independently examined facial emotion perception and avatar realism, very few have explored their interaction within the same neuroimaging paradigm, and even fewer have used fNIRS to do so. 
+To our knowledge, no existing research has directly compared neural responses to emotional expressions in real versus virtual faces using a fully crossed, within-subject fNIRS design that systematically examines all basic emotions. 
+This gap limits our understanding of how face realism and emotion interact to shape cortical activation patterns and functional connectivity during social perception.
+Accordingly, this thesis hypothesizes that: (1) there will be significant differences in brain activation patterns and functional connectivity profiles when viewing virtual faces compared to real faces, and (2) distinct emotional expressions will elicit unique neural activation and connectivity patterns. 
+Given the novelty of this approach and the full range of emotions considered, we do not make specific a priori predictions about the exact nature of these differences, as they may vary based on emotional content and face realism. 
+Addressing this gap will deepen our understanding of emotional cognition in the digital age and inform the design of emotionally expressive avatars for applications in education, mental health, and human-computer interaction.
