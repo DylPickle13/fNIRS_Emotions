@@ -88,6 +88,14 @@ A full-factorial Face-type (2 levels: Real, Virtual) \texorpdfstring{$\times$}{x
 Stimuli were blocked and counterbalanced by Face-type and Emotion. 
 Within each of the 56 Face-type-Emotion Blocks, participants were presented with 8 distinct model faces (4 male, 4 female).
 
+\subsection{Planned analyses and preregistration}
+This project was preregistered on the Open Science Framework before any data were collected (OSF DOI: \href{https://doi.org/10.17605/OSF.IO/76Q8W}{10.17605/OSF.IO/76Q8W}).
+The preregistration document, time-stamped on 2 February 2024, specifies the study design, sampling plan, variables, and analysis plan.
+By making the protocol public, we aimed to reduce analytic flexibility, enhance reproducibility, and enable independent verification of all planned and exploratory analyses.
+Several elements of the preregistration were intentionally deferred or modified in the present thesis. 
+First, although the OSF protocol outlines a linear mixed-effects model (LMM), those analyses were always earmarked for publication in a journal paper and are therefore not reported here. 
+Second, the preregistered exploratory machine-learning (ML/AI) classifiers that were intended to decode Face-type and Emotion from multivariate HbT patterns, were not implemented due to time constraints and will be pursued in future work.  
+
 \subsection{Procedure}
 \label{sec:Procedure}
 Following consent and briefing, participant head size was measured and a size-appropriate fNIRS cap fitted. 
@@ -120,7 +128,7 @@ Participation in the experiment took approximately 35 minutes.
 All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) \citep{gramfort_meg_2013} and MNE-NIRS (version 0.7.1) \citep{luke_analysis_2021}, which used the Nilearn package (version 0.9.2). 
 Data were analyzed with a General Linear Model (GLM), followed by a functional connectivity analysis.
 The memory task was analyzed in Python using the statsmodels package (version 0.14.4) \citep{seabold2010statsmodels}. 
-The data generated during this study has been made publicly available on the Open Science Framework (OSF) \href{https://osf.io/d7bzp/?view_only=f5a96f051edb4e768c5e4461699ef1ce}{here}. 
+The data generated during this study has been made publicly available on the Open Science Framework: (\href{https://osf.io/d7bzp/?view_only=f5a96f051edb4e768c5e4461699ef1ce}{https://osf.io/d7bzp/?view\_only=f5a96f051edb4e768c5e4461699ef1ce}). 
 
 \subsection{fNIRS preprocessing}
 \label{sec:preprocessing}

@@ -1,4 +1,4 @@
-# Neural Mechanisms in Processing of Emotion in Real and Virtual Faces using fNIRS
+# Neural mechanisms in processing of emotion in real and virtual faces using functional-near infrared spectroscopy (fNIRS)
 
 ## Overview
 
@@ -6,7 +6,12 @@ This repository contains the code and data processing pipeline for a Master's th
 
 ## Abstract
 
-This research examines the neural correlates of emotion recognition across different stimulus modalities (real vs. virtual faces) using fNIRS neuroimaging. The study provides insights into how the human brain processes emotional information in both natural and virtual environments, with implications for virtual reality applications, human-computer interaction, and understanding of emotion processing mechanisms.
+As avatars permeate social media, gaming, and telecommunications, understanding how the brain reads emotions from virtual faces is increasingly important. 
+We recorded functional near-infrared spectroscopy (fNIRS) data from adults viewing real photographs and matched computer-generated faces expressing Anger, Disgust, Fear, Joy, Sadness, Surprise, or Neutral (control). 
+General-linear-model mapping revealed higher activation in virtual faces in the left occipital region, and higher activation in Neutral and Surprise compared to the other emotions in parietal and occipital regions. 
+Functional-connectivity analysis revealed higher connectivity in real faces across the brain, and higher connectivity across the brain in Anger and Fear compared to the other emotions. 
+Collectively, the results demonstrate differences in activation in occipital areas, and differential processing of face and emotion types across the whole brain.  
+These neural signatures provide quantitative targets for refining the realism and emotional efficacy of digital characters in virtual and augmented environments.
 
 ## Project Structure
 
@@ -65,7 +70,6 @@ fNIRS_Emotions/
 - **Participants**: 91 participants (P_1 to P_91)
 - **fNIRS System**: NIRx system with multiple wavelengths
 - **Sampling Rate**: ~6.1 Hz
-- **Experimental Paradigm**: Block design with emotional face viewing tasks
 - **Data Format**: SNIRF (Shared Near Infrared Spectroscopy Format) standard
 
 ## Installation
