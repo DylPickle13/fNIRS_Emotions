@@ -9,9 +9,9 @@
 \usepackage{bookmark}
 \usepackage[numbers]{natbib}
 
-%\setbeameroption{hide notes} % Only slides
+\setbeameroption{hide notes} % Only slides
 %\setbeameroption{show only notes} % Only notes
-\setbeameroption{show notes on second screen=right} % Both
+%\setbeameroption{show notes on second screen=right} % Both
 \setbeamertemplate{footline}[frame number]
 
 \setbeamercolor{note page}{bg=white,fg=black}
@@ -187,10 +187,16 @@
 \begin{frame}
     \frametitle{Methodology}
     \framesubtitle{fNIRS Data Acquisition}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage.png}
-    \end{figure}
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Montage.png}
+        \end{column}
+        \begin{column}{0.34\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Brain Region Map.png}
+        \end{column}
+    \end{columns}
     \begin{itemize}
         \small
         \item Montage of fNIRS cap, which shows the placement of the optodes on the scalp.
@@ -260,9 +266,9 @@
         \small
         \item Create a design matrix where each column represents one type of event/condition. 
         \item For each stimulus column, you mark onset/offset times and then “stretch” those into the shape of a typical blood-flow response. 
-        \item This gives you a set of predicted response patterns—one for each condition—that you'll try to match to your actual fNIRS recordings.
+        \item This gives you a set of predicted response patterns for each condition, that you'll try to match to your actual fNIRS recordings.
         \begin{center}
-            \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Sample Design Matrix.png}
+            \includegraphics[width=0.59\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Sample Design Matrix.png}
         \end{center}
         \item We then find a set of $\beta$-values (using OLS), that tell you how big the brain's blood-flow response was for each event type. 
         \item A higher $\beta$-weight means a stronger activation associated with that stimulus in that channel.
@@ -273,7 +279,7 @@
             \item To do this, we create a design matrix where each column represents one type of event or condition, such as real faces or virtual faces.
             \item For each stimulus column, we mark the onset/offset times of the event and then stretch those into the shape of a typical blood-flow response.
             \item This is the start/end of blocks of faces that the participants saw.
-            \item This gives us a set of predicted response patterns—one for each condition—that we will try to match to our actual fNIRS recordings.
+            \item This gives us a set of predicted response patterns for each condition, that we will try to match to our actual fNIRS recordings.
             \item We then find a set of $\beta$-values (using Ordinary Least Squares), that tell us how big the brain's blood-flow response was for each event type.
             \item Higher $\beta$-weights means stronger activation in that channel associated with that stimulus.
         \end{itemize}
@@ -284,23 +290,23 @@
     \frametitle{Analyses}
     \framesubtitle{Functional Connectivity (FC)}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.39\textwidth}
             \begin{itemize}
                 \small
                 \item \textbf{Functional connectivity (FC)} describes how blood-flow signals from different brain regions fluctuate together over time, showing which areas of the brain are working in sync.
-                \item We apply a continuous wavelet transform (CWT) using a Morlet wavelet focused on the 0.2-0.5 Hz band.
-                \item The CWT gives us coherence scores (ranging from 0 to 1) for frequencies within that band. 
             \end{itemize}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.6\textwidth}
             \begin{figure}
-                \centering
-                \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/conditions/face_type_Real_con.png}
+                  \centering
+                    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/fNIRS Coherence Example.png}
             \end{figure}
         \end{column}
     \end{columns}
     \begin{itemize}
         \small
+        \item We apply a continuous wavelet transform (CWT) using a Morlet wavelet focused on the 0.2-0.5 Hz band.
+        \item The CWT gives us coherence scores (ranging from 0 to 1) for frequencies within that band. 
         \item In summary, by looking at how similar these averaged coherence values are between every pair of regions over time, we can see which brain areas synchronize their activity under different conditions.
     \end{itemize}
     \note[frame]{
@@ -310,7 +316,6 @@
             \item To do this, we use a tool called continuous wavelet transform (CWT), which helps us zoom in on specific brain activity patterns in a certain range (0.2-0.5 Hz). 
             \item The CWT gives us scores between 0 and 1, where 1 means two brain areas are perfectly synchronized, and 0 means they are not at all synchronized.
             \item By averaging these scores across participants, we can see which brain areas are most connected and how this changes depending on the condition (e.g., real vs. virtual faces).
-            \item This is an example of the FC for the real face condition, each of the 103 channels is connected to every other channel, and the brighter the line, the more synchronized the neural activity is between those two channels.
         \end{itemize}
     }
 \end{frame}
@@ -426,7 +431,7 @@
     \framesubtitle{Emotional Faces}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/emotion_contrast_heatmap.png}
+        \includegraphics[width=0.6\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/emotion_contrast_heatmap.png}
     \end{figure}
     \begin{itemize}
         \small
@@ -470,12 +475,12 @@
     \framesubtitle{Emotional Faces}
     \begin{figure}
         \centering
-        \includegraphics[width=0.75\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
+        \includegraphics[width=0.65\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
     \end{figure}
     \begin{itemize}
         \small
         \item Count of significantly different channel pairs by region.
-        \item The 3 regions with the most similarities in connectivity are marked with asterisks, which are all occipital regions.
+        \item The 3 regions with the most similarities/differences in connectivity are marked with asterisks/carets respectively.
     \end{itemize}
     \note[frame]{
         \begin{itemize}

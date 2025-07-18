@@ -221,7 +221,7 @@ Given the large number of channel-pair tests, and similar to the GLM analysis ab
 \subsubsection{ROI Chord Plots}
 To distill high-dimensional channel-by-channel connectivity into interpretable inter-regional summaries, we mapped individual fNIRS channels onto anatomically defined ROI's. 
 This includes left and right frontal, central/temporal, parietal, occipital regions of the brain as shown in Figure \ref{fig:brain_region_map}, and the channels were grouped into these regions based on their location in the montage.
-Since multiple channels may map to the same pair of regions (e.g., several left central/temporal channels connecting to several right occipital channels), we calculated the sum of all signicant channel-pair connections for each ROI pair (separately for positive and negative $t$-values). 
+Since multiple channels may map to the same pair of regions (e.g., several left central/temporal channels connecting to several right occipital channels), we calculated the sum of all significant channel-pair connections for each ROI pair (separately for positive and negative $t$-values). 
 We then subtracted the negative sum from the positive sum, resulting in a single integer representing the net connectivity which was positive if the positive connections outweigh the negative ones, and vice versa.
 We then took the top 15\% percentile of each net connectivity value, and set the rest to zero, to show only the strongest connections between regions.
 The lines were then plotted using a chord diagram, with the line color indicating the direction of the net connectivity (positive or negative), and the line width indicating the magnitude of the net connectivity (the absolute value of the net connectivity).
