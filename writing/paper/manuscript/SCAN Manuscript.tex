@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[authoryear]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{float}
+\usepackage{placeins}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Emotion perception in Real/Virtual Faces}
+\lhead{Dylan Rapanan}
+\cfoot{\thepage}
+
+\title{The Brain knows what's Real: an fNIRS study on processing Emotions on Real and Virtual Faces}
+\author{Dylan Rapanan}
+
+\begin{document}
+\maketitle
+
+\input{sections/Abstract.tex}
+\input{sections/Introduction.tex}
+\input{sections/Pilot.tex}
+\input{sections/Methodology.tex}
+\input{sections/Results.tex}
+\input{sections/Discussion.tex}
+\input{sections/Conclusion.tex}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apalike}
+\bibliography{thesis}
+
+\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+\input{sections/Appendix.tex}
+
+\end{document}

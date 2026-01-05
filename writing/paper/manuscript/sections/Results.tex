@@ -1,0 +1,84 @@
+\section{Results}
+\subsection{Responses to real and virtual faces}
+\label{sec:real_virtual_results}
+A main effect of Face type was reported for the GLM, with pairwise contrasts revealing greater activation for virtual faces compared to real faces. 
+The contrast comparing functional connectivity profiles in response to real versus virtual faces revealed significant differences in connectivity across the brain. 
+Processing real faces was associated with stronger connectivity predominantly between the left to right parietal, left frontal to left parietal, left central/temporal to left parietal, left central/temporal to right parietal, and the right central/temporal to left parietal regions, whereas processing virtual faces was associated with only slightly stronger connectivity between the left central/temporal to right frontal region. 
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/glm/contrasts/differences/Contrast_Real-Virt.png}
+    \caption{GLM contrast between real and virtual conditions which shows the differences in activation between the two conditions.}
+    \label{fig:glm_real_vs_virtual}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/chord_plots/group_level_t_tests_roi/face_type_Real_Virt.png}
+    \caption{Functional connectivity results for the contrast between real and virtual conditions.}
+    \label{fig:fc_real_vs_virtual}
+  \end{subfigure}
+  \caption{In (a), red signifies that condition 1 (real faces) has more activation in that area than condition 2 (virtual faces), while blue signifies that condition 2 (virtual faces) has more activation than condition 1 (real faces).
+      The color bar on the right shows the coefficient of the contrast, which indicates the strength of the difference in activation between the two conditions.
+      In (b), the thickness of the lines represents the difference in the count of significantly different channel pairs between the two conditions. 
+      A red line signifies that real faces had more significant channels between those two ROI's where the $t$-value was positive, while a blue line signifies that virtual faces had more significant channels between those two ROI's where the $t$-value was negative.
+      For clarity, only the top 15th percentile of connections (those with the most significant different channel pairs) are displayed for all functional connectivity contrasts.}
+  \label{fig:real_vs_virtual_combined}
+\end{figure}
+
+\subsection{Connectivity profiles of facial emotion}
+\label{sec:fc_emotion_results}
+To explore higher level patterns in Emotion, we calculated the ratio of significant channels, where the $t$-value was positive (red) or negative (blue) for each emotion pair, as shown in Figure \ref{fig:fc_emotion_summary_analysis}.
+We found a cluster of emotions including Anger, Fear, and Joy, that reported stronger connectivity compared to the other emotions.
+Of these three, Fear $>$ Anger $>$ Joy, where the stronger functional connectivity for fearful and angry expressions suggests a neural prioritization of faces signalling potential threat, consistent with rapid threat-detection mechanisms.
+The other emotions (Neutral, Sadness, Surprise, Disgust) had lower connectivity compared to Anger, Fear, and Joy, with Disgust having higher connectivity than Neutral. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/emotion_contrast_circle_plot.png}
+  \caption[FC: Summary of Contrasts by Emotion Pair]{A heatmap summary of the functional connectivity results for the contrasts between different emotions across ROI's. 
+  Red signifies that emotion 1 had a higher ratio of significant channels where the $t$-value was positive, while blue signifies that emotion 2 had a higher ratio of significant channels where the $t$-value was negative.
+  The ratio was calculated by taking the difference of the count of significant channels where the $t$-value was positive and the count of significant channels where the $t$-value was negative, and dividing it by the total number of significant channels for that emotion pair.
+  The size of the circles represents the total number of significant channels for that emotion pair. }
+  \label{fig:fc_emotion_summary_analysis}
+\end{figure}
+
+Next we sought to explore higher-order patterns in brain regions connectivity. 
+For this analysis, we generated a count of the number of statistically significant channels per region that differed across emotion, and plotted as a heatmap as shown in Figure \ref{fig:fc_region_summary_analysis}.
+The left central/temporal, parietal, and right central/temporal regions produced the greatest number of significant connections (marked with a caret), suggesting that these regions are more variable in their connectivity patterns across emotions. 
+In contrast, left and right occipital regions produced the fewest number of significant connections, marked with an asterisk, suggesting that the connectivity within and between these regions are similar in response to all emotions, and that neural indices that differentiate emotion processing likely occur in brain regions outside of the visual cortex.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/region_contrast_heatmap.png}
+  \caption[FC: Count of Significantly Different Channel Pairs by ROI]{A heatmap summary of the number of significantly different channel pairs for each ROI summed across all emotions. 
+  The color bar on the right shows the number of significant channel pairs for each ROI, with brighter colors indicating a smaller number of significant channel pairs, and darker colors indicating a larger number of significant channel pairs.
+  An asterisk (*) was placed on the 3 ROI's with the least number of significantly different channel pairs to indicate that these ROI's are more synchronized with each other than any other pair of ROI's, regardless of the emotion.
+  A caret (\textasciicircum) was placed on the 3 ROI's with the most number of significantly different channel pairs to indicate that these ROI's are less synchronized with each other than any other pair of ROI's, regardless of the emotion.
+  Note that ROI's can have differences within them, as each ROI is made up of multiple channels, and the differences are calculated between channels within the same ROI.}
+  \label{fig:fc_region_summary_analysis}
+\end{figure}
+
+\subsection{Interaction of face type and emotion}
+\label{sec:fc_face_type_by_emotion_results}
+To further explore the interaction of Face Type and Emotion, we calculated the total number of significant channels for each emotion, separately for real and virtual faces, as shown in Figure \ref{fig:fc_face_type_by_emotion_summary_analysis}.
+Joy, Sadness, and Surprise all had a greater number of significant channels for real faces compared to virtual faces, while Fear, Anger, Disgust, and Neutral all had a greater number of significant channels for virtual faces compared to real faces.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/face_type_by_emotion_contrast_barplot.png}
+  \caption{A bar plot summary of the functional connectivity results for the count of significantly different channel pairs for each emotion, separated by face type (real vs. virtual).}
+  \label{fig:fc_face_type_by_emotion_summary_analysis}
+\end{figure}
+
+To find which brain regions were driving these differences, we calculated the number of significant channels by face type and region, across all emotions, as shown in Figure \ref{fig:fc_face_type_by_emotion_region_summary_analysis}.
+The occipital areas were found to have a similar number of significant channels for both face types, while the central/temporal and parietal regions had a greater number of significant channels for real faces compared to virtual faces.
+The frontal regions had a greater number of significant channels for virtual faces compared to real faces.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/spectral_connectivity_time/emotion_analysis/face_type_by_emotion_region_contrast_barplot.png}
+  \caption{A bar plot summary of the functional connectivity results for the count of significantly different channel pairs for each region, separated by face type (real vs. virtual), summarized across all emotions.}
+  \label{fig:fc_face_type_by_emotion_region_summary_analysis}
+\end{figure}

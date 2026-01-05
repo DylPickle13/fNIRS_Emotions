@@ -1,355 +1,199 @@
-Neural Processing of Real vs. Virtual Facial Emotions: An fNIRS Investigation
+Introduction
 
-ABSTRACT
+Our brains appear primed to process faces, reflecting the central role faces play in social life by conveying identity, intent, and affect.
+Emotional expressions are particularly consequential as they enable observers to infer others' internal states and co-ordinate behaviour in real time.
+Despite an extensive literature on emotion perception, the neural systems that support the recognition and interpretation of facial emotions remain unclear, which is becoming increasingly relevant as social interaction increasingly occurs through digital platforms populated by avatars and virtual faces.
 
-As avatars permeate social media, gaming, and telecommunications, understanding how the brain reads emotions from virtual faces is increasingly important. We recorded functional near-infrared spectroscopy (fNIRS) data from adults viewing real photographs and matched computer-generated faces expressing Anger, Disgust, Fear, Joy, Sadness, Surprise, or Neutral (control). General-linear-model mapping revealed higher activation in virtual faces in the left occipital region, and higher activation in Neutral and Surprise compared to the other emotions in parietal and occipital regions. Functional-connectivity analysis revealed higher connectivity in real faces across the brain, and higher connectivity across the brain in Anger and Fear compared to the other emotions. Collectively, the results demonstrate differences in activation in occipital areas, and differential processing of face and emotion types across the whole brain. These neural signatures provide quantitative targets for refining the realism and emotional efficacy of digital characters in virtual and augmented environments.
+The use of avatars, (computer-generated human representations) is increasing across social media, gaming, virtual reality, and augmented reality.
+As interaction with avatars increases, the ability of virtual faces to convey emotion convincingly becomes essential for social acceptance and effective interaction.
+Real faces express emotion through subtle muscle actions; virtual faces rely on pre-programmed or algorithmic expressions that vary in realism, dynamicity, and perceived authenticity.
+These differences raise key questions: do virtual expressions engage the same neural mechanisms as real faces?
+Do different emotions produce distinct neural responses?
+And finally, is processing emotional expressions in virtual faces fundamentally different from processing emotional expressions in real faces?
+We address these questions using functional near-infrared spectroscopy (fNIRS) to compare how the brain processes emotional expressions in real and virtual faces.
 
-Keywords: Virtual faces; Emotion perception; Functional near-infrared spectroscopy (fNIRS); Functional connectivity; Brain networks
+Affective neuroscience work has identified a set of basic emotions, happiness, sadness, anger, fear, disgust, and surprise, with neutral faces serving as a baseline, and introduced the Facial Action Coding System (FACS) to catalogue the facial muscle actions that produce visible expressions.
+Cross-cultural research has long supported the biological roots and broad universality of these expressions, even preliterate communities reliably recognized and produced the same basic expressions observed in Western populations.
+Yet cultural differences still modulate how emotions are produced and represented mentally, where the core muscular patterns are conserved but expressive nuance and interpretation vary across groups.
 
-INTRODUCTION
+Constructionist theories argue that emotions are constructed experiences resulting from the brain's interpretation of internal and external stimuli.
+Behavioral findings support this view as contextual cues routinely bias emotion perception, altering valence and categorical judgments even for prototypical expressions.
+Neutral faces can be perceived as fearful or happy depending on preceding context, and using emotion labels can shape how facial cues are integrated before an explicit categorization occurs.
+These contextual effects are often automatic and difficult to suppress, highlighting the role of distributed, domain-general networks in emotion perception.
 
-Our brains appear primed to process faces [28, 42, 45]. This privileging of facial information speaks to the face's central role in our social life, conveying information on our identity, intent and affect [51, 12, 58]. Among these signals, emotional expressions are especially consequential, enabling observers to infer the internal states of others and to co-ordinate behaviour in real time. However, despite a rich literature on emotion perception, it remains unclear the brain involved in the processing of emotional expressions [4]. This lack of clarity is particularly relevant as our interactions shift increasingly toward digital platforms featuring virtual representations of human faces. 
+Multivariate analyses sometimes recover emotion-predictive patterns both locally and across distributed networks, but findings are often inconsistent.
+fMRI implicates a broad network, including medial PFC, amygdala, fusiform gyrus, superior temporal sulcus, and insula in emotion perception, with certain emotions preferentially engaging specific areas.
+fNIRS studies have likewise reported variable PFC responses to facial emotion, with some reporting increases, others decreases, or null effects in oxygenated hemoglobin (HbO) depending on task parameters and emotion type.
+This underscores the need for targeted comparisons of how different emotions and kinds of faces are represented in the brain.
 
-There has been a dramatic increase in the use of avatars, computer-generated representations of humans, across a wide range of platforms, including social media, video games, virtual reality (VR), and augmented reality (AR). As interactions with avatars become more prevalent, particularly in applications involving communication and social interaction, their ability to convincingly express human-like emotions has become a subject of growing interest [34]. The capacity of avatars to produce recognizable and appropriate facial emotional expressions is key to their social acceptance and utility.
+Avatars can be engineered using FACS-based principles and often convey many basic emotions accurately, yet some emotions (e.g., disgust) remain challenging to render.
+In some instances virtual faces elicit different recognition patterns than real faces.
+Neuroimaging shows that, although avatars are frequently processed like real faces, perceived authenticity and realism modulate neural responses.
+For example, fearful human faces elicit stronger responses than fearful avatar faces in regions such as the superior temporal sulcus and insula, while EEG work has reported stronger theta and alpha responses to avatars under certain conditions.
+Observers' responses are also influenced by the degree to which an avatar resembles their own appearance or habitual expressions.
 
-Unlike real human faces, which convey emotion through a complex interplay of subtle muscle movements, virtual faces must rely on pre-programmed or algorithmically generated expressions. These expressions may differ in perceived realism, dynamicity, and authenticity, potentially altering how they are processed by the brain. This raises several important questions: Does processing virtual facial expressions engage the same neural mechanisms as processing real facial expressions? Do different emotional expressions elicit distinct neural responses in the brain? And finally, is processing emotional expressions in virtual faces fundamentally different from processing emotional expressions in real faces? To address these questions, this thesis investigates the neural mechanisms underlying facial emotion perception in both real and virtual faces using functional near-infrared spectroscopy (fNIRS).
+The "uncanny valley" phenomenon, where near-real but imperfect virtual faces provoke unease, further complicates perception and neural responses.
+Electrophysiological markers such as the N170 show non-linear sensitivity to realism.
+Abstract or stylized faces can generate different amplitudes than realistic human faces, indicating early perceptual differences in how the brain processes face realness.
 
-Facial Emotion Perception
+Despite substantive EEG and fMRI work, fNIRS investigations comparing facial emotion in real and virtual faces are scarce.
+Existing fNIRS studies with avatars have focused chiefly on bodily expressions rather than facial emotion, and the only dynamic-avatar facial study used fMRI and examined only fear versus neutral.
+To address this gap, we use fNIRS to compare cortical activation and functional connectivity elicited by static real and virtual faces across the full set of basic emotions, enabling a controlled comparison of face type and emotional content.
 
-Emotion perception involves recognizing social cues such as facial emotional expressions, which is the focus of this thesis. Human facial emotion perception has been a central topic in affective neuroscience, having identified a set of basic emotions that are universally recognized across cultures [17]. Ekman proposed six basic emotions: happiness, sadness, anger, fear, disgust, and surprise, with neutral faces serving as a baseline. These emotions are reliably associated with distinct facial configurations, known as the Facial Action Coding System (FACS), which provides a comprehensive taxonomy of facial muscle movements, known as action units, which underpin the visible expressions of emotion [18]. FACS categorizes facial movements into action units (AUs), each corresponding to specific muscle contractions, such as the raising of the eyebrows or the curling of the lips.
+fNIRS is a portable, non-invasive technique that measures changes in oxygenated and deoxygenated hemoglobin using near-infrared light and the Modified Beer-Lambert Law.
+It offers greater ecological validity and tolerance for movement than MRI, while providing sufficient temporal resolution to capture hemodynamic responses associated with emotional processing.
+fNIRS has restricted depth sensitivity, lower spatial resolution than fMRI, and susceptibility to hair and skin-related signal issues, but these limitations are mitigated through methodological refinements, such as high-density optode arrangements, short-separation channels, and motion correction techniques.
 
-Substantial evidence supports the universality and biological roots of these basic emotions. Seminal cross-cultural field studies conducted by in the late 1960s/70s found that preliterate populations in Papua New Guinea reliably recognized and produced the same six expressions identified in Western populations, despite having had no exposure to media [39]. These studies used both posed expressions and spontaneous reactions (e.g., watching distressing films), highlighting that these expressions are natural responses rather than learned social habits. While universality is well supported, it is far from the whole story.
+This work combines General Linear Model (GLM) analyses to quantify localized activation magnitudes with functional connectivity measures, specifically Wavelet Transform Coherence (WTC) to characterise time-frequency relationships between cortical regions.
+The GLM models task events convolved with a canonical hemodynamic response to estimate region-specific responses across emotions and face types.
+WTC captures non-stationary, frequency-specific coherence between channels, helping to distinguish genuine interregional coupling from systemic noise.
 
-More recent research using advanced computer graphics and mental reconstruction methods has shown that Eastern and Western observers may mentally represent the intensity and specific facial actions of basic emotions differently, with Eastern observers representing emotional intensity with more distinctive dynamic eye activity [26]. This leads to the idea of "cultural dialects" in emotional expression, where the core muscular movements are conserved, but cultural nuances in expression and interpretation vary [46]. These findings suggest that while the basic emotions and their associated facial expressions are universal, cultural factors influence how these emotions are expressed and perceived.
+fNIRS is particularly sensitive to prefrontal processes central to emotion perception and regulation.
+Few studies have examined the interaction of facial emotion and avatar realism with fNIRS, and to our knowledge no prior work has used a within-subject, fully crossed fNIRS design comparing all basic emotions across real and virtual faces.
+We therefore hypothesise that (1) virtual and real faces will produce distinct activation and connectivity profiles, and (2) different emotional expressions will evoke unique neural signatures.
+Given the exploratory nature of this study, we do not prespecify detailed directional predictions.
+Instead, this study aims to map how emotion category and face realism jointly shape cortical activation and network dynamics, informing the design of emotionally expressive avatars for education, clinical, and human-computer interaction contexts.
 
-More recent approaches, however, advocate a constructionist view of emotion. This constructionist view posits that emotions are not fixed categories, but constructed experiences emerging from the brain's interpretation of internal and external stimuli [5]. It argues that emotions arise from distributed and context-sensitive patterns of neural activity involving domain-general brain networks rather than discrete, emotion-specific regions. Crucially, behavioral studies show that context routinely shapes emotion perception, not only in ambiguous situations but even when expressions appear prototypical. For example, neutral faces are often experienced as fearful, happy, or sad depending on whether they follow scenes of fear or joy, demonstrating that context significantly biases both valence and categorical interpretation of facial expressions [10]. Other research shows that emotion labels activate conceptual knowledge, which then guides the integration of facial cues and context before an emotion category is consciously assigned—even for clear, non-ambiguous expressions [7].
-
-This influence of context is automatic and difficult to suppress, even when participants are explicitly told to ignore contextual cues, or while performing a secondary cognitive task, context continues to shape how they perceive facial emotions [2]. Moreover, cultural and individual differences in conceptual knowledge affect how expressions are interpreted [37]. These behavioral and perceptual studies bolster the constructionist claim that emotions are actively constructed by integrating contextual and conceptual information, not simply "read" from invariant facial signals. 
-
-There is increasing evidence supporting this involvement of domain-general networks in emotion perception. While multivariate pattern analysis (MVPA) studies have shown that both localized and distributed neural patterns can predict emotional states [36], findings remain inconsistent, especially in the prefrontal cortex (PFC) [57, 6]. Some fNIRS studies report increased PFC activation during facial emotion recognition (e.g., in the ventral and medial PFC), others find decreased or no significant changes in oxygenated hemoglobin (HbO) levels. Even studies using similar facial expression tasks report varying activation patterns depending on the specific emotion or cortical region involved. For instance, happy and fearful faces have been associated with increased right PFC activation, whereas sad faces tend to elicit decreased activation in the left PFC. These mixed findings echo fMRI research, which implicates a wide network, including the medial PFC, amygdala, fusiform gyrus, superior temporal sulcus, and insula in emotion perception, with specific emotions such as anger, disgust, and sadness engaging distinct cortical and subcortical areas. These findings underscore the complexity of emotion processing and highlights the need for more nuanced investigations of how different emotional expressions are represented in the brain.
-
-Real vs. Virtual (Avatar) Face Perception
-
-The increasing use of avatars has raised questions about how their facial expressions compare to real human faces. Avatars can be designed to mimic human facial expressions using the FACS, which demonstrates the efficacy of using FACS-based design principles to create reliable virtual human facial expressions [19]. Studies have shown that expressions of happiness, anger, fear, and other basic emotions can be accurately interpreted from both static and dynamic virtual avatars [15, 16]. However, in some cases, avatars may convey emotional expressions more or less effectively than real human faces. Disgust is particularly challenging to convey using current avatar technology, while it has been found that virtual expressions of sadness and fear are recognized more accurately than their natural face counterparts [16]. There are guiding principles for designing avatars that can effectively convey emotional expressions as well as real faces, as it has been found that people are generally less accurate at recognizing emotions from robotic faces compared to human faces [23]. However, virtual agents can be as effective as humans in conveying emotions, particularly when their facial muscle movements are clearly depicted. This work highlights the potential for avatars to convey facial/emotional expressions effectively, but it also raises questions about how these virtual faces are processed in the brain compared to real human faces.
-
-A growing body of affective and cognitive neuroscience research suggests that virtual faces, while often processed like real faces, can still elicit distinct neural responses due to differences in perceived authenticity, dynamicity, and realism. Since humans are highly attuned to perceiving real human faces, viewing avatars may engage different perceptual and neural processes, potentially leading to altered brain activity [14]. For instance, fearful human expressions elicit significantly stronger neural responses than fearful avatar expressions in regions including the posterior and anterior superior temporal sulcus, anterior insular cortex, posterior cingulate cortex, and ventral anterior cingulate cortex, with particularly strong effects observed in both the left and right superior temporal sulcus and inferior frontal gyrus [34]. In contrast, neutral human and avatar expressions did not differ significantly.
-
-Using EEG, and the same dynamic stimuli, it was found that avatar faces elicit significantly stronger reactions than the real faces for theta and alpha oscillations [53]. This may be affected by the degree to which the avatar resembles the observer's own appearance and habitual expressions, as observers' responses to avatar facial expressions are modulated by the degree to which the avatar resembles their own appearance and habitual expressions [43]. It is important to note, findings from studies using avatars and those using real human faces may not always be directly comparable and should be interpreted cautiously. 
-
-These perceptual discrepancies may partially stem from the so-called "uncanny valley" phenomenon [40], wherein highly realistic but imperfect virtual faces evoke a sense of unease or cognitive dissonance in observers. When watching semirealistic computer-animated film characters, it was found that characters perceived as more realistic were rated as more 'eerie', compared to more cartoonish characters [31]. The N170 is an event-related potential (ERP) component, commonly investigated in EEG studies, that is typically observed over occipitotemporal scalp regions and is associated with the early perceptual processing of faces. There is a non-linear modulation of EEG responses to the realness of face images, suggesting that the brain's processing of facial stimuli is sensitive to their perceived authenticity [11]. This sensitivity to realism is further supported by findings that the N170 component is modulated by the degree of realism in facial expressions, as across six face-stylization levels ranging from abstract to realistic, it was found that the N170 was generated more occipitally for abstract/virtual faces than for real faces [48]. These findings suggest that small deviations from typical human facial expressions can lead to altered neural processing. 
-
-Despite the rich EEG and fMRI evidence, there remains a notable gap in our understanding when it comes to fNIRS. To date, only a handful of studies have utilized fNIRS in avatar emotion research, and these have typically focused on bodily expressions (e.g., expressive gait), not facial emotion processing. For instance, cortical responses to emotional body movements expressed by faceless avatars were examined, revealing increased HbO in occipito-temporal and temporo-parietal areas, especially in response to negative emotions, during tasks requiring conscious emotion recognition [49]. The only study to examine facial emotion processing in avatars used fMRI, dynamic stimuli, and only utilized two emotions, fear and neutral [34]. Since there is an absence of fNIRS-based studies of facial emotional perception in avatar form, this thesis aims to fill this gap by investigating how the brain processes emotional expressions in both real and virtual faces using fNIRS. We examine the differences across the full set of basic emotions, not just fear and neutral, and use virtual static facial expressions to allow for a more controlled comparison with static real faces.
-
-Functional Near-Infrared Spectroscopy (fNIRS)
-
-fNIRS is a non-invasive neuroimaging technique that measures brain activity by detecting changes in Blood Oxygenation Level Dependent (BOLD) signals, which are associated with neural activity, similar to functional magnetic resonance imaging (fMRI). fNIRS works by shining near-infrared light (760-850nm) through the scalp and measuring the amount of light that is absorbed by oxygenated (HbO) and deoxygenated hemoglobin (HbR) in the brain. This is possible through the Modified Beer-Lambert Law, which relates the concentration of hemoglobin to the absorption of light. It is substantially more portable and cost-effective than MRI, tolerates moderate participant movement, and can be deployed in more ecologically valid or naturalistic settings [60]. Temporal resolution is moderate, on the order of seconds, which, although inferior to EEG's millisecond fidelity, remains sufficient to capture the hemodynamic responses associated with emotional and cognitive processes.
-
-Despite these advantages, fNIRS remains limited to superficial cortical regions; it lacks sensitivity to deeper subcortical structures such as the amygdala or insula, which play key roles in emotion processing [47]. Its spatial resolution is also lower than fMRI's, and signal quality can be influenced by factors like hair density and skin pigmentation [22]. Beyond systemic noise, fNIRS signals can also be affected by light in the recording environment and interference from participant hair; these issues can be minimized through careful preparation and room setup. These limitations are mitigated through methodological refinements, such as high-density optode arrangements, short-separation channels, and motion correction techniques.In analyzing our fNIRS data, we focused on two complementary approaches: the General Linear Model (GLM) and functional connectivity. The GLM is concerned with the magnitude of brain responses in specific regions, i.e., how much a brain area "lights up" during a task [54, 25], whereas functional connectivity looks at the relationship between different brain regions over time, regardless of their absolute activation levels. These methods provide a comprehensive view of how the brain processes emotional expressions, both in terms of localized activation and the interactions between different regions.
-
-We used the GLM to estimate cortical activation in response to emotional facial expressions. In this approach, the task design (e.g., when a participant sees a face) is modeled using a boxcar or impulse function and convolved with a canonical hemodynamic response function (HRF), producing a predictor of the expected signal. The GLM then estimates how well this model fits the actual fNIRS signal, allowing us to identify brain regions that responded to different conditions. This approach is particularly well-suited to fNIRS data, which is often noisy, correlated across channels, and influenced by physiological rhythms. The GLM helps to account for these complexities and isolate condition-specific activation. We used the GLM to compare brain responses across emotional categories (e.g., anger, happiness), between real and virtual facial expressions, and their interaction.
-
-In addition to activation analysis, we examined functional connectivity, which allowed us to explore how different brain regions process these faces and emotions in relation to each other. Unlike the GLM, which focuses on localized activity, functional connectivity examines temporal correlations between signals across channels. Functional connectivity can be assessed using various methods, including coherence, phase-slope index, and Granger causality. We focused on Wavelet Transform Coherence (WTC), which is the most commonly used method in fNIRS connectivity research, having been used in at least 90 studies to date. WTC involves convolving the fNIRS signal with a wavelet function (such as the Morlet wavelet) to assess the strength and phase relationship of shared frequency components between brain regions in the time-frequency domain. This is particularly useful for fNIRS, where signals are non-stationary and vary across time. WTC enabled us to detect both in-phase and out-of-phase relationships between channels, helping us distinguish genuine neural connectivity from systemic noise. This method allows us a different perspective on how the brain processes emotional expressions, focusing on the relationships between regions independent of the magnitude of their activation.
-
-Objectives and Hypotheses
-
-Critically, functional near-infrared spectroscopy (fNIRS) demonstrates strong sensitivity to the PFC, a brain region heavily implicated in the perception, interpretation, and regulation of emotion. Although prior studies have independently examined facial emotion perception and avatar realism, very few have explored their interaction within the same neuroimaging paradigm, and even fewer have used fNIRS to do so. To our knowledge, no existing research has directly compared neural responses to emotional expressions in real versus virtual faces using a fully crossed, within-subject fNIRS design that systematically examines all basic emotions. This gap limits our understanding of how face realism and emotion interact to shape cortical activation patterns and functional connectivity during social perception.
-
-Accordingly, this thesis hypothesizes that: (1) there will be significant differences in brain activation patterns and functional connectivity profiles when viewing virtual faces compared to real faces, and (2) distinct emotional expressions will elicit unique neural activation and connectivity patterns. Given the novelty of this approach and the full range of emotions considered, we do not make specific a priori predictions about the exact nature of these differences, as they may vary based on emotional content and face realism. Addressing this gap will deepen our understanding of emotional cognition in the digital age and inform the design of emotionally expressive avatars for applications in education, mental health, and human-computer interaction.
-
-METHODOLOGY
+Pilot
 
 Participants
-
-Ninety-one participants were recruited from Ontario Tech University's undergraduate student body through SONA. Participation flow is illustrated in the study figures. Four participants were removed due to equipment recording issues. Participants were then screened on inclusion criteria for a) task attention, and b) fNIRS signal quality. For attention, participants were required to achieve >= 60% accuracy on the behavioral memory task (chance accuracy = 50%) to ensure sufficient engagement. One participant failed to meet this criterion. The remaining 87 participants (69 females and 18 males, M = 21.09, SD = 5.91, range = 17 to 51) were analyzed in the behavioral memory task.
-
-For neural analyses, signal quality of remaining 87 participants by computing the Peak Spectral Power (PSP) and the Scalp Coupling Index (SCI). Measures were calculated using a 5-second sliding window across all channels. fNIRS inclusion criteria were: 1) PSP > 0.1 and SCI > 0.5 for more than 70% of the windows in a single channel, labelled "good signal quality", and 2) > 70% of the channels for a single participant were marked as "good". Thirty-five participants failed to meet these criteria, illustrated in the study figures, and were removed prior to data analysis. The final sample consisted of 52 participants (39 females and 13 males, M = 21.62, SD = 6.67, range = 17 to 51).
-
-Stimuli and apparatus
+A total of 61 undergraduate students from Ontario Tech University participated in the pilot study as part of the SONA participant pool.
+This sample consisted of 61 participants (20 males and 41 females, M = 20.84, SD = 3.25, range = 17 to 38).
 
 Stimuli
-
-One hundred and forty images of facial expressions from the racially diverse affective expression (RADIATE) and UIBVFED datasets were used. The RADIATE contains perceptually validated images of racially and ethnically diverse participants, aged 18-30 years old, each expressing 16 different emotions. The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions. The UIBVFED facial expressions were created using blendshapes, a tool that represents and manipulates clusters of facial landmarks similar to that of facial action units (AUs). Then adult models (5 males and 5 females) from each dataset were identified and matched between-sets on face shape, sex, skin tone, and hair colour. Images of each model expressing seven emotions (anger, disgust, fear, happiness, sadness, surprise, neutral) were selected. Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral. UIBVFED images were cropped to the same size as RADIATE images.
-
-Apparatus
-
-Participants were tested individually in a quiet dedicated testing room. Stimuli were presented on a Dell U2415 24-inch monitor at 1920x1200 60Hz. Participants were seated in a comfortable non-movable chair, with the monitor placed at eye level. Stimuli were presented using PsychoPy3 Experiment Builder (v2024.1.5). Participant brain activity was recorded using Aurora fNIRS while participants completed the task. fNIRS data was collected using two NIRSport2 systems (NIRx Medical Technologies, Berlin, Germany). Each NIRSport2 system was equipped with 16 source and 16 detector optodes, and daisy-chained together for a high density 32x32 optode configuration. Each neighboring pair of source and detector optode is referred to as a channel, resulting in a total of 103 HbO + 103 HbR channels (plus 16 short distance channels). The average distance between source and detector optodes was 30 mm, and 7mm for short distance channels, which were placed on a flexible fNIRS head cap (NIRScap) 58 cm in circumference. The optodes were arranged in a high density 32x32 montage with one bundle of short distance channels. This montage was designed to cover a maximally large area of the brain, given increasing evidence that emotion processing is not localized to specific discrete areas of the brain, rather distributed across the brain. The fNIRS cap and optodes were positioned following the 10-20 international coordinate system. Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was approximately 6.105 Hz.
-
-Design and procedure
+One hundred and forty images of facial expressions from the racially diverse affective expression (RADIATE) and UIBVFED datasets were used.
+The RADIATE contains perceptually validated images of racially and ethnically diverse participants, aged 18-30 years old, each expressing 16 different emotions.
+The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions.
+The UIBVFED facial expressions were created using blendshapes, a tool that represents and manipulates clusters of facial landmarks similar to that of facial action units (AUs).
+Adult models (5 males and 5 females) from each dataset were identified and matched between sets on face shape, sex, skin tone, and hair colour.
+Images of each model expressing seven emotions (Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) were selected.
+Expressions were selected for each model that closely align with Ekman's six basic emotions plus neutral.
+The intensity of the emotional expressions were matched as well across both datasets.
 
 Design
+The first stage of the task required participants to select which emotion was portrayed by an individual virtual avatar.
+For each trial, they were shown a fixation cross for one second, then a photo of an avatar expressing an emotion was displayed in the center of the screen.
+Participants were then asked to identify the emotion being expressed by selecting one of the seven emotions.
+Only the virtual avatars from the UIBVFED stimulus set were used in this emotion recognition task, as the RADIATE dataset has already been validated for emotion recognition.
 
-A full-factorial Face-type (2 levels: Real, Virtual) × Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) × Model (4) × Sex (2 levels: Male, Female) × Repetition (4) experimental design was used, with each participant presented with 448 images. Stimuli were blocked and counterbalanced by Face-type and Emotion. Within each of the 56 Face-type-Emotion Blocks, participants were presented with 8 distinct model faces (4 male, 4 female).
+The second stage of the task required participants to rate the similarity of expressions displayed by virtual avatars compared to real human models.
+Participants were given instructions to rate the similarity of the expressions displayed on the faces, not of the faces themselves.
+Participants were shown a fixation cross for one second.
+Following this, a pair of photos was selected randomly and displayed side-by-side on screen, with a slider bar underneath to make the similarity rating.
+There were three conditions in the similarity matching task: (1) a congruent-congruent (CC) condition, in which photos were matched on model similarity and expression similarity, (2) a congruent-incongruent (CI) condition, in which photos were matched on model similarity but not expression similarity, and (3) an incongruent-congruent (IC) condition, in which photos were not matched on model similarity but were matched on expression similarity.
 
-Planned analyses and preregistration
+Results (Pilot)
 
-This project was preregistered on the Open Science Framework before any data were collected (OSF DOI: 10.17605/OSF.IO/76Q8W). The preregistration document, time-stamped on 2 February 2024, specifies the study design, sampling plan, variables, and analysis plan. By making the protocol public, we aimed to reduce analytic flexibility, enhance reproducibility, and enable independent verification of all planned and exploratory analyses. Several elements of the preregistration were intentionally deferred or modified in the present thesis. First, although the OSF protocol outlines a linear mixed-effects model (LMM), those analyses were always earmarked for publication in a journal paper and are therefore not reported here. Second, the preregistered exploratory machine-learning (ML/AI) classifiers that were intended to decode Face-type and Emotion from multivariate HbT patterns, were not implemented due to time constraints and will be pursued in future work.
+Accuracy
+To calculate the effect of target emotion on accuracy of emotion recognition, each participant's average accuracy was calculated for each emotion category, as well as for overall accuracy.
+Mean and standard deviation of recognition accuracy for each emotion and dataset is reported in the accuracy comparison table.
+[Table omitted]
 
-Procedure
+Similarity Ratings
+To assess whether the physical features of the faces pictured had an effect on the similarity ratings, pairwise t-tests were run comparing the CC and IC conditions using a Holm correction.
+The only emotion that did not show a significant difference in similarity rating regardless of the physical features of the face was Sadness (t(12,999) = -0.051, p = 0.95).
 
-Following consent and briefing, participant head size was measured and a size-appropriate fNIRS cap fitted. A signal optimization routine was then run within Aurora fNIRS to optimize participant channel signal levels. This routine worked by increasing source brightness in a stepwise manner, until the optimal signal levels for all channels was reached. Following optimization, participants were told that they would be presented with a series of facial expression images and asked to identify whether a probe face matched one of the faces they saw in the preceding block. Room lights were then switched off to avoid interference with the fNIRS cap, and participants were monitored from an adjacent room with a live camera feed. 
+Methods
 
-The experiment began with instructions presented on screen. The trial timeline consisted of three main epochs: fixation cross, block presentation, and participant feedback. Each Block began with a fixed cross presented for 16 seconds, followed by 8 facial images. Facial images were each presented for 1.5 seconds, with a 250-750 ms (M=500 ms) interstimulus interval (ISI) between each face. To maintain participant attention, participants completed a memory task after each block. In the task, participants were presented with a model image with the same emotional expression as the rest of the block's images, and asked if the model was shown in the preceding block of 8 faces, with feedback provided using the keyboard (y/n). The probe face has a 50% chance of either being in the previous block or not. The experiment continued after seven seconds if no feedback was provided. Participants were given a break every seven blocks, and prompted to enter the space bar when they are ready to continue the experiment. After the experiment was completed, the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment. Participation in the experiment took approximately 35 minutes.
+Pre-registration
+This project was preregistered on the Open Science Framework before any data were collected (OSF DOI: 10.17605/OSF.IO/76Q8W).
+The preregistration document specifies the study design, sampling plan, variables, and analysis plan.
 
-Participants viewed 56 blocks of 8 faces, each block being either all real or all virtual faces. Every face in a block displayed the same emotional expression, one of: anger, disgust, fear, happiness, sadness, surprise, neutral.
+Participants
+A separate sample of ninety-one participants were recruited from Ontario Tech University's undergraduate student body through SONA.
+Four participants were removed due to equipment recording issues.
+Participants were then screened on inclusion criteria for a) task attention, and b) fNIRS signal quality.
+For attention, participants were required to achieve >= 60% accuracy on the behavioral memory task (chance accuracy = 50%) to ensure sufficient engagement.
+One participant failed to meet this criterion.
+The remaining 87 participants (69 females and 18 males, M = 21.09, SD = 5.91, range = 17 to 51) were analyzed in the behavioral memory task.
+For neural analyses, signal quality of remaining 87 participants was assessed by computing the Peak Spectral Power (PSP) and the Scalp Coupling Index (SCI).
+Measures were calculated using a 5-second sliding window across all channels.
+Thirty-five participants failed to meet these criteria, and were removed prior to data analysis.
+The final sample consisted of 52 participants (39 females and 13 males, M = 21.62, SD = 6.67, range = 17 to 51).
+
+Sample size and power analysis
+We conducted a power analysis for a linear mixed model with the simr package.
+Our LMM estimated the oxygenated HbO signal as a function of Face-type and Emotion (main effects) with by-Participant random intercept.
+Our goal was to obtain 0.8 power [95% CI] at the standard 0.05 alpha error probability.
+Fixed effect estimates for Emotion were drawn from Gao et al. (2019).
+
+Stimuli
+We used the same stimulus set as in the pilot study.
+
+Apparatus
+Participants were tested individually in a quiet dedicated testing room.
+fNIRS data was collected using two NIRSport2 systems (NIRx Medical Technologies, Berlin, Germany).
+Each NIRSport2 system was equipped with 16 source and 16 detector optodes, and daisy-chained together for a high density 32x32 optode configuration.
+Each neighboring pair of source and detector optode is referred to as a channel, resulting in a total of 103 HbO + 103 HbR channels (plus 16 short distance channels).
+The average distance between source and detector optodes was 30 mm, and 7 mm for short distance channels, which were placed on a flexible fNIRS head cap (NIRScap) 58 cm in circumference.
+The optodes were arranged in a high density 32x32 montage with one bundle of short distance channels.
+Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was approximately 6.105 Hz.
+
+Design
+A full-factorial Face-type (2 levels: Real, Virtual) x Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) x Model (4) x Sex (2 levels: Male, Female) x Repetition (4) experimental design was used, with each participant presented with 448 images.
+Stimuli were blocked and counterbalanced by Face-type and Emotion.
+Within each of the 56 Face-type-Emotion blocks, participants were presented with 8 distinct model faces (4 male, 4 female).
+
+The experiment began with instructions presented on screen.
+The trial timeline consisted of three main epochs: fixation cross, block presentation, and participant feedback.
+Each block began with a fixation cross presented for 16 seconds, followed by 8 facial images.
+Every face in a block displayed the same emotional expression: anger, disgust, fear, joy, sadness, surprise, or neutral.
+Facial images were each presented for 1.5 seconds, with a 250–750 ms (M = 500 ms) interstimulus interval (ISI) between each face.
+Participants viewed 56 blocks of 8 faces, each block being either all real or all virtual faces.
+To maintain participant attention, participants completed a memory task after each block.
+In the task, participants were presented with a model image with the same emotional expression as the rest of the block's images, and asked if the model was shown in the preceding block of 8 faces, with feedback provided using the keyboard (y/n).
+The probe face had a 50% chance of either being in the previous block or not.
+The experiment continued after seven seconds if no feedback was provided.
+Participants were given a break every seven blocks, and prompted to press the space bar when they were ready to continue the experiment.
+After the experiment was completed, the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment.
+Participation in the experiment took approximately 35 minutes.
 
 Analyses
-
-All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) and MNE-NIRS (version 0.7.1), which used the Nilearn package (version 0.9.2). Data were analyzed with a General Linear Model (GLM), followed by a functional connectivity analysis. The memory task was analyzed in Python using the statsmodels package (version 0.14.4). The data generated during this study has been made publicly available on the Open Science Framework.
-
-fNIRS preprocessing
-
-The preprocessing steps for the fNIRS data were as follows:
-1) Downsample the data if the sampling frequency is greater than 6.105 Hz, the initial two datasets were sampled higher than 6.105 Hz, and the sampling frequency should be consistent across all datasets.
-2) Crop the data to the first and last annotation. This gets rid of the extra data at the beginning and end of the recording that are not of interest.
-3) Convert the raw data to optical density.
-4) Apply temporal derivative distribution repair to the OD data. TDDR is effective at removing spikes and baseline shifts from the data. 
-5) Apply short channel regression to the OD data. Short channels are used to estimate the superficial hemodynamics (non-evoked/extracerebral/systemic components) in the data, and then regress it out of the long channels. 
-6) Convert the OD data to hemoglobin concentrations using the modified Beer-Lambert law. The MBLL relates the change in light attenuation to the change in hemoglobin concentration of chromophores in the tissue.
-7) Retain only long channels (source-detector distance > 15 mm). Since the short channels have already been regressed out, it is no longer necessary to keep them in the data.
-8) This FIR bandpass filter extracts signal components in the 0.01-0.5 Hz range, it uses a long filter length (2015 samples) with automatically determined transition bandwidths by MNE-Python. 
-9) Maximizes negative correlation between HbO and HbR. This method removes spikes, improves contrast-to-noise ratio, and improves spatial specificity of the data.
-10) Add HbT (total hemoglobin) channels to the data. HbT is defined as the sum of HbO and HbR. Often, fNIRS studies will only use either one of HbO or HbR channels (more frequently HbO), leaving out one channel with no justification. Therefore, HbT channels are chosen, as HbT makes use of both HbO and HbR channels, and using both hemoglobin species improves the inferences as to where activation occurs.
-
-Variable length epochs were created for each block of 8 faces, which were 14-18 seconds long (mean = 16s), depending on the ISI's. Epochs were sorted by Face Type (Real, Virtual), and Emotion (Anger, Disgust, Fear, Happiness, Sadness, Surprise, Neutral), and their interaction. Baseline correction was applied to remove any constant or slowly varying offsets in the data. The data was annotated with the onsets and offsets of each block, along with the duration and condition of each block. Block data were then analysed using a GLM and Functional Connectivity analysis.
+All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) and MNE-NIRS (version 0.7.1), which used the Nilearn package (version 0.9.2).
+Data were analyzed with a General Linear Model (GLM), followed by a functional connectivity analysis.
+The memory task was analyzed in Python using the statsmodels package (version 0.14.4).
+The data generated during this study has been made publicly available on the Open Science Framework (OSF).
 
 Activation magnitude with General Linear Model (GLM)
-
-The General Linear Model (GLM) posits that the observed haemodynamic signal at each channel or Region of Interest (ROI) is a linear combination of task-related regressors convolved with a Hemodynamic Response Function (HRF), plus nuisance regressors (e.g., drift) and residual noise. Mathematically, Y = Xβ + ε, where Y is the observed time series, X is the design matrix, β represents the parameters to estimate, and ε denotes the residuals assumed to be Gaussian noise. Estimation is performed via ordinary least squares (OLS), yielding parameter estimates that quantify condition-specific activation amplitudes.
-
-Design Matrix
-
-For each of the epochs, events are defined by their trial type (e.g., emotion or face type), and onsets/offsets relative to the procedure start, and duration. The design matrix is constructed using Nilearn's make_first_level_design_matrix by convolving a boxcar function (based on the event timing) with a canonical HRF, which is a model of the expected haemodynamic response to neural activity. The canonical HRF Statistical Parametric Mapping (SPM) is chosen to model neurovascular coupling, this model captures the stereotypical rise and fall of the BOLD/fNIRS response. The cosine drift model was utilized, which incorporates discrete cosine transform (DCT) basis functions into the design matrix to model and remove low-frequency drifts. The selection of the high pass cutoff frequency is guided by the structure of the experimental design. The cutoff period is set to twice the duration of the longest inter-trial interval, and each fixation period between epochs (or blocks) is 16 seconds. Therefore, a cutoff period of 32 seconds (i.e., high_pass=0.03125 Hz) would be appropriate. This ensures that the drift model does not remove task-related signal components that occur at frequencies higher than the cutoff. The design matrix X and preprocessed time series are fed into MNE's run_glm function, which computes OLS estimates of β for each channel.
-
-A two-way repeated measures GLM was conducted on participant's HbT responses by Face-type (2 levels: Real, Virtual) and Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral). Pairwise contrasts were then computed between conditions to identify effects of interest.
-
-Contrast Computation
-
-All pairwise contrasts were generated between conditions by constructing an identity contrast matrix over design columns. For each pair of conditions (A, B), the contrast vector is defined as: c = eA - eB, where eA and eB are the respective design matrix columns for conditions A and B. Contrasts are computed using MNE's compute_contrast function, which produces effect estimates and test statistics aggregated across channels. Since numerous statistical tests are performed across channels and contrasts, p-values were FDR-corrected corrected using the Benjamini-Hochberg procedure with a family-wise error rate of α=0.05.
+The General Linear Model posits that the observed haemodynamic signal at each channel or Region of Interest (ROI) is a linear combination of task-related regressors convolved with a Hemodynamic Response Function (HRF), plus nuisance regressors (e.g., drift) and residual noise.
+A two-way repeated measures GLM was conducted on participants' HbT responses by Face-type (Real, Virtual), Emotion (Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) and their interaction.
+Pairwise contrasts were then computed between conditions to identify effects of interest.
+Since numerous statistical tests are performed across channels and contrasts, p-values were FDR-corrected using the Benjamini-Hochberg procedure with a family-wise error rate of alpha = 0.05.
 
 Network mapping with Functional Connectivity Analysis
-
-To characterize the temporal coordination between fNIRS channels during face and emotion processing, functional connectivity matrices were computed using a continuous wavelet transform (CWT)-based spectral connectivity approach. CWT decomposes signals into simultaneous time-frequency representations, providing an optimal framework for fNIRS connectivity analysis by accommodating the non-stationary, physiological nature of hemodynamic signals. The morlet wavelet, a gaussian function modulated by a sine wave, was picked as they are suited to capture both slow neural rhythms and faster systemic fluctuations in fNIRS data. Wavelet-based approaches have been widely adopted in the fNIRS literature for connectivity and even artifact correction. Coherence combines both phase and amplitude information into a single, normalized index, 0 (no coupling) to 1 (perfect coupling), and is a richer description of coupling than phase-only or amplitude-only metrics.
-
-For each participant, MNE's spectral_connectivity_time function was applied to compute time-resolved coherence across pairs of channels, the average of this was taken across epochs to obtain a single channel-by-channel connectivity matrix for each condition. Each participants' connectivity matrix was then averaged across participants to obtain a group-level connectivity matrix for each condition. fNIRS hemodynamics predominantly fluctuate in very low frequencies (0.01-0.5 Hz). The frequency range was narrowed to five evenly spaced frequences between 0.2-0.5 Hz due to short epoch length, this range still targets systemic and neurogenic oscillations while avoiding high-frequency noise. Averaging across these closely spaced frequencies reduces data dimensionality, simplifying downstream statistical analyses without sacrificing sensitivity to coupling dynamics.
+To characterize the temporal coordination between fNIRS channels during face and emotion processing, functional connectivity matrices were computed using a continuous wavelet transform (CWT)-based spectral connectivity approach.
+The morlet wavelet was used because it is suited to capture both slow neural rhythms and faster systemic fluctuations in fNIRS data.
+The frequency range was narrowed to five evenly spaced frequencies between 0.2–0.5 Hz due to short epoch length; this range still targets systemic and neurogenic oscillations while avoiding high-frequency noise.
+Averaging across these closely spaced frequencies reduces data dimensionality.
 
 Paired Sample t-tests
+For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted by averaging across epochs to obtain symmetric channel-by-channel coherence matrices.
+Fisher's r-to-z transform (atanh) was applied to each matrix element to normalize the data prior to parametric testing.
+Paired t-tests for each unique channel pair (i > j) were then conducted across participants using SciPy's ttest_rel.
+p-values were FDR-corrected using the Benjamini-Hochberg procedure with a family-wise error rate of alpha = 0.05.
 
-For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted by averaging across epochs to obtain symmetric channel-by-channel coherence matrices. Because coherence values are bounded between 0 and 1 and exhibit skewed distributions, Fisher's r-to-z transform (atanh) was applied to each matrix element to normalize the data prior to parametric testing. Paired t-tests for each unique channel pair (i > j) were then conducted across participants using SciPy's ttest_rel. This directly tests whether mean connectivity differs between conditions, leveraging the paired design to increase statistical sensitivity. Given the large number of channel-pair tests, and similar to the GLM analysis above, p-values were FDR-corrected using the Benjamini-Hochberg procedure with a family-wise error rate of α=0.05.
-
-ROI Chord Plots
-
-To distill high-dimensional channel-by-channel connectivity into interpretable inter-regional summaries, we mapped individual fNIRS channels onto anatomically defined ROI's. This includes left and right frontal, central/temporal, parietal, occipital regions of the brain, and the channels were grouped into these regions based on their location in the montage. Since multiple channels may map to the same pair of regions (e.g., several left central/temporal channels connecting to several right occipital channels), we calculated the sum of all significant channel-pair connections for each ROI pair (separately for positive and negative t-values). We then subtracted the negative sum from the positive sum, resulting in a single integer representing the net connectivity which was positive if the positive connections outweigh the negative ones, and vice versa. We then took the top 15% percentile of each net connectivity value, and set the rest to zero, to show only the strongest connections between regions. The lines were then plotted using a chord diagram, with the line color indicating the direction of the net connectivity (positive or negative), and the line width indicating the magnitude of the net connectivity (the absolute value of the net connectivity).
-
-Emotion Summary Ratio Plot
-
-To summarize the net connectivity between regions for each emotion, we calculated a ratio of positive to negative connections for each emotion pair. The ratio was calculated by taking the difference of the count of significant channels where the t-value was positive and the count of significant channels where the t-value was negative, and dividing it by the total number of significant channels for that emotion pair. This ratio provides a measure of the net connectivity across all ROI's for each emotion, with a positive ratio indicating that one emotion has a stronger net connectivity than the other, and a negative ratio indicating that the other emotion has a stronger net connectivity.
-
-Region Summary Plot
-
-To summarize the net connectivity across all emotions for each region, we summed the number of significantly different channel pairs between each region pair across all emotions, disregarding the direction of the t-value. This provides a measure of the net connectivity across all emotions for each region, showing which regions are more connected across all emotions. The 3 regions with the highest and lowest number of significant channel pairs are marked, to emphasize the most/least connected regions across all emotions.
-
-Memory Task Analysis
-
-Raw behavioral data captured from PsychoPy were preprocessed to identify participant keyboard responses. The total correct trials per participant were summed. Since each block of faces was either all real or all virtual, and all had the same emotional expression, each y/n response was labeled with Face type and Emotion. An OLS model was fit with accuracy (converted to numeric 0/1) as the dependent variable and categorical predictors for Face Type, Emotion, and their interaction. The goal is to determine the main effects of these two factors individually, as well as their interaction, on response accuracy. A two-way Type III ANOVA provided F-statistics and p-values for main effects and interaction. This version of the ANOVA is especially suitable when interactions are included in the model, as it calculates each effect after accounting for all other terms.
-
-RESULTS
-
-Neural activation magnitude
+Results
 
 Responses to real and virtual faces
-
-A main effect of Face type was reported, with pairwise contrasts revealing greater activation for virtual faces compared to real faces. Red signifies that condition 1 (real faces) has more activation in that area than condition 2 (virtual faces), while blue signifies that condition 2 (virtual faces) has more activation than condition 1 (real faces). The color bar on the right shows the coefficient of the contrast, which indicates the strength of the difference in activation between the two conditions.
-
-Responses to different facial emotions
-
-Pairwise contrasts with Neutral (control) and other emotions revealed significant differences in activation across several brain regions. For instance, perceiving Anger, Fear, and Joy elicited less activity in the right occipital region than perceiving Neutral. Morever, processing Joy was associated with less activity in the right parietal region, while processing Sadness produced less activity in the left frontal region relative to processing Neutral. These results indicate distinct neural activation patterns for each emotion when contrasted against the "baseline" Neutral condition, with most prominent differences in neural activity over the occipital region.
-
-Interestingly, processing Surprise was most consistently different from processing other emotions. We found processing Surprise produced 1) more activity in the left central/temporal and right occipital regions relative to processing Disgust and Joy, 2) more activity in the right parietal region relative to processing Fear, 3) more activity in the left frontal and right parietal regions relative to processing Sadness, and 4) more activity in the right parietal region and less activity in the right occipital region relative to processing Neutral. These findings suggest that Surprise is distinct from processing Neutral but also other emotions, with differences in neural activity more widespread that include central/temporal and parietal regions. All combinations of emotion contrasts were performed, significant differences were only found between Neutral relative to the other emotions, and between Surprise relative to the other emotions.
-
-Interaction in the responses to face type and emotion
-
-The interaction of Real - Virtual within each emotion revealed significant differences in occipital regions exclusively. Specifically, processing Disgust on real faces elicited greater activity in the right occipital region compared to processing Disgust on virtual faces, whereas the left occipital region showed the opposite pattern. Moreover, processing Joy and Neutral emotions on real faces also elicited greater activity in the occipital regions compared to processing the same emotions on virtual faces. We found processing Sadness on virtual faces produced more activity in the left occipital region for virtual faces compared to processing Sadness on real faces. These findings suggest that the neural response to emotional expressions is modulated by the realism of the face stimuli.
-
-Functional Connectivity Mapping
-
-Connectivity profiles of face type
-
-The contrast comparing functional connectivity profiles in response to real versus virtual faces revealed significant differences in connectivity across the brain. Processing real faces was associated with stronger connectivity predominantly between the left to right parietal, left frontal to left parietal, left central/temporal to left parietal, left central/temporal to right parietal, and the right central/temporal to left parietal regions, whereas processing virtual faces was associated with only slightly stronger connectivity between the left central/temporal to right frontal region.
-
-The thickness of the lines represents the difference in the count of significantly different channel pairs between the two conditions. A red line signifies that real faces had more significant channels between those two ROI's where the t-value was positive, while a blue line signifies that virtual faces had more significant channels between those two ROI's where the t-value was negative. For clarity, only the top 15th percentile of connections (those with the most significant different channel pairs) are displayed for all functional connectivity contrasts.
+A main effect of Face type was reported for the GLM, with pairwise contrasts revealing greater activation for virtual faces compared to real faces.
+The contrast comparing functional connectivity profiles in response to real versus virtual faces revealed significant differences in connectivity across the brain.
+Processing real faces was associated with stronger connectivity predominantly between the left to right parietal, left frontal to left parietal, left central/temporal to left parietal, left central/temporal to right parietal, and the right central/temporal to left parietal regions, whereas processing virtual faces was associated with only slightly stronger connectivity between the left central/temporal to right frontal region.
 
 Connectivity profiles of facial emotion
-
-We also found significant differences in functional connectivity in response to different emotions across all ROI's. A sample of the functional connectivity results which include only contrasts between Fear and the other emotions are plotted. We found the largest connectivity differences processing faces expressing Fear relative to Neutral faces, with significantly stronger connectivity between left central/temporal and right and left frontal, and right and left parietal. In general, we found processing faces expressing Fear produced significantly strong connectivity across the brain relative to faces expressing all other emotions, however this difference was weakest relative to processing angry faces. Interestingly most of the stronger connections emerge from the left central/temporal region, pointing to this region as a key area for processing Fear.
-
-To explore higher level patterns in Emotion, we calculated the ratio of significant channels, where the t-value was positive (red) or negative (blue) for each emotion pair. We found a cluster of emotions including Anger, Fear, and Joy, that reported stronger connectivity compared to the other emotions. Of these three, Fear > Anger > Joy, where the stronger functional connectivity for fearful and angry expressions suggests a neural prioritization of faces signalling potential threat, consistent with rapid threat-detection mechanisms. The other emotions (Neutral, Sadness, Surprise, Disgust) had lower connectivity compared to Anger, Fear, and Joy, with Disgust having higher connectivity than Neutral.
-
-A heatmap summary of the functional connectivity results for the contrasts between different emotions across ROI's. Red signifies that emotion 1 had a higher ratio of significant channels where the t-value was positive, while blue signifies that emotion 2 had a higher ratio of significant channels where the t-value was negative. The ratio was calculated by taking the difference of the count of significant channels where the t-value was positive and the count of significant channels where the t-value was negative, and dividing it by the total number of significant channels for that emotion pair.
-
-Next we sought explore higher-order patterns in brain regions connectivity. For this analysis, we generated a count of the number of statistically significant channels per region that differed across emotion, and plotted as a heatmap. The left central/temporal, parietal, and right central/temporal regions produced the greatest number of significant connections, suggesting that these regions are more variable in their connectivity patterns across emotions. In contrast, left and right occipital regions produced the fewest number of significant connections, suggesting that the connectivity within and between these regions are similar in response to all emotions, and that neural indices that differentiate emotion processing likely occur in brain regions outside of the visual cortex.
-
-A heatmap summary of the number of significantly different channel pairs for each ROI summed across all emotions. The color bar on the right shows the number of significant channel pairs for each ROI, with brighter colors indicating a smaller number of significant channel pairs, and darker colors indicating a larger number of significant channel pairs. An asterisk (*) was placed on the 3 ROI's with the least number of significantly different channel pairs to indicate that these ROI's are more synchronized with each other than any other pair of ROI's, regardless of the emotion. A caret (^) was placed on the 3 ROI's with the most number of significantly different channel pairs to indicate that these ROI's are less synchronized with each other than any other pair of ROI's, regardless of the emotion. Note that ROI's can have differences within them, as each ROI is made up of multiple channels, and the differences are calculated between channels within the same ROI.
-
-Differential Functional connectivity profiles in response to emotion across face type
-
-The interaction of face type with emotion, Real - Virtual within each emotion revealed significant differences in functional connectivity across the brain. We found that processing Anger on virtual faces elicited greater connectivity between the left frontal to right central/temporal, left frontal to right frontal, and within the left frontal region, compared to processing Anger on real faces. Processing Disgust on virtual faces elicited greater connectivity between the left frontal to left parietal, right frontal to left parietal, right frontal to left central/temporal, left frontal to left occipital, and right central/temporal to right parietal, compared to processing Disgust on real faces. Processing Fear on virtual faces elicited greater connectivity between many ROI's, particularly the left frontal to left occipital regions, between the left/right occipital regions, and between the left/right central/temporal and left/right occipital regions, compared to processing Fear on real faces. Processing Neutral on virtual faces elicited greater connectivity between the left frontal to right frontal, left/right frontal to right parietal, and left/right parietal regions, compared to processing Neutral on real faces. Processing Sadness on real faces elicited greater connectivity between the left frontal to right central/temporal, left central/temporal to right parietal, left central/temporal to right occipital, and right central/temporal to left parietal regions, compared to processing Sadness on virtual faces. Processing Surprise on real faces elicited greater connectivity between many ROI's, such as the left frontal to left/right central/temporal, left frontal to right parietal, left/right central/temporal to left/right parietal, and within the left/right central/temporal regions, compared to processing Surprise on virtual faces. Processing Joy on real faces elicited greater connectivity between the left/right central/temporal to right parietal, and within right parietal regions, whereas processing Joy on virtual faces elicited greater connectivity between the left central/temporal to left/right occipital regions. Overall, these results indicate that the effect of face type on functional connectivity varies by emotion, with virtual faces generally eliciting greater connectivity for negative emotions (Anger, Disgust, Fear, Neutral), while real faces tend to elicit greater connectivity for positive emotions (Sadness, Surprise, Joy), and the specific brain regions involved differ across emotions. Like the GLM results, this indicates that the neural response to emotional expressions is modulated by the realism of the face stimuli.
-
-Memory Task Results
-
-A two-way Type III ANOVA revealed a significant main effect of face type, F(1,4802)=7.96, p=0.0048, indicating that memory performance was higher for real faces compared to virtual faces. There was no significant main effect of emotion, F(6,4802)=0.83, p=0.55, nor a significant interaction between face type and emotion, F(6,4802)=0.46, p=0.84. These findings suggest that while the realism of the face influences memory performance, the specific emotional expression does not have a significant impact on memory accuracy.
-
-DISCUSSION
-
-With the rise of video games and generative AI technologies, humans are exposed to virtual faces daily. Yet, how our brain processes these faces, and their emotions has received little attention. Here we explored neural responses to presentations of different face-types (real, virtual), across a range of emotions (Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral control). Hemodynamic activity (HbT) was measured with functional near-infrared spectroscopy (fNIRS) and evaluated in two complementary ways: Activation analysis (GLM): estimated change in HbT amplitude in each channel, quantifying how strongly each Face-type × Emotion combination modulated local cortical activity; and Spectral functional connectivity: sliding-window cross-spectral density was used to compute coherence between channel pairs, revealing how neural signals became temporally synchronized (or desynchronized) across regions during stimulus processing. We hypothesized participants would exhibit differences in activation and connectivity to both different face-types and emotions.
-
-Distinct mechanisms were observed in the processing of face-types and emotions. Activation analyses indicated that differences for both occurred primarily in the occipital region, the brain's primary visual processing center. The occipital region's role extends beyond simple feature detection, as it processes complex visual patterns and configurations that differentiate face types and facial expressions at a perceptual level. These occipital responses likely reflect the visual system's ability to encode the physical differences in facial features and expressions before this information is forwarded to temporal and parietal cortices for higher-order processing. Our connectivity analyses revealed widespread differences in the frontal, parietal and temporal areas, in line with this view. The increased parietal-temporal-frontal coherence suggests greater network-level integration of these regions, becoming more functionally coupled when processing specific affective information (e.g., Fear > Neutral) and face realism (real > virtual). Interestingly, this juxtaposition suggests that while the level of activation in these regions remains stable, the similarity in HbT activity suggests that these regions are prioritized for the processing of real faces over virtual faces, and differential processing for different emotions.
-
-Our finding that virtual faces elicit greater left occipital activation compared to real faces aligns with evidence that face realism modulates visual processing in a complex manner. The N170 EEG component, reflecting early face perception, is influenced by perceived realism in a u-shaped fashion, where highly stylized faces and real faces elicit stronger responses than moderately realistic faces, while the later Late Positive Potential (LPP) increases continuously with face realism [48]. This suggests that the brain processes different types of faces using different strategies, real faces are processed as a whole, while stylized faces require more detailed analysis of individual features. As well, the LPP enhancement with increasing realism is associated with broader occipito-parietal activity, converging with our fNIRS results that show stronger left occipital activation for virtual faces. This indicates that the neural response to virtual faces suggests that artificial stimuli place distinct perceptual demands generating distinct activity in the occipital area. Although face perception (i.e., stronger responses to faces than to non-face objects) reliably and primarily activates the right lateral fusiform gyrus [20], we did not find differences in that region. Our results likely reflect compensatory processing in functionally connected occipital regions that support the fusiform face area in response to perceptually challenging stimuli. This compensatory mechanism may manifest as the increased left occipital activation we observed for virtual faces, as these upstream visual areas work harder to provide adequate facial feature extraction to downstream face-processing networks.
-
-Conversely, our functional connectivity analysis revealed widespread but distinct neural connectivity patterns associated with processing real versus virtual faces, suggesting that the realism of facial stimuli modulates the underlying brain network dynamics during face processing, supporting our first hypothesis. We observed stronger connectivity when processing real faces across parietal, frontal, and central/temporal regions. Cross-brain coherence in left frontal, temporal, and parietal regions has been observed during social interaction and live eye-to-eye contact [21]. Supporting this, EEG studies show that processing faces trigger stronger theta-band phase synchronization between brain regions within 120 ms compared to processing non-face stimuli between parietal and occipito-temporal areas, suggesting that different stages of face processing occur in distinct parts of the brain [59]. Together, these studies align with our connectivity analysis, further supporting the notion that real face recognition engages a broader and more cohesive cortical network configuration, supported by connectivity between higher-order socio-cognitive regions.
-
-The emotional expressions independent of whether they were on real or virtual faces revealed differences in the activation in occipital, right parietal, and left central/temporal regions, supporting our second hypothesis. Neutral and surprise expressions elicited a stronger neural response relative to all other emotions. This might be explained by the ambiguous nature of the two emotional states which requires greater effort to interpret them. There is consistent evidence of increased brain activation in response to neutral and surprise facial expressions, sometimes even exceeding responses to more subtle emotional expressions. Both avatar and human emotional faces activate regions typically involved in emotion processing, such as the bilateral amygdala, fusiform gyri, cerebellum, and superior temporal gyrus, with neutral face conditions also producing strong amygdala activation, suggesting that the amygdala may not only respond to emotional intensity, but also to the social relevance of faces in general [41]. This aligns with previous findings showing that some neurons in the temporal lobe and amygdala are tuned to detect faces rather than specific emotions.
-
-fMRI studies comparing responses to neutral and scrambled faces have revealed robust activation in regions like the fusiform gyri, amygdalae, entorhinal cortices, and superior temporal sulcus during neutral face viewing [35]. These findings confirm that emotionally neutral faces still engage core regions involved in face perception and social processing, likely due to their ambiguous or uncertain emotional content. Prior fNIRS and fMRI literature has found inconsistent results for emotional face processing in the PFC, with some studies reporting increases in oxygenated hemoglobin in regions like the medial and ventral PFC, while others showed decreases or no change, depending on the emotion or brain region [57]. These findings and our own challenge the assumption that processing more salient emotions result in greater activation, perhaps the way we process faces has more to do with the connectivity patterns and the networks that are engaged, rather than the magnitude of activation in specific regions.
-
-The functional connectivity analysis showed that there are distinct connectivity patterns associated with processing different emotions, with Fear and Anger eliciting the strongest connectivity, particularly in the left central/temporal cortex across frontal and parietal regions, supporting our second hypothesis. Distinct clusters of emotions emerged from the connectivity analysis, with Fear, Anger, and Joy forming one cluster with stronger connectivity than the other cluster of emotions, which included Disgust, Sadness, Surprise, and Neutral faces. The activation and connectivity analyses show divergent findings, with activation differences primarily in visual regions, while connectivity differences were more widespread across the brain, suggesting that while the initial perception of faces is localized, the emotional processing involves higher-order association areas. We found that across all emotions, visual regions (occipital) showed less connectivity differences, while central/temporal and parietal regions exhibited strong variations, suggesting that the emotional nuances of faces are primarily encoded in these higher-order association areas. This lines up with the constructionist view of emotion, that emotional expressions are decoded in distributed brain networks rather than isolated regions [5].
-
-Fearful faces signal potential threat, and the interpretation of these cues depends on contextual factors, whereas Anger signals the source of threat. Fear processing engages the amygdala, particularly when eye gaze is not directed at the viewer compared to when it is [13]. Connectivity from the amygdala to the dorsolateral prefrontal cortex (dlPFC) differs when processing fearful versus sad facial expressions, with increased connectivity when processing fearful faces compared to sad faces, attributing this to the higher salience and arousal associated with fear [27, 1]. This pattern lines up with our emotion connectivity summary heatmap, where fearful faces show robust network engagement relative to others. Additionally, facial emotion expressions can be successfully decoded from functional connectivity patterns, and the networks identified include brain regions beyond the conventional face-selective areas [38]. This points to Fear as a highly salient emotion that engages a broader network of brain regions, compared to other emotions.
-
-Our count of significantly different channels pairs across all emotions found minimal connectivity differences among left and right occipital ROI, while central/temporal and parietal regions varied strongly. We found only 20-40 significantly different channels in the occipital regions, compared to 100-120 in the central/temporal and parietal regions, indicating a structural difference in how these regions process emotional faces. This fits with models of face perception, where early visual areas (e.g., occipital face area) feed into higher-level hubs like the fusiform face area. Effective connectivity analyses reveal dynamic modulation between occipital, frontal, and subcortical regions, but early visual areas remain relatively stable across emotion conditions, with emotional discrimination only arising in higher circuits [55]. This suggests that while occipital areas are crucial for initial face processing, the emotional nuances of faces are primarily encoded in more distributed networks involving parietal and central/temporal regions, regardless of the emotion presented.
-
-The functional connectivity analysis revealed distinct emotional clusters that reflect underlying similarities in neural processing patterns and arousal characteristics. Anger and Joy also produced notably strong connectivity, clustering with Fear in our summary heatmap, suggesting these emotions share common neural network engagement patterns despite their different valence profiles. This clustering pattern aligns with dimensional models of emotion that emphasize arousal as a key organizing principle, where high-arousal emotions like Fear, Anger, and Joy engage more extensive and coherent neural networks than their low-arousal counterparts [33]. Lower connectivity for Disgust, Sadness, Surprise, and Neutral faces supports the idea that these emotions have lower arousal or social salience compared to Fear, Anger, and Joy. The emergence of these two distinct clusters, one characterized by high connectivity (Fear, Anger, Joy) and another by relatively lower connectivity (Disgust, Sadness, Surprise, Neutral), suggests that the brain's functional architecture organizes emotional face processing along arousal dimensions. This finding is particularly important for understanding how virtual characters and avatars might be designed to maximize/minimize neural engagement, as high-arousal emotional expressions appear to recruit broader brain networks regardless of face realism.
-
-Our findings align with a growing consensus: real faces are remembered more accurately than artificial ones, even though both are processed as faces. Artificial faces are remembered less efficiently and discriminated slightly worse than real faces, supporting the hypothesis that "out-group" faces, those that are less familiar or realistic, are processed differently [3]. Complementing this, virtual faces trigger higher false alarm rates, a sign of reduced memory specificity, despite matched visual features and equivalent overall recognition sensitivity [29]. Participants also rated these faces as eerier, highlighting a connection between reduced perceptual expertise and the uncanny valley experience. This suggests that artificial faces engage face-specific processing yet are represented more weakly in memory. Real faces, compared to computer-generated faces, have been associated with poorer performance in an implicit catch trial task, which was interpreted as reflecting an involuntary attentional response toward human faces, which are highly familiar and socially salient visual stimuli [30]. The automatic allocation of attention to real faces may have interfered with participants' ability to withhold a motor response until the catch stimulus appeared, as required by the task. This is consistent with our finding that participants performed better on our memory task for real faces than virtual ones. Enhancing familiarity through exposure [43] or increasing realism could help bridge this memory gap. Neuroscientific and evolutionary theories also propose that the human brain includes specialized modules (e.g., the fusiform face area), are highly attuned to natural facial features [9]. These modules are refined by experience and optimized for identity recognition, which may not be fully triggered by virtual faces, due to limited exposure or differences in visual features. This may signal evolutionary utility in processing real, familiar faces, and why virtual faces, even when perceived as faces, do not engage the same neural mechanisms as real faces.
-
-Limitations and Future Directions
-
-This study was the first to use fNIRS to examine neural responses to real versus virtual emotional faces, providing novel insights into how face realism and emotion interact in the brain. However, several limitations should be acknowledged. First, since we recruited only from Ontario Tech University's undergraduate student body, our sample of students were limited to that relatively young age range and community, and likely are more educated and technologically savvy than the general population. This may limit the generalizability of our findings to broader populations, particularly older adults or those with less exposure to virtual characters/avatars. As well, many participants did not pass our signal quality checks, due to reasons such as hair color/texture affecting the signal quality [22]. Additionally, our sample was predominantly female, which may have influenced our results as females and males may differ in their accuracy and sensitivity when categorizing facial emotions; for example, females have been shown to outperform males in identifying fearful faces [56]. Men have also been found to have a differential neural response depending upon the emotion presented [35]. Future studies should include a wider range of participants, ideally representing the general population.
-
-Second, since the virtual faces used in this study were all from one dataset (UIBVFED), they were all of similar realism and stylization. Since neural responses to virtual faces vary with realism [48], our findings may not generalize to other virtual face datasets with different levels of realism or stylization. Future work should explore a wider range of virtual face styles and realism levels to better understand how these factors influence neural processing.
-
-Conclusion
-
-The present study investigated how the human brain processes emotional expressions on real versus virtual faces, using functional near-infrared spectroscopy (fNIRS) to assess both activation magnitude and functional connectivity. By directly comparing hemodynamic responses to real and virtual faces across a range of basic emotions, we aimed to determine whether face realism modulates neural responses, and whether these effects extend beyond local activation to distributed network interactions. We found that virtual faces elicited greater activation in the left occipital region, suggesting increased perceptual demands, while real faces were associated with stronger distributed connectivity and better recall performance in a memory task. Neutral and surprise expressions evoked the strongest activation, whereas fear and anger engaged broader neural networks. These findings highlight the complex interplay between face realism and emotion processing, suggesting that while virtual faces are perceived as faces, they do not recruit the same neural mechanisms as real ones. Emotional expressions appear to be decoded in distributed brain networks rather than isolated regions. These results offer novel insights into the neural mechanisms of emotional face perception in the context of increasingly prevalent virtual social interactions. Future research should examine how varying levels of virtual face realism and stylization influence neural responses and social cognition.
-
-REFERENCES
-
-1. Adolphs, R. (2013). The Biology of Fear. Current Biology, 23(2), R79-R93.
-
-2. Aviezer, H., Bentin, S., Dudarev, V., & Hassin, R. R. (2011). The automaticity of emotional face-context integration. Emotion, 11(6), 1406-1414.
-
-3. Balas, B., & Pacella, J. (2015). Artificial faces are harder to remember. Computers in Human Behavior, 52, 331-337.
-
-4. Barrett, L. F. (2006). Are Emotions Natural Kinds? Perspectives on Psychological Science, 1(1), 28-58.
-
-5. Barrett, L. F. (2006). Solving the Emotion Paradox: Categorization and the Experience of Emotion. Personality and Social Psychology Review, 10(1), 20-46.
-
-6. Bendall, R. C. A., Eachus, P., & Thompson, C. (2016). A Brief Review of Research Using Near-Infrared Spectroscopy to Measure Activation of the Prefrontal Cortex during Emotional Processing: The Importance of Experimental Design. Frontiers in Human Neuroscience, 10, 529.
-
-7. Brooks, J. A., & Freeman, J. B. (2018). Conceptual knowledge predicts the representational structure of facial emotion perception. Nature Human Behaviour, 2(8), 581-591.
-
-8. Bulgarelli, C., Blasi, A., McCann, S., Milosavljevic, B., Ghillia, G., Southgate, V., et al. (2025). Growth of white matter in the infant brain. Nature Human Behaviour, 9(1), 139-153.
-
-9. Burke, D., & Sulikowski, D. (2013). The Evolution of Holistic Processing of Faces. Frontiers in Psychology, 4, 11.
-
-10. Calbi, M., Heimann, K., Barratt, D., Siri, F., Umiltà, M. A., & Gallese, V. (2017). How Context Influences Our Perception of Emotional Faces: A Behavioral Study on the Kuleshov Effect. Frontiers in Psychology, 8, 1684.
-
-11. Chen, Y., Stephani, T., Bagdasarian, M. T., Hilsmann, A., Eisert, P., Villringer, A., et al. (2024). Realness of face images can be decoded from non-linear modulation of EEG responses. Scientific Reports, 14(1), 5683.
-
-12. Cowen, A. S., Keltner, D., Schroff, F., Jou, B., Adam, H., & Prasad, G. (2021). Sixteen facial expressions occur in similar contexts worldwide. Nature, 589(7841), 251-257.
-
-13. Cushing, C. A., Im, H. Y., Adams, R. B., Ward, N., Albohn, D. N., Steiner, T. G., & Kveraga, K. (2018). Neurodynamics and connectivity during facial fear perception: The role of threat exposure and signal congruity. Scientific Reports, 8(1), 2776.
-
-14. De Borst, A. W., & De Gelder, B. (2015). Is it the real deal? Perception of virtual characters versus humans: an affective cognitive neuroscience perspective. Frontiers in Psychology, 6, 576.
-
-15. De Paolis, L. T., & Mongelli, A. (Eds.). (2015). Perception of Basic Emotions from Facial Expressions of Dynamic Virtual Avatars. In Augmented and Virtual Reality (pp. 409-419). Springer International Publishing.
-
-16. Dyck, M., Winbeck, M., Leiberg, S., Chen, Y., Gur, R. C., & Mathiak, K. (2008). Recognition Profile of Emotions in Natural and Virtual Faces. PLOS ONE, 3(11), e3628.
-
-17. Ekman, P., & Friesen, W. V. (1971). Constants across cultures in the face and emotion. Journal of Personality and Social Psychology, 17(2), 124.
-
-18. Ekman, P., & Friesen, W. V. (1978). Facial action coding system. Environmental Psychology & Nonverbal Behavior.
-
-19. García, A. S., Fernández-Sotos, P., Vicente-Querol, M. A., Lahera, G., Rodriguez-Jimenez, R., & Fernández-Caballero, A. (2020). Design of reliable virtual human facial expressions and validation by healthy people. Integrated Computer-Aided Engineering, 27(3), 287-299.
-
-20. Haxby, J. V., Hoffman, E. A., & Gobbini, M. I. (2000). The distributed human neural system for face perception. Trends in Cognitive Sciences, 4(6), 223-233.
-
-21. Hirsch, J., Zhang, X., Noah, J. A., & Ono, Y. (2017). Frontal temporal and parietal systems synchronize within and across brains during live eye-to-eye contact. NeuroImage, 157, 314-330.
-
-22. Holmes, G. L. (2024). Opening remarks: The role of seizures in determining cognitive outcome. Epilepsia, 65(S1), S3-S6.
-
-23. Hortensius, R., Hekele, F., & Cross, E. S. (2018). The Perception of Emotion in Artificial Agents. IEEE Transactions on Cognitive and Developmental Systems, 10(4), 852-864.
-
-24. Hu, P., Wang, P., Zhao, R., Yang, H., & Biswal, B. B. (2023). Characterizing the spatiotemporal features of functional connectivity across the white matter and gray matter during the naturalistic condition. Frontiers in Neuroscience, 17, 1248610.
-
-25. Huppert, T. J. (2016). Commentary on the statistical properties of noise and its implication on general linear models in functional near-infrared spectroscopy. Neurophotonics, 3(1), 010401.
-
-26. Jack, R. E., Garrod, O. G. B., Yu, H., Caldara, R., & Schyns, P. G. (2012). Facial expressions of emotion are not culturally universal. Proceedings of the National Academy of Sciences, 109(19), 7241-7244.
-
-27. Jamieson, A. J., Davey, C. G., & Harrison, B. J. (2021). Differential Modulation of Effective Connectivity in the Brain's Extended Face Processing System by Fearful and Sad Facial Expressions. eNeuro, 8(2), ENEURO.0380-20.2021.
-
-28. Johnson, M. H., Dziurawiec, S., Ellis, H., & Morton, J. (1991). Newborns' preferential tracking of face-like stimuli and its subsequent decline. Cognition, 40(1-2), 1-19.
-
-29. Kätsyri, J. (2018). Those Virtual People all Look the Same to me: Computer-Rendered Faces Elicit a Higher False Alarm Rate Than Real Human Faces in a Recognition Memory Task. Frontiers in Psychology, 9, 1362.
-
-30. Kätsyri, J., de Gelder, B., & de Borst, A. W. (2020). Amygdala responds to direct gaze in real but not in computer-generated faces. NeuroImage, 204, 116216.
-
-31. Kätsyri, J., Mäkäräinen, M., & Takala, T. (2017). Testing the 'uncanny valley' hypothesis in semirealistic computer-animated film characters: An empirical evaluation of natural film stimuli. International Journal of Human-Computer Studies, 97, 149-161.
-
-32. Kawasaki, H., Tsuchiya, N., Kovach, C. K., Nourski, K. V., Oya, H., Howard, M. A., & Adolphs, R. (2012). Processing of Facial Emotion in the Human Fusiform Gyrus. Journal of Cognitive Neuroscience, 24(6), 1358-1370.
-
-33. Ke, J., Song, H., Bai, Z., Rosenberg, M. D., & Leong, Y. C. (2025). Dynamic brain connectivity predicts emotional arousal during naturalistic movie-watching. PLOS Computational Biology, 21(4), e1012994.
-
-34. Kegel, L. C., Brugger, P., Frühholz, S., Grunwald, T., Hilfiker, P., Kohnen, O., et al. (2020). Dynamic human and avatar facial expressions elicit differential brain responses. Social Cognitive and Affective Neuroscience, 15(3), 303-317.
-
-35. Kesler/West, M. L., Andersen, A. H., Smith, C. D., Avison, M. J., Davis, C. E., Kryscio, R. J., & Blonder, L. X. (2001). Neural substrates of facial emotion processing using fMRI. Cognitive Brain Research, 11(2), 213-226.
-
-36. Kragel, P. A., & LaBar, K. S. (2016). Decoding the Nature of Emotion in the Brain. Trends in Cognitive Sciences, 20(6), 444-455.
-
-37. Lee, T.-H., Choi, J.-S., & Cho, Y. S. (2012). Context modulation of facial emotion perception differed by individual difference. PLOS ONE, 7(3), e32987.
-
-38. Liang, Y., Liu, B., Li, X., & Wang, P. (2018). Multivariate Pattern Classification of Facial Expressions Based on Large-Scale Functional Connectivity. Frontiers in Human Neuroscience, 12, 94.
-
-39. Matsumoto, D., & Wilson, M. (2022). A Half-Century Assessment of the Study of Culture and Emotion. Journal of Cross-Cultural Psychology, 53(7-8), 917-934.
-
-40. Mori, M., MacDorman, K. F., & Kageki, N. (2012). The Uncanny Valley [From the Field]. IEEE Robotics & Automation Magazine, 19(2), 98-100.
-
-41. Moser, E., Derntl, B., Robinson, S., Fink, B., Gur, R. C., & Grammer, K. (2007). Amygdala activation at 3T in response to human and avatar facial expressions of emotions. Journal of Neuroscience Methods, 161(1), 126-133.
-
-42. Palmer, C. J., & Clifford, C. W. G. (2020). Face Pareidolia Recruits Mechanisms for Detecting Human Social Attention. Psychological Science, 31(8), 1001-1012.
-
-43. Park, S., Kim, S. P., & Whang, M. (2021). Individual's Social Perception of Virtual Avatars Embodied with Their Habitual Facial Expressions and Facial Appearance. Sensors, 21(17), 5986.
-
-44. Pollonini, L., Olds, C., Abaya, H., Bortfeld, H., Beauchamp, M. S., & Oghalai, J. S. (2016). Auditory cortex activation to natural speech and simulated cochlear implant speech measured with functional near-infrared spectroscopy. Hearing Research, 309, 84-93.
-
-45. Powell, L. J., Kosakowski, H. L., & Saxe, R. (2018). Social Origins of Cortical Face Areas. Trends in Cognitive Sciences, 22(9), 752-763.
-
-46. Ruttkay, Z. (2009). Cultural dialects of real and synthetic emotional facial expressions. AI & Society, 24(3), 307-315.
-
-47. Sato, W., Yoshikawa, S., Kochiyama, T., & Matsumura, M. (2004). The amygdala processes the emotional significance of facial expressions: an fMRI investigation using the interaction between expression and face direction. NeuroImage, 22(2), 1006-1013.
-
-48. Schindler, S., Zell, E., Botsch, M., & Kissler, J. (2017). Differential effects of face-realism and emotion on event-related brain potentials and their implications for the uncanny valley theory. Scientific Reports, 7(1), 45003.
-
-49. Schneider, S., Christensen, A., Häußinger, F. B., Fallgatter, A. J., Giese, M. A., & Ehlis, A.-C. (2014). Show me how you walk and I tell you how you feel — A functional near-infrared spectroscopy study on emotion perception based on human gait. NeuroImage, 85, 380-390.
-
-50. Seabold, S., & Perktold, J. (2010). statsmodels: Econometric and statistical modeling with python. In 9th Python in Science Conference.
-
-51. Sheehan, M. J., & Nachman, M. W. (2014). Morphological and population genomic evidence that human faces have evolved to signal individual identity. Nature Communications, 5(1), 4800.
-
-52. Snoek, L., Jack, R. E., Schyns, P. G., Garrod, O. G. B., Mittenbühler, M., Chen, C., et al. (2023). Testing, explaining, and exploring models of facial expressions of emotions. Science Advances, 9(6), eabq8421.
-
-53. Sollfrank, T., Kohnen, O., Hilfiker, P., Kegel, L. C., Jokeit, H., Brugger, P., et al. (2021). The Effects of Dynamic and Static Emotional Facial Expressions of Humans and Their Avatars on the EEG: An ERP and ERD/ERS Study. Frontiers in Neuroscience, 15, 651044.
-
-54. Tak, S., & Ye, J. C. (2014). Statistical analysis of fNIRS data: A comprehensive review. NeuroImage, 85, 72-91.
-
-55. Underwood, R., Tolmeijer, E., Wibroe, J., Peters, E., & Mason, L. (2021). Networks underpinning emotion: A systematic review and synthesis of functional and effective connectivity. NeuroImage, 243, 118486.
-
-56. Weisenbach, S. L., Rapport, L. J., Briceno, E. M., Haase, B. D., Vederman, A. C., Bieliauskas, L. A., et al. (2014). Reduced emotion processing efficiency in healthy males relative to females. Social Cognitive and Affective Neuroscience, 9(3), 316-325.
-
-57. Westgarth, M. M. P., Hogan, C. A., Neumann, D. L., & Shum, D. H. K. (2021). A systematic review of studies that used NIRS to measure neural activation during emotion processing in healthy individuals. Social Cognitive and Affective Neuroscience, 16(4), 345-369.
-
-58. Willis, J., & Todorov, A. (2006). First Impressions: Making Up Your Mind After a 100-Ms Exposure to a Face. Psychological Science, 17(7), 592-598.
-
-59. Yang, Y., Qiu, Y., & Schouten, A. C. (2015). Dynamic Functional Brain Connectivity for Face Perception. Frontiers in Human Neuroscience, 9, 662.
-
-60. Yücel, M. A., Selb, J. J., Huppert, T. J., Franceschini, M. A., & Boas, D. A. (2017). Functional Near Infrared Spectroscopy: Enabling routine functional brain imaging. Current Opinion in Biomedical Engineering, 4, 78-86.
+To explore higher level patterns in Emotion, we calculated the ratio of significant channels, where the t-value was positive (red) or negative (blue) for each emotion pair.
+We found a cluster of emotions including Anger, Fear, and Joy, that reported stronger connectivity compared to the other emotions.
+Of these three, Fear > Anger > Joy, where the stronger functional connectivity for fearful and angry expressions suggests a neural prioritization of faces signalling potential threat, consistent with rapid threat-detection mechanisms.
+The other emotions (Neutral, Sadness, Surprise, Disgust) had lower connectivity compared to Anger, Fear, and Joy, with Disgust having higher connectivity than Neutral.
+
+Next we explored higher-order patterns in brain regions connectivity.
+For this analysis, we generated a count of the number of statistically significant channels per region that differed across emotion, and plotted as a heatmap.
+The left central/temporal, parietal, and right central/temporal regions produced the greatest number of significant connections, suggesting that these regions are more variable in their connectivity patterns across emotions.
+In contrast, left and right occipital regions produced the fewest number of significant connections, suggesting that the connectivity within and between these regions are similar in response to all emotions, and that neural indices that differentiate emotion processing likely occur in brain regions outside of the visual cortex.
+
+Interaction of face type and emotion
+To further explore the interaction of Face Type and Emotion, we calculated the total number of significant channels for each emotion, separately for real and virtual faces.
+Joy, Sadness, and Surprise all had a greater number of significant channels for real faces compared to virtual faces, while Fear, Anger, Disgust, and Neutral all had a greater number of significant channels for virtual faces compared to real faces.
+
+To find which brain regions were driving these differences, we calculated the number of significant channels by face type and region, across all emotions.
+The occipital areas were found to have a similar number of significant channels for both face types, while the central/temporal and parietal regions had a greater number of significant channels for real faces compared to virtual faces.
+The frontal regions had a greater number of significant channels for virtual faces compared to real faces.
