@@ -1,7 +1,7 @@
-\section{Appendix}
+\section*{Appendix}
 \label{sec:appendix}
 
-\subsection{Stimuli Comparison}
+\subsection*{Stimuli Comparison}
 \label{sec:stimuli_comparison}
 \begin{figure}[H]
   \ContinuedFloat
@@ -47,7 +47,7 @@
   \label{fig:stimuli_comparison_4}
 \end{figure}
 
-\subsection{GLM Results for different facial emotions}
+\subsection*{GLM Results for different facial emotions}
 \label{sec:glm_emotion_results}
 
 \begin{figure}[H]
@@ -71,7 +71,7 @@
       \label{fig:glm_emotion_analysis_surprise}
 \end{figure}
 
-\subsection{GLM Results for the Interaction of face type and emotion}
+\subsection*{GLM Results for the Interaction of face type and emotion}
 
 \begin{figure}[H]
   \centering
@@ -83,7 +83,7 @@
   \label{fig:glm_real_vs_virtual_emotion_analysis}
 \end{figure}
 
-\subsection{Functional Connectivity contrasts for emotion}
+\subsection*{Functional Connectivity contrasts for emotion}
 
 \begin{figure}[H]
   \centering
@@ -139,7 +139,7 @@
   \label{fig:fc_emotion_analysis_4}
 \end{figure}
 
-\subsection{Functional Connectivity contrasts for the Interaction of face type and emotion}
+\subsection*{Functional Connectivity contrasts for the Interaction of face type and emotion}
 
 \begin{figure}[H]
   \centering
@@ -162,38 +162,42 @@
   \caption*{Functional connectivity results for the contrast between real and virtual conditions within each emotion. (2/2)}
 \end{figure}
 
-\subsection{Memory Task Analysis}
-\label{sec:memory_task_analysis}
-Raw behavioral data captured from PsychoPy were preprocessed to identify participant keyboard responses. 
-The total correct trials per participant were summed. 
-Since each block of faces was either all real or all virtual, and all had the same emotional expression (as discussed in \ref{fig:paradigm}), each y/n response was labeled with Face type and Emotion.
-An OLS model was fit with accuracy (converted to numeric 0/1) as the dependent variable and categorical predictors for Face Type, Emotion, and their interaction. 
-The goal is to determine the main effects of these two factors individually, as well as their interaction, on response accuracy.
-A two-way Type III ANOVA (via \texttt{sm.stats.anova\_lm(model, typ=3)}) provided $F$-statistics and $p$-values for main effects and interaction.
-This version of the ANOVA is especially suitable when interactions are included in the model, as it calculates each effect after accounting for all other terms.
+% \subsection*{Memory Task Analysis}
+% \label{sec:memory_task_analysis}
+% Raw behavioral data captured from PsychoPy were preprocessed to identify participant keyboard responses. 
+% The total correct trials per participant were summed. 
+% Since each block of faces was either all real or all virtual, and had the same emotional expression (as discussed in \ref{fig:paradigm}), each y/n response was labeled with Face type and Emotion.
+% An OLS model was fit with accuracy (converted to numeric 0/1) as the dependent variable and categorical predictors for Face Type, Emotion, and their interaction. 
+% The goal is to determine the main effects of these two factors individually, as well as their interaction, on response accuracy.
+% A two-way Type III ANOVA (via \texttt{sm.stats.anova\_lm(model, typ=3)}) provided $F$-statistics and $p$-values for main effects and interaction.
+% This version of the ANOVA is especially suitable when interactions are included in the model, as it calculates each effect after accounting for all other terms.
 
-\subsection{Memory Task Results}
-A two-way Type III ANOVA revealed a significant main effect of face type, $F(1,4802)=7.96$, $p=0.0048$, indicating that memory performance was higher for real faces compared to virtual faces, as shown in Figure \ref{fig:memory_task_results}.
-There was no significant main effect of emotion, $F(6,4802)=0.83$, $p=0.55$, nor a significant interaction between face type and emotion, $F(6,4802)=0.46$, $p=0.84$. 
-These findings suggest that while the realism of the face influences memory performance, the specific emotional expression does not have a significant impact on memory accuracy.
-The full ANOVA table is shown in Appendix \ref{tab:appendix_memory_task_anova}.
+% \subsection*{Memory Task Results}
+% A two-way Type III ANOVA revealed a significant main effect of face type, $F(1,4802)=7.96$, $p=0.0048$, indicating that memory performance was higher for real faces compared to virtual faces, as shown in Figure \ref{fig:memory_task_results}.
+% There was no significant main effect of emotion, $F(6,4802)=0.83$, $p=0.55$, nor a significant interaction between face type and emotion, $F(6,4802)=0.46$, $p=0.84$. 
+% These findings suggest that while the realism of the face influences memory performance, the specific emotional expression does not have a significant impact on memory accuracy.
+% The full ANOVA table is shown in Appendix \ref{tab:appendix_memory_task_anova}.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/correct_responses_by_face_type_emotion.png}
-  \caption[Correct Memory Task Responses by Face Type and Emotion]{Proportion correct by condition in the memory task, plotted separately for real and virtual faces, for each emotion, and the interaction between face type and emotion. 
-  The $p$-values indicate the significance of the main effects and interaction. }
-  \label{fig:memory_task_results}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/correct_responses_by_face_type.png}
+%   \subcaption{} \label{fig:memory_task_results_a}
+%   \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/correct_responses_by_emotion.png}
+%   \subcaption{} \label{fig:memory_task_results_b}
+%   \includegraphics[width=0.9\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/correct_responses_by_face_type_emotion.png}
+%   \subcaption{} \label{fig:memory_task_results_c}
+%   \caption{Memory Task Results: a) Mean percentage of correct responses by Face Type, b) Mean percentage of correct responses by Emotion, and c) Mean percentage of correct responses by Face Type and Emotion. The $p$-values indicate the significance of the main effects and interaction.}
+%   \label{fig:memory_task_results}
+% \end{figure}
 
-\subsection{ANOVA Results}
-\label{tab:appendix_memory_task_anova}
-\input{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/processed_data/behavioural_responses/anova_table.tex}
+% \subsection*{ANOVA Results}
+% \label{tab:appendix_memory_task_anova}
+% \input{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/processed_data/behavioural_responses/anova_table.tex}
 
-\subsection{Memory Task No Response Distribution}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/no_response_counts.png}
-    \caption[Memory Task No Response Distribution]{Distribution of the number of no responses across the 56 blocks for each participant in the memory task.}
-    \label{fig:appendix_memory_task_no_response_distribution}
-\end{figure}
+% \subsection*{Memory Task No Response Distribution}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/behavioural_responses/no_response_counts.png}
+%     \caption[Memory Task No Response Distribution]{Distribution of the number of no responses across the 56 blocks for each participant in the memory task.}
+%     \label{fig:appendix_memory_task_no_response_distribution}
+% \end{figure}

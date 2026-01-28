@@ -1,7 +1,74 @@
-\section{Methods}
+\section*{Methods}
 \label{sec:methods}
+\section*{Experiment 1}
+\subsection*{Participants}
+A total of 61 undergraduate students from Ontario Tech University participated in the pilot study as part of the SONA participant pool.
+This sample consisted of 61 participants (20 men and 41 women, M = 20.84, SD = 3.25, range = 17 to 38).
 
-\subsection{Pre-registration}
+\subsection*{Stimuli}
+\label{sec:Stimuli}
+One hundred and forty images of facial expressions from the racially diverse affective expression (RADIATE) and UIBVFED datasets were used \citep{conley_racially_2018, oliver_uibvfed_2020}.
+The RADIATE contains perceptually validated images of racially and ethnically diverse participants, aged 18-30 years old, each expressing 16 different emotions. 
+The UIBVFED dataset contains a set of 20 virtual characters that are also ethnically diverse, aged 20-80 years old expressing 32 emotions. 
+The UIBVFED facial expressions were created using blendshapes, a tool that represents and manipulates clusters of facial landmarks similar to that of facial action units (AUs).
+Then adult models (5 males and 5 females) from each dataset were identified and matched between-sets on face shape, sex, skin tone, and hair colour. 
+Images of each model expressing seven emotions (Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) were selected. 
+Expressions were selected for each model, that closely align with Ekman's 6 basic emotions + neutral \citep{ekman1971constants}.
+The intensity of the emotional expressions were matched as well across both datasets. 
+
+\subsection*{Design}
+The first stage of the task required participants to select which emotion was portrayed by an individual virtual avatar.
+For each trial, they were shown a fixation cross for one second, then a photo of an avatar expressing an emotion was displayed in the center of the screen.
+Participants were then asked to identify the emotion being expressed by selecting one of the seven emotions. 
+Only the virtual avatars from the UIBVFED stimulus set were used in this emotion recognition task, as the RADIATE dataset has already been validated for emotion recognition. 
+
+The second stage of the task required participants to rate the similarity of expressions displayed by virtual avatars compared to real human models.
+Participants were given instructions to rate the similarity of the expressions displayed on the faces, not of the faces themselves.
+Participants were shown a fixation cross for one second.
+Following this, a pair of photos was selected randomly and displayed side-by-side on screen, with a slider bar underneath to make the similarity rating.
+There were three conditions in the similarity matching task: 1) a Congruent (C) condition, in which photos were matched on model similarity and expression similarity, 2) an Incongruent (I) condition, in which photos were not matched on model similarity but were matched on expression similarity.
+\footnote{We also collected data for a congruent face-incongruent emotion condition. These data are not reported here, as they are not relevant to the current investigation.}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/zedd_figures/emotion_recognition_task.png}
+        \caption{}
+        \label{fig:emotion_recognition_task}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/zedd_figures/similarity_task.png}
+        \caption{}
+        \label{fig:similarity_task}
+    \end{subfigure}
+    \caption{Pilot task showing a) Example trial from the emotion recognition task using virtual avatars from the UIBVFED stimulus set. b) Example trial from the similarity matching task (C) showing a virtual avatar and a real human model.}
+    \label{fig:task_examples_side_by_side}
+\end{figure}
+
+\subsection*{Results}
+\subsubsection*{Accuracy}
+To calculate the effect of target emotion on accuracy of emotion recognition, each participant's average accuracy was calculated for each emotion category, as well as for overall accuracy. 
+Mean and standard deviation of recognition accuracy for each emotion and dataset is reported in Table \ref{tab:accuracy comparison}.
+
+\input{../../../processed_data/zedd_data/accuracy_comparison_table.tex}
+
+\subsubsection*{Similarity Ratings}
+To assess whether the physical features of the faces pictured had an effect on the similarity ratings, pairwise $t$-tests were run comparing the C and I conditions. 
+The only emotion that did not show a significant difference in similarity rating regardless of the physical features of the face was Sadness ($t(12{,}999) = -0.051$, $p = 0.95$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/zedd_figures/similarity_means_grouped_plot.png}
+    \caption{Mean similarity ratings for each emotion across Congruent (C) and Incongruent (I) conditions. 
+    *$ p <.05$**$ p< .01, $***$ p<.001$}
+    \label{fig:similarity_ratings}
+\end{figure}
+
+\section*{Experiment 2}
+
+\subsection*{Pre-registration}
 This project was preregistered on the Open Science Framework before any data were collected (OSF DOI: \href{https://doi.org/10.17605/OSF.IO/76Q8W}{10.17605/OSF.IO/76Q8W}).
 The preregistration document specifies the study design, sampling plan, variables, and analysis plan.
 
@@ -18,7 +85,7 @@ Measures were calculated using a 5-second sliding window across all channels \ci
 Thirty-five participants failed to meet these criteria, and were removed prior to data analysis. 
 The final sample consisted of 52 participants (39 females and 13 males, M = 21.62, SD = 6.67, range = 17 to 51). 
 
-\subsubsection{Sample size and power analysis}
+\subsubsection*{Sample size and power analysis}
 \label{sec:power_analysis}
 We conducted a power analysis for a linear mixed model with the \texttt{simr} package. 
 Our LMM estimated the oxygenated HbO signal as function of Face-type and Emotion (Main effects) with by-Participant random intercept. 
@@ -26,10 +93,10 @@ Our goal was to obtain 0.8 power [95\% CI] at the standard 0.05 alpha error prob
 Fixed effect estimates for Emotion were drawn from \cite{gao_probing_2019}. 
 The sample size aligned with comparable studies of emotion processing using fNIRS \citep{westgarth_systematic_2021}, and sample size justifications from \cite{lakens_sample_2022}.
 
-\subsection{Stimuli}
-We used the same stimulus set as in the pilot study (see Section \ref{sec:Stimuli}).
+\subsection*{Stimuli}
+We used the same stimulus set as Experiment 1.
 
-\subsection{Apparatus}
+\subsection*{Apparatus}
 Participants were tested individually in a quiet dedicated testing room. 
 fNIRS data was collected using two NIRSport2 systems (NIRx Medical Technologies, Berlin, Germany). 
 Each NIRSport2 system was equipped with 16 source and 16 detector optodes, and daisy-chained together for a high density 32x32 optode configuration. 
@@ -45,16 +112,14 @@ Light was emitted at 760 nm and 850 nm wavelengths, and the sampling rate was ap
     \label{fig:montage_combined}
 \end{figure}
 
-\subsection{Design}
+\subsection*{Design}
 \label{sec:Design}
 A full-factorial Face-type (2 levels: Real, Virtual) \texorpdfstring{$\times$}{x} Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) \texorpdfstring{$\times$}{x} Model (4) \texorpdfstring{$\times$}{x} Sex (2 levels: Male, Female) \texorpdfstring{$\times$}{x} Repetition (4) experimental design was used, with each participant presented with 448 images. 
 Stimuli were blocked and counterbalanced by Face-type and Emotion. 
 Within each of the 56 Face-type-Emotion Blocks, participants were presented with 8 distinct model faces (4 male, 4 female).
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{"C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.jpg"}
-    \caption[Experimental paradigm overview]{The experiment began with instructions presented on screen. 
+\subsection*{Paradigm}
+The experiment began with instructions presented on screen. 
 The trial timeline consisted of three main epochs: fixation cross, block presentation, and participant feedback. 
 Each Block began with a fixed cross presented for 16 seconds, followed by 8 facial images. 
 Every face in a block displayed the same emotional expression, one of: anger, disgust, fear, joy, sadness, surprise, neutral. 
@@ -63,34 +128,36 @@ Participants viewed 56 blocks of 8 faces, each block being either all real or al
 To maintain participant attention, participants completed a memory task after each block. 
 In the task, participants were presented with a model image with the same emotional expression as the rest of the block's images, and asked if the model was shown in the preceding block of 8 faces, with feedback provided using the keyboard (y/n). 
 The probe face has a 50\% chance of either being in the previous block or not. 
-The experiment continued after seven seconds if no feedback was provided (the distribution of block missed responses is shown in Appendix \ref{fig:appendix_memory_task_no_response_distribution}).
+The experiment continued after seven seconds if no feedback was provided.
 Participants were given a break every seven blocks, and prompted to enter the space bar when they are ready to continue the experiment. 
 After the experiment was completed, the experimenter(s) entered the room, removed the fNIRS cap, and the participant was debriefed about the experiment. 
-Participation in the experiment took approximately 35 minutes.}
+Participation in the experiment took approximately 35 minutes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{"C:/Users/super/OneDrive - Ontario Tech University/fNIRS_Emotions/plots/figures/Paradigm.jpg"}
+    \caption[Experimental paradigm overview]{Participants viewed 56 blocks of 8 faces, each block being either all real or all virtual faces.
+    Every face in a block displayed the same emotional expression, one of: anger, disgust, fear, joy, sadness, surprise, neutral.}
     \label{fig:paradigm}
 \end{figure}
 
-\subsection{Analyses}
+\subsection*{Analyses}
 All fNIRS data was preprocessed and analyzed with Python 3.11.9 using MNE (version 1.9.0) \citep{gramfort_meg_2013} and MNE-NIRS (version 0.7.1) \citep{luke_analysis_2021}, which used the Nilearn package (version 0.9.2). 
-Data were analyzed with a General Linear Model (GLM), followed by a functional connectivity analysis.
+Data were analyzed with a General Linear Model (GLM), followed by a Functional Connectivity (FC) analysis.
 The memory task was analyzed in Python using the statsmodels package (version 0.14.4) \citep{seabold2010statsmodels}. 
 The data generated during this study has been made publicly available on the Open Science Framework: (\href{https://osf.io/d7bzp/?view_only=f5a96f051edb4e768c5e4461699ef1ce}{https://osf.io/d7bzp/?view\_only=f5a96f051edb4e768c5e4461699ef1ce}). 
 
-\subsection{Activation magnitude with General Linear Model (GLM)}
-\label{sec:GLM}
-The General Linear Model (GLM) posits that the observed haemodynamic signal at each channel or Region of Interest (ROI) is a linear combination of task-related regressors convolved with a Hemodynamic Response Function (HRF), plus nuisance regressors (e.g., drift) and residual noise.
+The GLM posits that the observed haemodynamic signal at each channel or Region of Interest (ROI) is a linear combination of task-related regressors convolved with a Hemodynamic Response Function (HRF), plus nuisance regressors (e.g., drift) and residual noise.
 A two-way repeated measures GLM was conducted on participant's HbT responses by Face-type (2 levels: Real, Virtual), Emotion (7 levels: Anger, Disgust, Fear, Joy, Sadness, Surprise, Neutral) and their interaction.
 Pairwise contrasts were then computed between conditions to identify effects of interest.
 Since numerous statistical tests are performed across channels and contrasts, $p$-values were FDR-corrected corrected using the Benjamini-Hochberg procedure \citep{singh_exploring_2006} with a family-wise error rate of $\alpha$=0.05.
 
-\subsection{Network mapping with Functional Connectivity Analysis}
-\label{sec:fc}
-To characterize the temporal coordination between fNIRS channels during face and emotion processing, functional connectivity matrices were computed using a continuous wavelet transform (CWT)-based spectral connectivity approach.
+For FC, we characterized the temporal coordination between fNIRS channels during face and emotion processing by computing functional connectivity matrices using a continuous wavelet transform (CWT)-based spectral connectivity approach.
 The morlet wavelet was picked as they are suited to capture both slow neural rhythms and faster systemic fluctuations in fNIRS data \citep{reddy_evaluation_2021}. 
 The frequency range was narrowed to five evenly spaced frequences between 0.2-0.5 Hz due to short epoch length, this range still targets systemic and neurogenic oscillations while avoiding high-frequency noise \citep{xu_functional_2017}.
 Averaging across these closely spaced frequencies reduces data dimensionality. 
 
-\subsubsection{Paired Sample t-tests}
+To assess differences in FC, paired $t$-tests were conducted on unique channel pairs. 
 For each mode (Face type/Emotion), and pair of conditions (e.g., Joy vs. Fear), individual-level connectivity matrices were extracted by averaging across epochs to obtain symmetric channel-by-channel coherence matrices. 
 Fisher's r-to-z transform (\texttt{atanh}) was applied to each matrix element to normalize the data prior to parametric testing. 
 Paired $t$-tests for each unique channel pair ($i > j$) were then conducted across participants using SciPy's \texttt{ttest\_rel}.
