@@ -26,3 +26,7 @@ writing/presentation/defence preparation
 *.lof
 *.lot
 *.xml
+
+# Oversized manuscript files (kept local)
+writing/paper/manuscript/SCAN Manuscript.pdf
+writing/paper/revisions/Rapanan_SCAN_Supplemental.docx
